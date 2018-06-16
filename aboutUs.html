@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	<link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+    <title>GolfBuds</title>
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">	  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>	 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->			
+  </head>
+  <body>  
+  <div id="wrapper">
+  	<div class="navbarTopFixed" style="margin-bottom: 50px !important;">
+  		<nav class="navbar navbar-default navbar-fixed-top">
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            <a href="index.html" class="navbar-brand"><img src="images/GB_Icon1_noShadow.png" id="gbLogo"></a></div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="topFixedNavbar1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="ContactUs.html">Contact Us</a></li>
+              <li><a href="aboutUs.html">About Us</a></li>
+              <li><a href="index.html" style="margin-right: 10px;">Sign in</a></li>
+            </ul>
+          </div>
+         </nav>
+       </div>
+
+    <div class="container-fluid">
+		<div class="row">
+		  <div class="col-lg-12 col-center">
+		  <section class="card">
+			  <div class="cardContainer">
+					<h3 class="titleH3Center">- Our Mission -</h3>
+					<p class="paragraphCenter"> To send you to a golf course with people you enjoy.</p>
+					<h3 class="titleH3Center">About Us</h3>
+					<p class="paragraphCenter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam justo mi, pulvinar a arcu eget, lobortis tempus lectus. Nam volutpat nibh eu ligula vehicula tempus. Ut fringilla ut lorem id commodo. Mauris fermentum hendrerit iaculis. Curabitur iaculis leo quis nisi pharetra aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu dictum lacus. Nam non lorem nec enim vehicula porta. Praesent ac mattis ipsum.
+
+					Vestibulum semper lacinia lorem scelerisque semper. Sed sem metus, venenatis lacinia euismod id, ultricies nec erat. Nunc eget tincidunt dui. Curabitur vestibulum ante ac lobortis venenatis. Aenean vel luctus enim. Proin eget pharetra mi. Curabitur bibendum felis at nulla mollis vehicula. Nullam non luctus nisi. Duis egestas vehicula molestie. Proin rhoncus cursus aliquam. Duis vel feugiat orci, commodo aliquam enim. Pellentesque sed tellus vel elit ultrices iaculis. Integer sollicitudin ornare elit sed cursus. Suspendisse blandit lobortis sapien quis vulputate. Integer molestie pretium urna nec condimentum.</p>
+			  </div>
+		</section>
+				
+		<section class="card">
+			<div class="cardContainer">
+					<h3 class="titleH3Center">- The Crew -</h3>
+					  <div class="row">
+						<div class="portrait col-lg-6">
+							  <div class="thumbnailTheCrew"><img class="img-circle" src="images/reviewThumbnail1.jpg" alt="Thumbnail Image 1" width="250px">
+								<div class="caption">
+								  <h3>CO-FOUNDER</h3>
+								  <p>Optional content and buttons for Thumbnail #1</p>
+								</div>
+						  </div>
+						</div>
+
+						<div class="portrait col-lg-6">
+							  <div class="thumbnailTheCrew"><img class="img-circle" src="images/reviewThumbnail1.jpg" alt="Thumbnail Image 1" width="250px">
+								<div class="caption">
+								  <h3>CO-FOUNDER</h3>
+								  <p>Optional content and buttons for Thumbnail #1</p>
+								</div>
+							  </div>
+						</div>
+
+						<div class="portrait col-lg-6">
+							  <div class="thumbnailTheCrew"><img class="img-circle" src="images/reviewThumbnail1.jpg" alt="Thumbnail Image 1" width="250px">
+								<div class="caption">
+								  <h3>CO-FOUNDER</h3>
+								  <p>Optional content and buttons for Thumbnail #1</p>
+								</div>
+						  </div>
+						</div>
+
+					<div class="portrait col-lg-6">
+							  <div class="thumbnailTheCrew"><img class="img-circle" src="images/reviewThumbnail1.jpg" alt="Thumbnail Image 1" width="250px">
+								<div class="caption">
+								  <h3>CO-FOUNDER</h3>
+								  <p>Optional content and buttons for Thumbnail #1</p>
+								</div>
+						  </div>
+					  </div>					
+				    </div>
+			</div>
+		</section>
+				
+		<section class="card">
+			<div class="cardContainer">
+				  <h3 class="titleH3Center">- Our Locations -</h3>
+				  <div id="map"></div>
+					  <script>
+
+						  function initMap() {
+						  var map;
+						  var HagginOakLatlng = new google.maps.LatLng(38.6326874,-121.40285979999999);
+							map = new google.maps.Map(document.getElementById('map'), {
+							  center: {lat: 38.6326874, lng: -121.40285979999999},
+							  zoom: 13
+							});
+							  
+							 var marker = new google.maps.Marker({
+							  position: HagginOakLatlng,
+							  map: map,
+    						  title:"Haggin Oaks"			 
+						  })
+						  
+						  marker.setMap(map);  
+						  }
+						 
+						</script>
+			  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe5x0GPwJ46Wj_moJpTZnF3AVNJpjzJWo&callback=initMap"
+						async defer></script>
+			  <p class="paragraphCenter"> Here is a list of Golf courses that are utilizing our services:</p>
+              <div class="row">
+                <div class="col-lg-4">
+						<p style="font-size: 18px;">Haggin Oaks</p>
+						<p>3645 Fulton Avenue</p>
+						<p>Sacramento, CA 95821</p>	 
+				</div>
+                <div class="col-lg-4">
+						<p style="font-size: 18px;">Haggin Oaks</p>
+						<p>3645 Fulton Avenue</p>
+						<p>Sacramento, CA 95821</p>				
+				</div>
+                <div class="col-lg-4">
+						<p style="font-size: 18px;">Haggin Oaks</p>
+						<p>3645 Fulton Avenue</p>
+						<p>Sacramento, CA 95821</p>  
+				</div>
+              </div>
+            </div>
+		</section>
+				
+				
+	  </div>
+		</div>
+    </div>
+    <!--This is the footer section -->
+    <footer class="col-lg-12">
+    	    <div id="about_us"> <h4 align="left"><b>About Us</b></h4>
+				<ul style="list-style: none;">
+  	    			<a href="aboutUs.html"><li>Who are we?</li></a>
+    	  		</ul>
+    	    </div>
+    		<div id="contacts"><h4 align="left"><b>Contacts</b></h4>
+    			<ul style="list-style: none;">
+  	    			<li>Call us 1-800-Golf-Bud</li>
+   	    			<a href="ContactUs.html"><li>Get in touch with us</li></a>    	    
+   				</ul>
+   			</div>
+    		<div id="get_started"><h4 align="left"><b>Getting Started</b></h4>
+    			<ul style="list-style: none;">
+  	    			<a href="index.html"><li>Login/Register</li></a>
+   	    			<a href="index.html"><li>Try us out as a guest</li></a>
+					<a href="ContactUs.html"><li>Want to sign up as a course?</li></a>
+    	    	</ul>
+    		</div>
+    		<div id="copyright">Copyright © 2017 Golfbuds. All rights reserved. <a href="privacyPolicy.html">Privacy Policy</a> | <a href="termsOfUse.html">Terms of Use</a> | <a href="legal.html">Legal</a>
+ 			 </div>
+    </footer>
+
+	</div>
+  </body>
+</html>

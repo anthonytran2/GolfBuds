@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
+    <title>GolfBuds</title>
+    <!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+  </head>
+  <body style="padding-top: 5px">
+  <div id="wrapper">
+  	<div class="navbarTopFixed">
+  		<nav class="navbar navbar-default navbar-fixed-top">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            <a class="navbar-brand" href="index.html">GolfBuds</a></div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="topFixedNavbar1">
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#review">Reviews</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Sign in</a></li>
+            </ul>
+          </div>
+         </nav>
+       </div>
+       
+       <!-- BANNER CAROUSEL-->
+       <div id="carousel1" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel1" data-slide-to="1"></li>
+              <li data-target="#carousel1" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="item active"><img src="images/golflighter.jpg" alt="First slide image" class="center-block">
+                <div class="carousel-caption">
+                  <h3 class="banner">Join Today!</h3>
+                  <p class="banner">Start your day with a GolfBuds!</p>
+                </div>
+              </div>
+              <div class="item"><img src="images/IMG-Academies.jpg" alt="Second slide image" class="center-block">
+                <div class="carousel-caption">
+                  <h3 class="banner">Nearby Golf Courses</h3>
+                  <p class="banner">Find a Golf Course that fits you!</p>
+                </div>
+              </div>
+              <div class="item"><img src="images/Slide_2.jpg" alt="Third slide image" class="center-block">
+                <div class="carousel-caption">
+                  <h3 class="banner">Satisfaction Guaranteed!</h3>
+                  <p class="banner">Once you become a GolfBud, you'll never want to stop!</p>
+                </div>
+              </div>
+            </div>
+            <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
+       
+    <!--ADVERTISEMENT CAROUSEL-->  
+    <div class="row">
+         <div class="col-lg-6">
+           <div id="carousel2" class="carousel_advert slide" data-ride="carousel">
+             <ol class="carousel-indicators">
+               <li data-target="#carousel2" data-slide-to="0" class="active"></li>
+               <li data-target="#carousel2" data-slide-to="1"></li>
+               <li data-target="#carousel2" data-slide-to="2"></li>
+             </ol>
+             <div class="carousel-inner" role="listbox">
+               <div class="item active"><img src="images/golf_advert1_resized.jpg" alt="First Advertisement" class="center-block">
+                 <div class="carousel-caption">
+                   <h3 class="advertisement">Trust Callaway </h3>
+                   <p class="advertisement">To help you hit like a winner</p>
+                 </div>
+               </div>
+               <div class="item"><img src="images/golf_advert2_resized.jpg" alt="Second Advertisement" class="center-block">
+                 <div class="carousel-caption">
+                   <h3 class="advertisement">To be a champion</h3>
+                   <p class="advertisement">Get the gear that'll help you get there</p>
+                 </div>
+               </div>
+               <div class="item"><img src="images/golf_advert3_resized.jpg" alt="Third Advertisement" class="center-block">
+                 <div class="carousel-caption">
+                   <h3 class="advertisement">RZN Proto</h3>
+                   <p class="advertisement">Get an edge over the competition</p>
+                 </div>
+               </div>
+             </div>
+             <a class="left carousel-control" role="button" data-slide="prev" onClick="$('#carousel2').carousel('prev')" style="background:none !important"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a>
+             <a class="right carousel-control" role="button" data-slide="next" onClick="$('#carousel2').carousel('next')" style="background:none !important"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>
+         </div>
+         
+         <div class="col-lg-6">
+         	<div class="accountContent">
+          	<div id="form_wrapper" class="form_wrapper">
+					<form class="register active">
+						<h3>Register</h3>
+						<div class="column">
+							<div>
+								<label>First Name:</label>
+								<input type="text" />
+								<span class="error">This is an error</span>
+							</div>
+							<div>
+								<label>Last Name:</label>
+								<input type="text" />
+								<span class="error">This is an error</span>
+							</div>
+							<div>
+								<label>Password:</label>
+								<input type="text"/>
+								<span class="error">This is an error</span>
+							</div>
+						</div>
+						<div class="column">
+							<div>
+								<label>Username:</label>
+								<input type="text"/>
+								<span class="error">This is an error</span>
+							</div>
+							<div>
+								<label>Email:</label>
+								<input type="text" />
+								<span class="error">This is an error</span>
+							</div>
+							
+						</div>
+						<div class="bottom">
+							<div class="remember">
+								<input type="checkbox" />
+								<span>Send me updates</span>
+							</div>
+							<input type="submit" value="Register" />
+							<a href="index.html" rel="login" class="linkform">You have an account already? Log in here</a>
+							<div class="clear"></div>
+						</div>
+					</form>
+					<form class="login">
+						<h3>Login</h3>
+						<div>
+							<label>Username:</label>
+							<input type="text" placeholder="Username"/>
+							<span class="error">This is an error</span>
+						</div>
+						<div>
+							<label>Password: <a href="forgotPassword.html" rel="forgot_password" class="forgot linkform">Forgot your password?</a></label>
+							<input type="password" placeholder="Password"/>
+							<span class="error">This is an error</span>
+						</div>
+						<div class="bottom">
+							<div class="remember"><input type="checkbox" /><span>Keep me logged in</span></div>
+							<input type="submit" value="Login" formmethod="post"></input>
+							<a href="register.html" rel="register" class="linkform">You don't have an account yet? Register here</a>
+							<div class="clear"></div>
+						</div>
+					</form>
+					<form class="forgot_password">
+						<h3>Forgot Password</h3>
+						<div>
+							<label>Username or Email:</label>
+							<input type="text" />
+							<span class="error">This is an error</span>
+						</div>
+						<div class="bottom">
+							<input type="submit" value="Send reminder"></input>
+							<a href="index.html" rel="login" class="linkform">Suddenly remebered? Log in here</a>
+							<a href="register.html" rel="register" class="linkform">You don't have an account? Register here</a>
+							<div class="clear"></div>
+						</div>
+					</form>
+				</div>
+          	
+          </div>
+         </div>
+  </div>
+<div class="container-fluid">
+	  
+    <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          
+           
+      <div id="leftContent" class="col-lg-6 col-md-6">
+            <h3 ><i>"The object of golf is not just to win. It is to play like a gentleman and win." - Phil Mickelson</i></h3>
+          </div>
+          <div id="rightContent" class="col-lg-4"> <img src="images/Phil-Mickelson-Gregory-Silveira-money-laundering-case.jpg" height="200" class="img-circle" id="images" align ="right"> </div>
+          <!-- /.navbar-collapse -->
+        
+        <div class="row"><a id="review" > </a>
+          <div class="col-lg-6"><img src="images/steph-curry-golf-web-rd-1.jpg" alt="" width="354" height="200" class="img-circle"/></div>
+          <div class="col-lg-6 col-md-7">
+          	<h3><i>"I'm happy with it. Obviously as a competitor, you feel like you can always play better. So hopefully I can do that tomorrow." - Stephen Curry</i></h3>
+          </div>        
+      </div>
+        
+      <div class="row">
+         <div class="col-lg-6 col-md-7">
+         	<h3><i>"I'm happy with it. Obviously as a competitor, you feel like you can always play better. So hopefully I can do that tomorrow." - Stephen Curry</i></h3>
+          </div>
+          <div class="col-lg-6" align="right"><img src="images/steph-curry-golf-web-rd-1.jpg" alt="" width="354" height="200" class="img-circle"/>
+          </div>
+        </div>
+       </div> 
+        
+        <!-- /.container-fluid -->
+      
+    </div>
+    <footer id="footer">
+    	    <div id="about_us"> <h4 align="center"><b>About Us</b></h4>
+				<ul style="list-style: none;">
+  	    			<li>Who are we?</li>
+   	    			<li>What do we offer?</li>    	    
+    	  		</ul>
+    	    </div>
+    		<div id="contacts"><h4 align="center"><b>Contacts</b></h4>
+    			<ul style="list-style: none;">
+  	    			<li>Call us 1-800-Golf-Bud</li>
+   	    			<li>Email Us</li>    	    
+   				</ul>
+   			</div>
+    		<div id="get_started"><h4 align="center"><b>Getting Started</b></h4>
+    			<ul style="list-style: none;">
+  	    			<li>Login/Register</li>
+   	    			<li>Try us out as a guest</li>    	    
+    	    	</ul>
+    		</div>
+    		<div id="copyright">Copyright © 2017 Golfbuds. All rights reserved. Privacy Policy | Terms of Use | Legal | Site Map </div>
+    </footer>
+  
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+	<script src="js/jquery-1.11.3.min.js">
+
+		$(function() {
+					//the form wrapper (includes all forms)
+				var $form_wrapper	= $('#form_wrapper'),
+					//the current form is the one with class active
+					$currentForm	= $form_wrapper.children('form.active'),
+					//the change form links
+					$linkform		= $form_wrapper.find('.linkform');
+						
+				//get width and height of each form and store them for later						
+				$form_wrapper.children('form').each(function(i){
+					var $theForm	= $(this);
+					//solve the inline display none problem when using fadeIn fadeOut
+					if(!$theForm.hasClass('active'))
+						$theForm.hide();
+					$theForm.data({
+						width	: $theForm.width(),
+						height	: $theForm.height()
+					});
+				});
+				
+				//set width and height of wrapper (same of current form)
+				setWrapperWidth();
+				
+				/*
+				clicking a link (change form event) in the form
+				makes the current form hide.
+				The wrapper animates its width and height to the 
+				width and height of the new current form.
+				After the animation, the new form is shown
+				*/
+				$linkform.bind('click',function(e){
+					var $link	= $(this);
+					var target	= $link.attr('rel');
+					$currentForm.fadeOut(400,function(){
+						//remove class active from current form
+						$currentForm.removeClass('active');
+						//new current form
+						$currentForm= $form_wrapper.children('form.'+target);
+						//animate the wrapper
+						$form_wrapper.stop()
+									 .animate({
+										width	: $currentForm.data('width') + 'px',
+										height	: $currentForm.data('height') + 'px'
+									 },500,function(){
+										//new form gets class active
+										$currentForm.addClass('active');
+										//show the new form
+										$currentForm.fadeIn(400);
+									 });
+					});
+					e.preventDefault();
+				});
+				
+				function setWrapperWidth(){
+					$form_wrapper.css({
+						width	: $currentForm.data('width') + 'px',
+						height	: $currentForm.data('height') + 'px'
+					});
+				}
+				
+				/*
+				for the demo we disabled the submit buttons
+				if you submit the form, you need to check the 
+				which form was submited, and give the class active 
+				to the form you want to show
+				*/
+				$form_wrapper.find('input[type="submit"]')
+							 .click(function(e){
+								e.preventDefault();
+							 });	
+			});
+	</script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed --> 
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	</div>
+  </body>
+</html>

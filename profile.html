@@ -1,0 +1,299 @@
+<?php
+
+session_start();
+
+include 'php/db_connect.php';
+
+$sql = "SELECT  REQUESTDATE, REQUESTTIME, PARK_ID FROM REQUEST WHERE EMAIL = '{$_SESSION['email']}'";
+
+$query = mysqli_query($conn, $sql);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
+  <title>GolfBuds</title>
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/pikaday.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/moment.js"></script>
+  	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">	  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>	 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.timepicker.js"></script>
+	<script src="js/bootstrap.js"></script>
+</head>
+<body style="padding-top: 5px">
+  <div id="wrapper">
+  	<div class="navbarTopFixed">
+  		<nav class="navbar navbar-default navbar-fixed-top">
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            <a href="index.html" class="navbar-brand"><img src="images/GB_Icon1_noShadow.png" id="gbLogo"></a></div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="topFixedNavbar1">
+            <ul class="nav navbar-nav navbar-right" style="margin-right:15px;">
+            <div id="profileDropDownMenu" class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo "Welcome, " . $_SESSION["id"] . " " . $_SESSION["fname"] . " " . $_SESSION["lname"]; ?><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li role="presentation"><a href="#"><img src="images/preferenceIcon.png" width="8%">&nbsp;Preferences</a></li>
+                  <li role="presentation"><a href="#"><img src="images/messageIcon.png" width="8%">&nbsp;Contact Support</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a href="php/logout.php"><img src="images/logoutIcon.png" width="10%">&nbsp;Logout</a></li>
+                </ul>
+              </div>
+            </ul>
+          </div>
+         </nav>
+       </div>
+
+            <!--Welcome user drop down menu -->
+            <!--Icon Sizes for each item on the drop down menu should be abou 128 x128 pixels -->
+            <!--Icon finding website: https://www.iconfinder.com/ -->
+        <!--    <div id="profileDropDownMenu" class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo "Welcome, " . $_SESSION["ID"] . " " . $_SESSION["FNAME"] . " " . $_SESSION["LNAME"]; ?><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li role="presentation"><a href="#"><img src="images/preferenceIcon.png" width="8%">&nbsp;Preferences</a></li>
+                  <li role="presentation"><a href="#"><img src="images/messageIcon.png" width="8%">&nbsp;Contact Support</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a href="php/logout.php"><img src="images/logoutIcon.png" width="10%">&nbsp;Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>-->
+
+      <!--Main Content starts Here-->
+      <div class="container">
+        <div class="profile">
+          <div class="row">
+            <!-- Add icon library -->
+            <div class="col-md-6">
+              <div class="card">
+                <img src="https://storage.forums.net/6479407/images/vagmAzMznjBJGQf_sumV.png" alt="John" style="width:100%">
+                <h1><?php echo $_SESSION["fname"] . " " . $_SESSION["lname"]?></h1>
+
+                <p><button>Contact</button></p>
+              </div>
+            </div>
+            <!--<div class="profile-card">
+            <div class="av">
+            <img src="http://dk6kcyuwrpkrj.cloudfront.net/wp-content/uploads/sites/45/2014/05/avatar-blank.jpg">
+          </div>
+          <div class="info-user">
+          <p>info1</p>
+          <p>info1</p>
+          <p>info1</p>
+          <p>info1</p>
+        </div>
+      </div>-->
+
+      <div class="col-md-6">
+        <div class="game-log">
+          <h3>Reservation Log</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>Course</th>
+                <th>Date</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $no 	= 1;
+              $total 	= 0;
+              while ($row = mysqli_fetch_array($query))
+              {
+
+                echo '<tr>
+                  <td>'.$no.'</td>
+                  <td>'.$row['PARK_ID'].'</td>
+                  <td>'.$row['REQUESTDATE'].'</td>
+                  <td>'.$row['REQUESTTIME'].'</td>
+                </tr>';
+                $no++;
+              }?>
+            </tbody>
+          </table>
+        </div>
+        <h3>Make a Reservation</h3>
+        <div class="reserve-block">
+          <form id="reserveForm">
+            <!--Pick Course-->
+            <div class="row">
+              <div class="col-md-5">
+                <p>Select A Course</p>
+                <select class="form-control" name="course" value="course">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            <!-- date/time -->
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-6">
+              <p>Choose date and time of reservation</p>
+              Date: <input type="text" size="16" type="text" name="res_date" class="form-control" id="datepicker">
+
+
+              <p>
+
+              </p>
+              Time: <input size="10" id="basicExample" name="res_time" type="text" class="form-control" />
+			  <p>
+			
+			  </p>
+			  Handicap: <input size="10" id="basicExample" name="handicap" type="number" step="0.1" max="36.4" placeholder="Handicap e.g. 15.5" class="form-control" />
+       		<p>
+
+			</p> 
+            <div class="row">
+              <div class="col-md-10">
+                <p>Age</p>
+                <select class="form-control" name="age" value="course">
+                  <option value=1>18-24</option>
+                  <option value=2>25-31</option>
+                  <option value=3>32-38</option>
+                  <option value=4>39-45</option>
+                  <option value=5>46-52</option>
+                  <option value=6>53-59</option>
+                  <option value=7>60+</option>
+                </select>
+              </div>
+            </div>
+
+			<p>
+
+			</p>
+            <div class="row">
+              <div class="col-md-10">
+                <p>Golf Type</p>
+                <select class="form-control" name="golfType" value="golfType">
+                  <option value=1>Golf Type 1</option>
+                  <option value=2>Golf Type 2</option>
+                </select>
+              </div>
+            </div>
+
+		    </div>
+            <script>
+            $(function() {
+              $('#basicExample').timepicker();
+            });
+            </script>
+            
+          </div>
+
+          <br>
+
+          <!--Button-->
+          <input type="hidden" name="u_id" value="<?php echo $_SESSION['id'] ?>" />
+
+          <input class="btn"type="submit" value="submit" id="submitReserve"></input>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+<div class="push"></div>
+
+<div class="foot">
+<footer class="col-lg-12">
+      <div id="about_us"> <h4 align="left"><b>About Us</b></h4>
+    <ul style="list-style: none;">
+          <a href="aboutUs.html"><li>Who are we?</li></a>
+        </ul>
+      </div>
+    <div id="contacts"><h4 align="left"><b>Contacts</b></h4>
+      <ul style="list-style: none;">
+          <li>Call us 1-800-Golf-Bud</li>
+          <a href="ContactUs.html"><li>Get in touch with us</li></a>
+      </ul>
+    </div>
+    <div id="get_started"><h4 align="left"><b>Getting Started</b></h4>
+      <ul style="list-style: none;">
+          <a href="index.html"><li>Login/Register</li></a>
+          <a href="index.html"><li>Try us out as a guest</li></a>
+      <a href="ContactUs.html"><li>Want to sign up as a course?</li></a>
+        </ul>
+    </div>
+    <div id="copyright">Copyright © 2017 Golfbuds. All rights reserved. <a>Privacy Policy</a> | <a>Terms of Use</a> | <a>Legal</a>	| <a>Site Map</a>
+   </div>
+</footer>
+</div>
+<!--This is the footer section -->
+
+
+
+</body>
+
+
+
+<script>
+
+ 	//Reserve  
+    $(document).ready(function() {      
+	  $("#submitReserve").click(function(event){
+      	event.preventDefault();
+
+        //Get form data
+        var send = $("#reserveForm").serialize();
+        //Send to php file and handle return results in "ret"
+        $.ajax({
+                url: "php/reserve.php",
+                type: "POST",
+				data: send,
+                success: function(ret) {
+                	window.location.href = "profile.html";
+					alert("Reserved! You will be email once a group is found.");
+                },
+                error: function(jqXHR, exception) {
+                    console.log(jqXHR);
+                }
+          });
+    	});
+	});
+</script>
+<script src="js/pikaday.js"></script>
+<script>
+
+var picker = new Pikaday(
+  {
+    field: document.getElementById('datepicker'),
+    firstDay: 1,
+    minDate: new Date(),
+    maxDate: new Date(2020, 12, 31),
+    yearRange: [2000,2020],
+	onSelect: function() {
+		    var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
+            document.getElementById('selected').appendChild(date);
+    }
+  });
+
+  </script>
+</html>
