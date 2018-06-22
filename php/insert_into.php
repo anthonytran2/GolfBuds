@@ -45,6 +45,7 @@ if($fail === false) {
 	//Only letters in names. Username can contain numbers
 	if((preg_match("/^[A-Za-z]+$/", $first_name) === 0) || (preg_match("/^[A-Za-z]+$/", $last_name) === 0)) { 
 		array_push($report, "First Name And Last Name Can Only Contain Letters.");
+		array_push($report, $first_name);
 		$fail = true; 
 	} 
 	//Validate email format
