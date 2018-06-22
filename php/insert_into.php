@@ -6,6 +6,10 @@ $first_name = $last_name = $user_email = $user_pass = $user_pass_confirm = "";
 $fail = false;
 $report = [];
 
+if ($conn->connect_error) {
+    array_push($report, "FAIL CONNECT");
+}
+
 //Check if input is from post method and check if null.
 if(($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["firstname"]) && isset($_POST["lastname"]) 
 		 && isset($_POST["em"]) && isset($_POST["passW"]) && isset($_POST["passWConfirm"]) 
