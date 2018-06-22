@@ -65,7 +65,7 @@ if($fail === false) {
 		$user_pass = openssl_encrypt($user_pass, "aes-256-cbc", $key, $options=0, $iv);
 
 		//Prepare statements
-	    $sql = $conn->prepare("INSERT INTO USER(FNAME, LNAME, EMAIL, PASSWORD, SMOKING, GAMBLING, DRINKING, MUSIC) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+	    $sql = $conn->prepare("INSERT INTO USERS(FNAME, LNAME, EMAIL, PASSWORD, SMOKING, GAMBLING, DRINKING, MUSIC) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 		$sql->bind_param("ssssiiii", $first_name, $last_name, $user_email, $user_pass, $q1, $q2, $q3, $q4);
 		if(!($sql->execute())) {
 			$fail = true;

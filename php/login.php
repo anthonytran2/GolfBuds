@@ -47,7 +47,7 @@
     			//Start session
 				session_start();
 
-        	    $sql = $conn->prepare("select FNAME, LNAME, ID, SMOKING, GAMBLING, DRINKING, MUSIC, HANDICAP, AGE from USER where EMAIL=?");
+        	    $sql = $conn->prepare("select FNAME, LNAME, ID, SMOKING, GAMBLING, DRINKING, MUSIC, HANDICAP, AGE from USERS where EMAIL=?");
         	    $sql->bind_param("s", $email);
            		$sql->execute();
             	$sql->bind_result($fname, $lname, $id, $smoking, $gambling, $drinking, $music, $handicap, $age);
