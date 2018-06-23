@@ -76,7 +76,6 @@
 				//clear results from variable
             	$sql->free_result();
     	   		$sql->close();
-				$fail= true;
        	 	} else {
 				$fail = true;
             	array_push($report, "Error Login.");
@@ -86,9 +85,9 @@
 
 	//Return message to ajax as array encoded to json
 	if($fail === true) 
-		$msg = array("error" => $sess);	
+		$msg = array("error" => $report);	
 	else
-		$msg = array("success" => "success");	
+		$msg = array("success" => $_SESSION["fname"]);	
 
 	header("Content-Type: application/json");
 	echo json_encode($msg);
