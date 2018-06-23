@@ -36,7 +36,7 @@
        		$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length("$password"));
         	$password = openssl_encrypt($password, "aes-256-cbc", $key, $options=0, $iv);
         	//Prepare statments for security
-        	$sql = $conn->prepare("select * from USER where EMAIL=? and PASSWORD=?");
+        	$sql = $conn->prepare("select * from USERS where EMAIL=? and PASSWORD=?");
         	$sql->bind_param("ss", $email, $password);
         	$sql->execute();
        	 	$res = $sql->get_result();
