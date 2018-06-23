@@ -118,14 +118,15 @@ $query = mysqli_query($conn, $sql);
               while ($row = mysqli_fetch_array($query))
               {
 
-                echo '<tr>
-                  <td>'.$no.'</td>
-                  <td>'.$row['PARK_ID'].'</td>
-                  <td>'.$row['REQUESTDATE'].'</td>
-                  <td>'.$row['REQUESTTIME'].'</td>
-                </tr>';
+                echo "<tr>
+                  <td>".$no."</td>
+                  <td>".$row['PARK_ID']."</td>
+                  <td>".$row['REQUESTDATE']."</td>
+                  <td>".$row['REQUESTTIME']."</td>
+                </tr>";
                 $no++;
-              }?>
+              }
+			  ?>
             </tbody>
           </table>
         </div>
