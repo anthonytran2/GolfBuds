@@ -65,9 +65,6 @@
 					$_SESSION["handicap"] = $handicap;
 					$_SESSION["age"] = $age;
                 }
-				
-				fail=true;
-				array_push($report, $_SESSION["fname"]);
 			
 				//Check if user wants to be remebered.	
 				if($_POST["checkbox"]  === "on") { 
@@ -90,7 +87,7 @@
 	if($fail === true) 
 		$msg = array("error" => $report);	
 	else
-		$msg = array("success" => "success");	
+		$msg = array("success" => $_SESSION["fname"]);//"success" => "success");	
 
 	header("Content-Type: application/json");
 	echo json_encode($msg);
