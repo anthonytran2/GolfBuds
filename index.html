@@ -478,7 +478,7 @@
 								<div class="remember"><input type="checkbox" name="checkbox" "/><span>Keep me logged in</span></div>
 								<input type="submit" value="Login" id="loginFormBut"></input>
 								<a id="registerButton" href="#" rel="register" class="linkform">Register</a>
-								<a id="guestFromRegisterButton" href="#" rel="login" class="linkform">Create guest account</a>
+								<a id="guestFromRegisterButton" href="#" rel="login" class="linkform">guest</a>
 								<div class="clear"></div>
 							</div>
 						</div>	
@@ -738,7 +738,13 @@
                         }
                         alert(out);
                     } else {
-                        window.location.href = "profile.html";
+					    var out = "";
+                        var arr = ret["success"];
+                        for(var i=0, len = arr.length; i<len; i++){
+                            out += "- " + arr[i] + "\n";
+                        }
+                        alert(out);
+                        //window.location.href = "profile.html";
                     }
                 },
                 error: function(jqXHR, exception) {
