@@ -64,6 +64,8 @@
 					$_SESSION["music"] = $music;
 					$_SESSION["handicap"] = $handicap;
 					$_SESSION["age"] = $age;
+					fail=true;
+					array_push($report, $_SESSION["fname"]);
 					
                 }
 			
