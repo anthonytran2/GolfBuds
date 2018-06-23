@@ -87,7 +87,7 @@
 	if($fail === true) 
 		$msg = array("error" => $report);	
 	else
-		$msg = array("success" => $_SESSION["fname"]);	
+		$msg = array("success" => "success");	
 
 	header("Content-Type: application/json");
 	echo json_encode($msg);
