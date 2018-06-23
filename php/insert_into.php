@@ -6,10 +6,6 @@ $first_name = $last_name = $user_email = $user_pass = $user_pass_confirm = "";
 $fail = false;
 $report = [];
 
-
-array_push($report, $conn);
-
-
 //Check if input is from post method and check if null.
 if(($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["firstname"]) && isset($_POST["lastname"]) 
 		 && isset($_POST["em"]) && isset($_POST["passW"]) && isset($_POST["passWConfirm"]) 
@@ -19,7 +15,6 @@ if(($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["firstname"]) && isset(
 		 && strcmp($_POST["question1"], "") !== 0 && strcmp($_POST["question2"], "") !== 0 
 		 && strcmp($_POST["question3"], "") !== 0 && strcmp($_POST["question4"], "") !== 0) )  {
 	
-	array_push($report, $first_name);
 	//Get values and trim spaces, strip input of html and php tags, escape input 	
 	$first_name = mysqli_real_escape_string($conn , strip_tags(trim($_POST["firstname"])));
 	$last_name = mysqli_real_escape_string($conn, strip_tags(trim($_POST["lastname"])));
@@ -31,7 +26,6 @@ if(($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["firstname"]) && isset(
 	$q2= $_POST["question2"];
 	$q3 = $_POST["question3"];
 	$q4 = $_POST["question4"];
-	array_push($report, $first_name);
 } else {
 	array_push($report, "All Fields Must Be Filled.");
 	$fail = true;
@@ -50,7 +44,6 @@ if($fail === false) {
 	//Only letters in names. Username can contain numbers
 	if((preg_match("/^[A-Za-z]+$/", $first_name) === 0) || (preg_match("/^[A-Za-z]+$/", $last_name) === 0)) { 
 		array_push($report, "First Name And Last Name Can Only Contain Letters.");
-		// array_push($report, $first_name);
 		$fail = true; 
 	} 
 	//Validate email format
