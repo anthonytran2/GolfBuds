@@ -45,7 +45,7 @@
         	//Login is correct
         	if($res->num_rows === 1) {
     			//Start session
-				session_start();
+				$sess = session_start();
 
         	    $sql = $conn->prepare("select FNAME, LNAME, ID, SMOKING, GAMBLING, DRINKING, MUSIC, HANDICAP, AGE from USERS where EMAIL=?");
         	    $sql->bind_param("s", $email);
@@ -76,6 +76,7 @@
 				//clear results from variable
             	$sql->free_result();
     	   		$sql->close();
+				$fail= true;
        	 	} else {
 				$fail = true;
             	array_push($report, "Error Login.");
@@ -85,9 +86,9 @@
 
 	//Return message to ajax as array encoded to json
 	if($fail === true) 
-		$msg = array("error" => $report);	
+		$msg = array("error" => $sess);	
 	else
-		$msg = array("success" => $_SESSION["fname"]);//"success" => "success");	
+		$msg = array("success" => "success");	
 
 	header("Content-Type: application/json");
 	echo json_encode($msg);
