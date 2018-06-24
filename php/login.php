@@ -30,7 +30,7 @@
         	array_push($report, "Invalid Email Format.");
     	}
 		//If no errors
-   		if($fail === true) {
+   		/*if($fail === false) {
         	//Encrypt
        		$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length("$password"));
         	$password = openssl_encrypt($password, "aes-256-cbc", $key, $options=0, $iv);
@@ -79,12 +79,12 @@
 				$fail = true;
             	array_push($report, "Error Login.");
      	   }
-    	}
+    	}*/
 	}
 
 
 	//Return message to ajax as array encoded to json
-	if($fail === true) 
+	if($fail === false) 
 		$msg = array("error" => $report);	
 	else
 		$msg = array("success" => "success");	
