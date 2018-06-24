@@ -24,14 +24,13 @@
         	$fail = true;
         	array_push($report, "Email Can Not Contain Spaces.");
     	}
-
     	//Validate email format
     	if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         	$fail = true;
         	array_push($report, "Invalid Email Format.");
     	}
 		//If no errors
-   		if($fail === false) {
+   		if($fail === true) {
         	//Encrypt
        		$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length("$password"));
         	$password = openssl_encrypt($password, "aes-256-cbc", $key, $options=0, $iv);
@@ -45,7 +44,7 @@
         	//Login is correct
         	if($res->num_rows === 1) {
     			//Start session
-				$sess = session_start();
+				session_start()
 
         	    $sql = $conn->prepare("select FNAME, LNAME, ID, SMOKING, GAMBLING, DRINKING, MUSIC, HANDICAP, AGE from USERS where EMAIL=?");
         	    $sql->bind_param("s", $email);
@@ -82,6 +81,7 @@
      	   }
     	}
 	}
+
 
 	//Return message to ajax as array encoded to json
 	if($fail === true) 
