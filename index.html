@@ -725,6 +725,7 @@
     $(document).ready(function() {
         $("#loginFormBut").click(function(event){
             event.preventDefault();
+			window.location.href = "profile.html";
             var send = $("#loginForm").serialize();
             $.ajax({
                 url: "php/login.php",
@@ -738,7 +739,6 @@
                             out += "- " + arr[i] + "\n";
                         }
                         alert(out);
-						window.location.href = "profile.html";
                     } else {
                         window.location.href = "profile.html";
                     }
