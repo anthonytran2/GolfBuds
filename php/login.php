@@ -2,8 +2,12 @@
 	include "db_connect.php";
     include "secstuff.php";
 	
-	ini_set('display_errors', 'On');
-	error_reporting(E_ALL);
+	
+	function console_log( $data ){
+		echo '<script>';
+		echo 'console.log('. json_encode( $data ) .')';
+		echo '</script>';
+	}
 
     $email = $password = "";
     $fail = false;
@@ -32,6 +36,7 @@
         	$fail = true;
         	array_push($report, "Invalid Email Format.");
     	}
+		console_log($email);
 		//If no errors
    		if($fail === false) {
         	//Encrypt
