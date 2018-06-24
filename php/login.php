@@ -30,7 +30,7 @@
         	array_push($report, "Invalid Email Format.");
     	}
 		//If no errors
-   		/*if($fail === false) {
+   		if($fail === false) {
         	//Encrypt
        		$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length("$password"));
         	$password = openssl_encrypt($password, "aes-256-cbc", $key, $options=0, $iv);
@@ -79,7 +79,7 @@
 				$fail = true;
             	array_push($report, "Error Login.");
      	   }
-    	}*/
+    	}
 	}
 
 
