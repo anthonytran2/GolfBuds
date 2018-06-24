@@ -1,13 +1,6 @@
 <?php
 	include "db_connect.php";
     include "secstuff.php";
-	
-	
-	function console_log( $data ){
-		echo '<script>';
-		echo 'console.log('. json_encode( $data ) .')';
-		echo '</script>';
-	}
 
     $email = $password = "";
     $fail = false;
@@ -36,7 +29,7 @@
         	$fail = true;
         	array_push($report, "Invalid Email Format.");
     	}
-		console_log($email);
+		error_log("Failed to connect to database!", 0);
 		//If no errors
    		if($fail === false) {
         	//Encrypt
