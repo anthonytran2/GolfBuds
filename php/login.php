@@ -16,7 +16,7 @@
         $fail = true;
         array_push($report, "All Fields Are Required.");
     }
-	//If all fields filled then check inputs
+	/*//If all fields filled then check inputs
 	if($fail === false) {
     	//Check if string contains any spaces in the actually trimmed string
     	//exclude password
@@ -29,7 +29,6 @@
         	$fail = true;
         	array_push($report, "Invalid Email Format.");
     	}
-		error_log("Failed to connect to database!", 0);
 		//If no errors
    		if($fail === false) {
         	//Encrypt
@@ -81,7 +80,7 @@
             	array_push($report, "Error Login.");
      	   }
     	}
-	}
+	}*/
 
 
 	//Return message to ajax as array encoded to json
