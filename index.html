@@ -725,7 +725,6 @@
     $(document).ready(function() {
         $("#loginFormBut").click(function(event){
             event.preventDefault();
-			window.location.href = "profile.html";
             var send = $("#loginForm").serialize();
             $.ajax({
                 url: "php/login.php",

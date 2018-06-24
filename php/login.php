@@ -84,7 +84,7 @@
 
 
 	//Return message to ajax as array encoded to json
-	if($fail === false) 
+	if($fail === true) 
 		$msg = array("error" => $report);	
 	else
 		$msg = array("success" => "success");	
