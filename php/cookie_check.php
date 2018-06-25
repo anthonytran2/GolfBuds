@@ -1,5 +1,5 @@
 <?php
-	$msg ="";
+	$msg = "";
 	session_start();
 
 	//Check if user log in was saved as cookie

@@ -1,10 +1,8 @@
 <?php
 include "db_connect.php";
-include "secstuff.php";
 
 $first_name = $last_name = $user_email = $user_pass = $user_pass_confirm = "";
 $fail = false;
-$report = [];
 
 //Check if input is from post method and check if null.
 if(($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["firstname"]) && isset($_POST["lastname"]) 
@@ -59,17 +57,20 @@ if($fail === false) {
 
 	//If no errors then try sql else echo error
 	if($fail === false){
+		//Fix name format
+		ucfirst(strtolower($first_name));
+		ucfirst(strtolower($last_name));
+		
 		//Encrypt
-		$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length("$user_pass"));
-		$user_pass = openssl_encrypt($user_pass, "aes-256-cbc", $key, $options=0, $iv);
-
+		$user_pass = password_hash($user_pass, PASSWORD_BCRYPT);
 		//Prepare statements
 	    $sql = $conn->prepare("INSERT INTO USERS(FNAME, LNAME, EMAIL, PASSWORD, SMOKING, GAMBLING, DRINKING, MUSIC) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 		$sql->bind_param("ssssiiii", $first_name, $last_name, $user_email, $user_pass, $q1, $q2, $q3, $q4);
 		if(!($sql->execute())) {
-			$fail = true;
 			if(strpos($sql->error, "user_email"))  
 				array_push($report, "Email Already Exists.");
+			else
+				array_push($report, $sql->error);
 		}
 		//Clear contents from variable
 		$sql->free_result();
@@ -77,6 +78,7 @@ if($fail === false) {
 	}
 } 
 
+//Send report.
 if($fail == true){
 	$msg = array("error" => $report);
 } else {

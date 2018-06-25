@@ -1,10 +1,8 @@
 <?php
 	include "db_connect.php";
-    include "secstuff.php";
 
     $email = $password = "";
     $fail = false;
-    $report = []; //Holds error messages in array.
 
     //Check if input correctly set
     if(($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["em"]) && isset($_POST["pword"]) )
@@ -16,7 +14,7 @@
         $fail = true;
         array_push($report, "All Fields Are Required.");
     }
-	/*//If all fields filled then check inputs
+	//If all fields filled then check inputs
 	if($fail === false) {
     	//Check if string contains any spaces in the actually trimmed string
     	//exclude password
@@ -31,25 +29,36 @@
     	}
 		//If no errors
    		if($fail === false) {
-        	//Encrypt
-       		$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length("$password"));
-        	$password = openssl_encrypt($password, "aes-256-cbc", $key, $options=0, $iv);
-        	//Prepare statments for security
-        	$sql = $conn->prepare("select * from USERS where EMAIL=? and PASSWORD=?");
-        	$sql->bind_param("ss", $email, $password);
+        	//Check correct password.
+			$sql = $conn->prepare("select PASSWORD from USERS where EMAIL=?");
+        	$sql->bind_param("s", $email);
         	$sql->execute();
-       	 	$res = $sql->get_result();
+       	 	$res = $sql->bind_result($hashPass);
+			$sql->fetch();
+			$correctPass = password_verify($password, $hashPass);		
+			$sql->free_result();
     	    $sql->close();
 
-        	//Login is correct
-        	if($res->num_rows === 1) {
+			if($correctPass) {
+				//Prepare statments for security
+				$sql = $conn->prepare("select * from USERS where EMAIL=?");
+				$sql->bind_param("s", $email);
+				$sql->execute();
+				$res = $sql->get_result();
+				$sql->close();
+			} else {
+				$correctPass = false;
+			}
+
+        	//Load session data if login success
+        	if($correctPass) {
     			//Start session
-				session_start()
+				session_start();
 
         	    $sql = $conn->prepare("select FNAME, LNAME, ID, SMOKING, GAMBLING, DRINKING, MUSIC, HANDICAP, AGE from USERS where EMAIL=?");
         	    $sql->bind_param("s", $email);
            		$sql->execute();
-            	$sql->bind_result($fname, $lname, $id, $smoking, $gambling, $drinking, $music, $handicap, $age);
+            	$s = $sql->bind_result($fname, $lname, $id, $smoking, $gambling, $drinking, $music, $handicap, $age);
 
             	//Get results and put in session variables
 				while($sql->fetch()) {
@@ -64,14 +73,13 @@
 					$_SESSION["handicap"] = $handicap;
 					$_SESSION["age"] = $age;
                 }
-			
+				
 				//Check if user wants to be remebered.	
-				if($_POST["checkbox"]  === "on") { 
+				if(isset($_POST["checkbox"]) && $_POST["checkbox"]  === "on") { 
 					setcookie("online", "true");
 					setcookie("fname", $fname);
 					setcookie("lname", $lname);
 				}
-
 				//clear results from variable
             	$sql->free_result();
     	   		$sql->close();
@@ -80,7 +88,7 @@
             	array_push($report, "Error Login.");
      	   }
     	}
-	}*/
+	}
 
 
 	//Return message to ajax as array encoded to json

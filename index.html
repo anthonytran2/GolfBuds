@@ -189,7 +189,6 @@
          <!-- </div>        -->
          
          <!-- Account Login and Registration-->
-         
          <div id="registerDiv" class="col-lg-6" style="width: 50%; border: 0px; margin-left: 25%; ">
 				
                 	 <!--Code for the register section -->
@@ -473,13 +472,13 @@
 							<div>
 								<label>Password:</label>
 								<input type="password" placeholder="Password" name="pword"/><br/>
-								<a id="forgotPassButton" href="#" rel="forgot_password" class="forgotPassButton">Forgot your password?</a>
+								<a id="forgotPassButton" href="#" rel="forgot_password" class="forgotPassButton">Forgot password</a>
 							</div>
 							<div id="loginBottom" class="bottom">
-								<div class="remember"><input type="checkbox" name="checkbox" "/><span>Keep me logged in</span></div>
+								<div class="remember"><input type="checkbox" name="checkbox" "/><span>Remember Me</span></div>
 								<input type="submit" value="Login" id="loginFormBut"></input>
 								<a id="registerButton" href="#" rel="register" class="linkform">Register</a>
-								<a id="guestFromRegisterButton" href="#" rel="login" class="linkform">guest</a>
+								<a id="guestFromRegisterButton" href="#" rel="login" class="linkform">Guest</a>
 								<div class="clear"></div>
 							</div>
 						</div>	
@@ -735,11 +734,11 @@
                         var out = "";
                         var arr = ret["error"];
                         for(var i=0, len = arr.length; i<len; i++){
-                            out += "- " + arr[i] + "\n";
+                            out += " " + arr[i] + "\n";
                         }
                         alert(out);
                     } else {
-                        window.location.href = "profile.html";
+						window.location.href = "profile.html";
                     }
                 },
                 error: function(jqXHR, exception) {
@@ -765,7 +764,7 @@
 						var out = "";
 						var arr = ret["error"];
 						for(var i=0, len = arr.length; i<len; i++){
-                        	out += "- " + arr[i] + "\n";
+                        	out += " " + arr[i] + "\n";
 						}
 						alert(out);
                     } else {
@@ -795,7 +794,7 @@
                         var out = "";
                         var arr = ret["msg"];
                         for(var i=0, len = arr.length; i<len; i++){
-                            out += "- " + arr[i] + "\n";
+                            out += " " + arr[i] + "\n";
                         }
                         alert(out);
                     } 
@@ -823,7 +822,7 @@
                         var out = "";
                         var arr = ret["error"];
                         for(var i=0, len = arr.length; i<len; i++){
-                            out += "- " + arr[i] + "\n";
+                            out += " " + arr[i] + "\n";
                         }
                         alert(out);
                     } else {

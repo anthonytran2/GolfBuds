@@ -123,6 +123,7 @@ img{
 	padding-top: 10px;
 	margin-right: auto;
 	margin-left: auto;
+	background-color: #EEF3E2;
 }
 /*banner class style for font*/
 .banner {
@@ -6828,6 +6829,7 @@ button.close {
   position: relative;
   width: 100%;
   overflow: hidden;
+  background-color: #EEF3E2;
 }
 .carousel-inner > .item {
   position: relative;

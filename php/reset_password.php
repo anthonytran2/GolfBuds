@@ -1,9 +1,7 @@
 <?php
 	include "db_connect.php";
-	include "secstuff.php";	
 
 	$fail = false;
-	$report = [];
 	$now = time();
 	$expireIndi = false;
 
@@ -44,8 +42,7 @@
     	}
 		if($fail === false) {
             //Encrypt
-            $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length("$password"));
-            $password = openssl_encrypt($password, "aes-256-cbc", $key, $options=0, $iv);
+			$password = password_hash($password, PASSWORD_BCRYPT);
             //Prepare statments for security
             $sql = $conn->prepare("select * from USER where EMAIL=?");
             $sql->bind_param("s", $email);
