@@ -1,226 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
-	<link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
-    <title>GolfBuds</title>
-    <!-- Bootstrap -->
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">	  
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>	 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<link href="css/bootstrap.css" rel="stylesheet">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+		<link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+		<title>GolfBuds</title>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">	  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>	 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
 
 
-  	<link rel="stylesheet" href="css/pikaday.css">
-  	<script type="text/javascript" src="js/jquery.timepicker.js"></script>
-  	<script type="text/javascript" src="js/moment.js"></script>
-  	<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
-	<link rel="stylesheet" type="text/css" href="css/style2.css" />
-
-
-
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
+		<link rel="stylesheet" href="css/pikaday.css">
+		<script type="text/javascript" src="js/jquery.timepicker.js"></script>
+		<script type="text/javascript" src="js/moment.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
+		<link rel="stylesheet" type="text/css" href="css/style2.css" />
 	
-	<script>
-/*SCRIPTS FOR LOGIN SECTION*/
-		
-/*Script for sliding down login section and bring up the register section*/
-	$(document).ready(function(){
-    	$("#registerButton").click(function(){
-        	$("#loginPanel").slideUp();
-			$("#registerPanel").slideDown();
-    	});
-   });
-		
-/*Script for sliding down login section and bring up the forgot your password page*/
-	$(document).ready(function(){
-    	$("#forgotPassButton").click(function(){
-        	$("#loginPanel").slideUp();
-			$("#forgotPassPanel").slideDown();
-    	});
-   });			
-		
+		<script>
+			/*SCRIPTS FOR LOGIN SECTION*/
+					
+			/*Script for sliding down login section and bring up the register section*/
+				$(document).ready(function(){
+					$("#registerButton2nd").click(function(){
+						$("#loginPanel").slideUp();
+						$("#registerPanel").slideDown();
+					});
+			   });
+					
+			/*Script for sliding down login section and bring up the forgot your password page*/
+				$(document).ready(function(){
+					$("#forgotPassButton").click(function(){
+						$("#loginPanel").slideUp();
+						$("#forgotPassPanel").slideDown();
+					});
+			   });			
+					
 
-/*Script for sliding down login panel to reveal guest register*/		
-	$(document).ready(function(){
-    	$("#guestFromRegisterButton").click(function(){
-        	$("#loginPanel").slideUp();
-			$("#guestRegisterPanel").slideDown();
-    	});
-   });		
-/*SCRIPTS FOR REGISTER SECTION*/		
-		
-/*Script for sliding down register section and bring up the login page*/
-	$(document).ready(function(){
-    	$("#loginFromRegisterButton").click(function(){
-        	$("#registerPanel").slideUp();
-			$("#loginPanel").slideDown();
-    	});
-   });
-	
-		
-/*Script for sliding down guest login and revealing login*/		
-	$(document).ready(function(){
-    	$("#loginFromGuestRegisterButton").click(function(){
-        	$("#guestRegisterPanel").slideUp();
-			$("#loginPanel").slideDown();
-    	});
-   });
-		
-/*SCRIPTS FOR FORGOT YOUR PASSWORD SECTION*/
-		
-/*Script for sliding down forgot Password section and bring up the login page*/
-	$(document).ready(function(){
-    	$("#loginFromForgotPassButton").click(function(){
-        	$("#forgotPassPanel").slideUp();
-			$("#loginPanel").slideDown();
-    	});
-   });
-		
-/*Script for sliding down login section and bring up the forgot your password page*/
-	$(document).ready(function(){
-    	$("#registerFromForgotPassButton").click(function(){
-        	$("#forgotPassPanel").slideUp();
-			$("#registerPanel").slideDown();
-    	});
-   });		
-</script>
-   
-
-
-
-<!--Scripts for the picking a reservation date-->	  
- <script>
-  $( function() {
-    $( "#datepicker" ).datepicker({minDate: 0});
-  } );
-</script>	
-		
-		
-   </head>
-   
-  <body style="padding-top: 5px">  
-	<div id="wrapper">
-		<div class="navbarTopFixed">
-			<nav class="navbar navbar-default navbar-fixed-top">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-					<a href="index.html" class="navbar-brand"><img src="images/GB_Icon1_noShadow.png" id="gbLogo"></a>
-				</div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="topFixedNavbar1">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="ContactUs.html">Contact Us</a></li>
-						<li><a href="aboutUs.html">About Us</a></li>
-						<li><a href="index.html" style="margin-right: 10px;">Sign in</a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-       
-    <!-- BANNER CAROUSEL-->
-    <div id="carousel1" class="carousel slide" data-ride="carousel" data-interval="8000" style="margin: 0px 10px;">
-		<div class="carousel-inner" role="listbox">
-            <div class="item active"><img src="images/golflighter.jpg" alt="First slide image" class="center-block">
-                <div class="carousel-caption">
-					<h3 class="banner">Join Today!</h3>
-					<p class="banner">Start your day with a GolfBuds!</p>
-                </div>
-            </div>
-            <div class="item"><img src="images/IMG-Academies.jpg" alt="Second slide image" class="center-block">
-                <div class="carousel-caption">
-					<h3 class="banner">Nearby Golf Courses</h3>
-					<p class="banner">Find a Golf Course that fits you!</p>
-                </div>
-            </div>
-            <div class="item"><img src="images/Slide_2.jpg" alt="Third slide image" class="center-block">
-                <div class="carousel-caption">
-					<h3 class="banner">Satisfaction Guaranteed!</h3>
-					<p class="banner">Once you become a GolfBud, you'll never want to stop!</p>
-                </div>
-            </div>
-        </div>
-           		 <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>
-            </div>
-       
-    <!-- <!--ADVERTISEMENT CAROUSEL-->  
-    <!-- <div id="AdvertRegisterContainer" class="row"> -->
-         <!-- <div class="col-lg-6" style="width: 59%; margin-left: 10px; margin-right: -17px;"> -->
-           <!-- <div id="carousel2" class="carousel slide" data-ride="carousel" data-interval="8000" style="padding-top: 0px;"> -->
-             <!-- <ol class="carousel-indicators"> -->
-               <!-- <li data-target="#carousel2" data-slide-to="0" class="active"></li> -->
-               <!-- <li data-target="#carousel2" data-slide-to="1"></li> -->
-               <!-- <li data-target="#carousel2" data-slide-to="2"></li> -->
-             <!-- </ol> -->
-             <!-- <div class="carousel-inner" role="listbox"> -->
-               <!-- <div class="item active"><img src="images/golf_advert1_resized.jpg" alt="First Advertisement" class="center-block" style="width: 497.717; height: 455.25px;"> -->
-                 <!-- <div class="carousel-caption"> -->
-                   <!-- <h3 class="advertisement">Trust Callaway </h3> -->
-                   <!-- <p class="advertisement">To help you hit like a winner</p> -->
-                 <!-- </div> -->
-               <!-- </div> -->
-               <!-- <div class="item"><img src="images/golf_advert2_resized.jpg" alt="Second Advertisement" class="center-block" style="height: 455.25px;"> -->
-                 <!-- <div class="carousel-caption"> -->
-                   <!-- <h3 class="advertisement">To be a champion</h3> -->
-                   <!-- <p class="advertisement">Get the gear that'll help you get there</p> -->
-                 <!-- </div> -->
-               <!-- </div> -->
-               <!-- <div class="item"><img src="images/golf_advert3_resized.jpg" alt="Third Advertisement" class="center-block" style="height: 455.25px;"> -->
-                 <!-- <div class="carousel-caption"> -->
-                   <!-- <h3 class="advertisement">RZN Proto</h3> -->
-                   <!-- <p class="advertisement">Get an edge over the competition</p> -->
-                 <!-- </div> -->
-               <!-- </div> -->
-             <!-- </div> -->
-				 <!-- <a class="left carousel-control" role="button" data-slide="prev" onClick="$('#carousel2').carousel('prev')" style="background:none !important"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a> -->
-				 <!-- <a class="right carousel-control" role="button" data-slide="next" onClick="$('#carousel2').carousel('next')" style="background:none !important"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a> -->
-			 <!-- </div> -->
-         <!-- </div>        -->
-         
-         <!-- Account Login and Registration-->
-         <div id="registerDiv" class="col-lg-6" style="width: 50%; border: 0px; margin-left: 25%; ">
+			/*Script for sliding down login panel to reveal guest register*/		
+				$(document).ready(function(){
+					$("#guestFromRegisterButton2nd").click(function(){
+						$("#loginPanel").slideUp();
+						$("#guestRegisterPanel").slideDown();
+					});
+			   });		
+			/*SCRIPTS FOR REGISTER SECTION*/		
+					
+			/*Script for sliding down register section and bring up the login page*/
+				$(document).ready(function(){
+					$("#loginFromRegisterButton2nd").click(function(){
+						$("#registerPanel").slideUp();
+						$("#loginPanel").slideDown();
+					});
+			   });
 				
-                	 <!--Code for the register section -->
-                <form id="registerForm">			 
-                 	 <div class="registerForm" id="registerPanel">
-          				<div id="userInput">
+					
+			/*Script for sliding down guest login and revealing login*/		
+				$(document).ready(function(){
+					$("#loginFromGuestRegisterButton2nd").click(function(){
+						$("#guestRegisterPanel").slideUp();
+						$("#loginPanel").slideDown();
+					});
+			   });
+					
+			/*SCRIPTS FOR FORGOT YOUR PASSWORD SECTION*/
+					
+			/*Script for sliding down forgot Password section and bring up the login page*/
+				$(document).ready(function(){
+					$("#loginFromForgotPassButton2nd").click(function(){
+						$("#forgotPassPanel").slideUp();
+						$("#loginPanel").slideDown();
+					});
+			   });
+					
+			/*Script for sliding down login section and bring up the forgot your password page*/
+				$(document).ready(function(){
+					$("#registerFromForgotPassButton2nd").click(function(){
+						$("#forgotPassPanel").slideUp();
+						$("#registerPanel").slideDown();
+					});
+			   });		
+		</script>
+	  
+		<!--Scripts for the picking a reservation date-->	  
+		<script>
+			$( function() {
+				$( "#datepicker" ).datepicker({minDate: 0});
+			});
+		</script>			
+	</head>
+   
+	<body style="padding-top: 5px">  
+		<div id="wrapper">
+			<div class="navbarTopFixed">
+				<nav class="navbar navbar-default navbar-fixed-top">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+						<a href="index.html" class="navbar-brand"><img src="images/GB_Icon1_noShadow.png" id="gbLogo"></a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="topFixedNavbar1">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="ContactUs.html">Contact</a></li>
+							<li><a href="aboutUs.html" style="margin-right: 30px;">About</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		   
+			<!-- BANNER CAROUSEL-->
+			<div id="carousel1" class="carousel slide" data-ride="carousel" data-interval="8000" style="margin: 0px 10px;">
+				<div class="carousel-inner" role="listbox">
+					<div class="item active"><img src="images/golflighter.jpg" alt="First slide image" class="center-block">
+						<div class="carousel-caption">
+							<h3 class="banner">Join Today!</h3>
+							<p class="banner">Start your day with a GolfBuds!</p>
+						</div>
+					</div>
+					<div class="item"><img src="images/IMG-Academies.jpg" alt="Second slide image" class="center-block">
+						<div class="carousel-caption">
+							<h3 class="banner">Nearby Golf Courses</h3>
+							<p class="banner">Find a Golf Course that fits you!</p>
+						</div>
+					</div>
+					<div class="item"><img src="images/Slide_2.jpg" alt="Third slide image" class="center-block">
+						<div class="carousel-caption">
+							<h3 class="banner">Satisfaction Guaranteed!</h3>
+							<p class="banner">Once you become a GolfBud, you'll never want to stop!</p>
+						</div>
+					</div>
+				</div>
+				<a class="left carousel-control" href="#carousel1" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel1" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+			</div>
+		   
+			 
+			<!-- Account Login and Registration-->
+			<div id="registerDiv" class="container-fluid">
+				<!--Code for the register section -->
+				<form id="registerForm">			 
+					<div class="registerForm" id="registerPanel">
+						<div id="userInput">
 							<h3 id="registerH3" class="registerH3">Register</h3>
 							<div class="column">
 								<div>
-									<label>First Name:</label>
+									<label>First Name</label>
 									<input type="text" name="firstname" />
 								</div>
 								<div>
-									<label>Password:</label>
+									<label>Password</label>
 									<input type="password" name="passW"/>
 								</div>
 								<div>
-									<label>Re-enter Password:</label>
+									<label>Re-enter Password</label>
 									<input type="password" name="passWConfirm"/>
 								</div>
-
 							</div>
 							<div class="column">
 								<div>
-									<label>Last Name:</label>
+									<label>Last Name</label>
 									<input type="text" name="lastname"/>
 								</div>
 								<div>
-									<label>Email:</label>
+									<label>Email</label>
 									<input type="text" name="em" />
 								</div>
-
 							</div>
 							<div id="registerBottom" class="bottom" style="height: 153px;">
 								<div class="remember">
@@ -228,646 +175,617 @@
 									<span>Send me updates</span>
 								</div>
 								<button id="registerSubmitButton" type="button"/>Register</button>
-								<a id="loginFromRegisterButton" href="#" rel="login" class="linkform">Login</a>
-								<!-- <div class="clear"></div> -->
+                                <input id="loginFromRegisterButton2nd" href="#" type="button" rel="login" value="Login" class="linkform"></input>    								
 							</div>
-
 						</div>
-					</form>
-				</div>	
-				
-			<!--Modal for the permanent user registration, does not have the researchs with the 4 questions-->
-			<form id="registerForm2">	 		
-				<div id="registerModal" class="modal-content">
-				  <div class="modal-content"> 
-					  <div class="modal-header">
-							<span class="close">&times;</span>
-							<h3>Please answer the follow questions to the best of your ability.</h3>
-					  </div>
-					  
-					  <!-- Modal Content for the Questions about the user's interests -->
-					  
-					  <div class="modal-body">
-						  <div class="modalColumn">
-							  <label>Question 1: Do you like to play golf?</label>
-							  <div class="modalQuestion1">
-								  <input type="radio" name="question1" value="1">&nbsp;Yes</input>
-								  <input type="radio" name="question1" value="2">&nbsp;No</input>
-							  </div>
-						  	  
-						  	  <label>Question 2: Do you like to play golf?</label>
-							  <div class="modalQuestion2">
-								  <input type="radio" name="question2" value="1">&nbsp;Yes</input>
-								  <input type="radio" name="question2" value="2">&nbsp;No</input>
-						  	  </div>
-						  </div>
+					</div>	
+				</form>
+					
+				<!--Modal for the permanent user registration, does not have the researchs with the 4 questions-->
+				<form id="registerForm2">	 		
+					<div id="registerModal" class="modal-content">
+						<div class="modal-content"> 
+							<div class="modal-header">
+								<span class="close">&times;</span>
+								<h3>Please answer the follow questions to the best of your ability.</h3>
+							</div>
 						  
-						  <div>
-							  <label>Question 3: Do you like to play golf?</label>
-							  <div class="modalQuestion3">
-								  <input type="radio" name="question3" value="1">&nbsp;Yes</input>
-								  <input type="radio" name="question3" value="2">&nbsp;No</input>
-						  	  </div>
-						  	  
-						  	  <label>Question 4: Do you like to play golf?</label>
-							  <div class="modalQuestion4">
-								  <input type="radio" name="question4" value="1">&nbsp;Yes</input>
-								  <input type="radio" name="question4" value="2">&nbsp;No</input>
-						  	  </div>
-						  </div>
-					  </div>				
+						   <!-- Modal Content for the Questions about the user's interests -->
+							<div class="modal-body">
+								<div class="modalColumn">
+									<label>Question 1: Do you like to play golf?</label>
+									<div class="modalQuestion1">
+										<input type="radio" name="question1" value="1">&nbsp;Yes</input>
+										<input type="radio" name="question1" value="2">&nbsp;No</input>
+									</div>
+									<label>Question 2: Do you like to play golf?</label>
+									<div class="modalQuestion2">
+										<input type="radio" name="question2" value="1">&nbsp;Yes</input>
+										<input type="radio" name="question2" value="2">&nbsp;No</input>
+									</div>
+								</div>
+							  
+								<div>
+									<label>Question 3: Do you like to play golf?</label>
+									<div class="modalQuestion3">
+										<input type="radio" name="question3" value="1">&nbsp;Yes</input>
+										<input type="radio" name="question3" value="2">&nbsp;No</input>
+									</div>
+								  
+									<label>Question 4: Do you like to play golf?</label>
+									<div class="modalQuestion4">
+										<input type="radio" name="question4" value="1">&nbsp;Yes</input>
+										<input type="radio" name="question4" value="2">&nbsp;No</input>
+									</div>
+								</div>
+							</div>				
 
-					<!-- Modal footer contains the Register button -->	
-					  <div class="modal-footer">
-			  			<h3><input type="submit" value="Register" id="submitRegisterButton"/></h3>
-					  </div>
-					</div>
-				</div>		
-			 </form>	
-			 
-			 
-			<!--Code for guest registration-->
-			
-			<form id="guestRegisterForm">	 
-			 	 <div class="guestRegisterForm" id="guestRegisterPanel">
-          				<div id="userInput">
+							<!-- Modal footer contains the Register button -->	
+							<div class="modal-footer">
+								<h3><input type="submit" value="Register" id="submitRegisterButton"/></h3>
+							</div>
+						</div>
+					</div>		
+				</form>	
+				 
+				 
+				<!--Code for guest registration-->
+				<form id="guestRegisterForm">	 
+					<div class="guestRegisterForm" id="guestRegisterPanel">
+						<div id="userInput">
 							<h3 id="guestRegisterH3" class="guestRegisterH3">Guest Register</h3>
 							<div class="column">
 								<div>
-									<label>First Name:</label>
+									<label>First Name</label>
 									<input type="text" name="firstname" />
 								</div>
 								<div>
-									<label>Last Name:</label>
+									<label>Last Name</label>
 									<input type="text" name="lastname"/>
 								</div>
 							</div>
 							<div class="column">
 								<div>
-									<label>Email:</label>
+									<label>Email</label>
 									<input type="text" name="em" />
 								</div>
 							</div>
 							<div id="guestRegisterBottom" class="bottom">
 								<button type="button"  id="submitGuestRegisterButton"/>Register</button>
-									<a id="loginFromGuestRegisterButton" href="#" rel="login" class="linkform">Login</a>
+								<input id="loginFromGuestRegisterButton2nd" href="#" type="button" rel="login" value="Login" class="linkform"></input>
 								<div class="clear"></div>
+							</div>				
+						</div>	
+					</div>
+				</form>
+				<!-- Code for modal(popup window) after user begins creation of guest account to further ask user for their traits-->
+				<form id="guestRegisterForm2">						
+					<div id="guestRegisterModal" class="modal-content">
+						<div class="modal-content"> 
+							<div class="modal-header">
+								<span class="close" onclick="document.getElementById('guestRegisterModal').style.display='none'">&times;</span>
+								<h3>Please answer the follow questions to the best of your ability.</h3>
+							</div>
+						  
+							<!-- Modal Content for the Questions about the user's interests -->
+							<div class="modal-body"> 
+								<h5 style="font-size: 17px;"><b>Please enter your Age and Handicap</b></h5>
+								  <div class="modalAgeHandicap">
+										<div class="modalAge col-lg-6">
+											<select name="age" id="ageList">
+												<option value=1 disabled selected>Age</option>
+												<option value=1>18-24</option>
+												<option value=2>25-31</option>
+												<option value=3>32-38</option>
+												<option value=4>39-45</option>
+												<option value=5>46-52</option>
+												<option value=6>53-59</option>
+												<option value=7>60+</option>
+											</select>
+										</div>
+									
+										<div class="modalHandicap col-lg-6">
+											<input name="handicap" type="number" step="0.1" min="0" max="36.4" placeholder="Handicap e.g. 15.5">												
+										</div>
+									</div>
+							  
+							</div>  
+							<div class="modal-body">					  
+								<div class="modalColumn">
+									<label>Question 1: Do you like to play golf?</label>
+									<div class="modalQuestion1">
+										<input type="radio" name="question1" value="1">&nbsp;Yes</input>
+										<input type="radio" name="question1" value="2">&nbsp;No</input>
+									</div>
+								  
+									<label>Question 2: Do you like to play golf?</label>
+									<div class="modalQuestion2">
+										<input type="radio" name="question2" value="1">&nbsp;Yes</input>
+										<input type="radio" name="question2" value="2">&nbsp;No</input>
+									</div>
+								</div>
+							  
+								<div>
+									<label>Question 3: Do you like to play golf?</label>
+									<div class="modalQuestion3">
+										<input type="radio" name="question3" value="1">&nbsp;Yes</input>
+										<input type="radio" name="question3" value="2">&nbsp;No</input>
+									</div>
+								  
+									<label>Question 4: Do you like to play golf?</label>
+									<div class="modalQuestion4">
+										<input type="radio" name="question4" value="1">&nbsp;Yes</input>
+										<input type="radio" name="question4" value="2">&nbsp;No</input>
+									</div>
+								</div>
 							</div>
 
-						
-					</div>	
-				</div>
-			</form>
-		<!-- Code for modal(popup window) after user begins creation of 
-				guest account to further ask user for their traits-->
-				<form id="guestRegisterForm2">						
-				<div id="guestRegisterModal" class="modal-content">
-				  <div class="modal-content"> 
-					  <div class="modal-header">
-							<span class="close" onclick="document.getElementById('guestRegisterModal').style.display='none'">&times;</span>
-							<h3>Please answer the follow questions to the best of your ability.</h3>
-					  </div>
-					  
-					  <!-- Modal Content for the Questions about the user's interests -->
-					 <div class="modal-body"> 
-						 <h5 style="font-size: 17px;"><b>Please enter your Age and Handicap</b></h5>
-						  <div class="modalAgeHandicap">
-							  <div class="modalAge col-lg-6">
-									<select name="age" id="ageList">
-										<option value=1 disabled selected>Age</option>
-										<option value=1>18-24</option>
-										<option value=2>25-31</option>
-										<option value=3>32-38</option>
-										<option value=4>39-45</option>
-										<option value=5>46-52</option>
-										<option value=6>53-59</option>
-										<option value=7>60+</option>
+						   <!-- Modal Content for the Reservation location, date and time -->
+							<div class="row modalReservation" style="padding-top: 20px;">
+								<div class="col-lg-4">
+									<h5><b>Courses:</b></h5>
+									<select name="course" id="courseList">
+										<option value=1>Haggin Oaks 1</option>
+										<option value=2>Haggin Oaks 2</option>
+										<option value=3>Haggin Oaks 3</option>
+										<option value=4>Haggin Oaks 4</option>
+										<option value=5>Haggin Oaks 5</option>
 									</select>
-							  </div>
-							
-						  <div class="modalHandicap col-lg-6">
-									<input name="handicap" type="number" step="0.1" min="0" max="36.4" placeholder="Handicap e.g. 15.5">												
-							  </div>
+								</div>				  
+								<!-- Reservation Date -->  
+								<div class="col-md-11 col-lg-3 col-lg-offset-0">
+								
+									<h5><b>Date:</b></h5>
+									<input id="datepicker" name="reservationDate">
 
-						  </div>
-					  
-					</div>  
-					  <div class="modal-body">					  
-						  <div class="modalColumn">
-							  <label>Question 1: Do you like to play golf?</label>
-							  <div class="modalQuestion1">
-								  <input type="radio" name="question1" value="1">&nbsp;Yes</input>
-								  <input type="radio" name="question1" value="2">&nbsp;No</input>
-						  	  </div>
-						  	  
-						  	  <label>Question 2: Do you like to play golf?</label>
-							  <div class="modalQuestion2">
-								  <input type="radio" name="question2" value="1">&nbsp;Yes</input>
-								  <input type="radio" name="question2" value="2">&nbsp;No</input>
-						  	  </div>
-						  </div>
-						  
-						  <div>
-							  <label>Question 3: Do you like to play golf?</label>
-							  <div class="modalQuestion3">
-								  <input type="radio" name="question3" value="1">&nbsp;Yes</input>
-								  <input type="radio" name="question3" value="2">&nbsp;No</input>
-						  	  </div>
-						  	  
-						  	  <label>Question 4: Do you like to play golf?</label>
-							  <div class="modalQuestion4">
-								  <input type="radio" name="question4" value="1">&nbsp;Yes</input>
-								  <input type="radio" name="question4" value="2">&nbsp;No</input>
-						  	  </div>
-						  </div>
-					  </div>
-
-					<!-- Modal Content for the Reservation location, date and time -->
-					
-                      <div class="row modalReservation" style="padding-top: 20px;">
-                        <div class="col-lg-4">
-
-							<h5><b>Courses:</b></h5>
-								<select name="course" id="courseList">
-									<option value=1>Haggin Oaks 1</option>
-									<option value=2>Haggin Oaks 2</option>
-									<option value=3>Haggin Oaks 3</option>
-									<option value=4>Haggin Oaks 4</option>
-									<option value=5>Haggin Oaks 5</option>
-								</select>
-						</div>
+								</div>
+								<!-- Reservaton Time -->  
+								<div class="col-lg-3 col-lg-offset-2">
+									<h5><b>Time:</b></h5>
+									<input name="time" id="basicExample">	
+								</div>
+								<div class="col-lg-4">
+									<h5><b>Golf Type:</b></h5>
+										<select name="golfType" id="courseList">
+											<option value=1>Type 1</option>
+											<option value=2>Type 2</option>
+										</select>
+								</div>
+								<br></br>
+							</div>
 						
-						  
-						<!-- Reservation Date -->  
-                        <div class="col-md-11 col-lg-3 col-lg-offset-0">
-						
-							<h5><b>Date:</b></h5>
-							<input id="datepicker" name="reservationDate">
-
+							<!-- Modal footer contains the Register button -->	
+							<div class="modal-footer">
+								<h3><input type="submit" value="Register" id="submitGuestRegisterButton2"/></h3>
+							</div>
 						</div>
+					</div>		
+				</form>	
 						
-						<!-- Reservaton Time -->  
-                        <div class="col-lg-3 col-lg-offset-2">
-						  
-							<h5><b>Time:</b></h5>
-								<input name="time" id="basicExample">	
-						<!--		<select name="time" id="timeHour">
-									<option value="timeHour" disabled selected>Start Time</option>
-									<option value="timeHour6to7">6 to 7</option>
-									<option value="timeHour7to8">7 to 8</option>
-									<option value="timeHour8to9">8 to 9</option>
-									<option value="timeHour9to10">9 to 10</option>
-									<option value="timeHour10to11">10 to 11</option>
-									<option value="timeHour11to12">11 to 12</option>
-									<option value="timeHour12to1">12 to 1</option>
-									<option value="timeHour1to2">1 to 2</option>
-									<option value="timeHour2to3">2 to 3</option>
-									<option value="timeHour3to4">3 to 4</option>
-									<option value="timeHour4to5">4 to 5</option>
-									<option value="timeHour5to6">5 to 6</option>
-								</select>
-							
-								<select name="timePeriod" id="timePeriodList">
-									<option value="timePeriodDefault" disabled selected>Time Period</option>
-									<option value="timePeriodAMtoAM">AM to AM</option>
-									<option value="timePeriodAMtoPM">AM to PM</option>
-									<option value="timePeriodpMtoPM">PM to PM</option>
-								</select>
-					  -->
-						</div>
-                        <div class="col-lg-4">
-
-                            <h5><b>Golf Type:</b></h5>
-                                <select name="golfType" id="courseList">
-                                    <option value=1>Type 1</option>
-                                    <option value=2>Type 2</option>
-                                </select>
-                        </div>
-
-						  <br></br>
-                      </div>
-					
-
-
-
-					<!-- Modal footer contains the Register button -->	
-					  <div class="modal-footer">
-			  			<h3><input type="submit" value="Register" id="submitGuestRegisterButton2"/></h3>
-					  </div>
-					</div>
-				</div>		
-			 </form>	
-					
 				<!-- Code for the Login section-->
-					<div class="loginContent" id="loginPanel">
-						<form id="loginForm">
+				<div class="loginContent" id="loginPanel">
+					<form id="loginForm">
 						<div id="userInput">
 							<h3 id="loginH3">Login</h3>
 							<div>
-								<!-- Change from requiring username to requiring email so that have one less thing
-								thing to check if its unique or not.-->
-								<label>Email:</label>
+								<!-- Change from requiring username to requiring email so that have one less thing thing to check if its unique or not.-->
 								<input type="text" placeholder="Email" name="em"/>
 							</div>
 							<div>
-								<label>Password:</label>
 								<input type="password" placeholder="Password" name="pword"/><br/>
 								<a id="forgotPassButton" href="#" rel="forgot_password" class="forgotPassButton">Forgot password</a>
 							</div>
 							<div id="loginBottom" class="bottom">
-								<div class="remember"><input type="checkbox" name="checkbox" "/><span>Remember Me</span></div>
+								<div class="remember"><input type="checkbox" name="checkbox"/><span>Remember Me</span></div>
 								<input type="submit" value="Login" id="loginFormBut"></input>
-								<a id="registerButton" href="#" rel="register" class="linkform">Register</a>
-								<a id="guestFromRegisterButton" href="#" rel="login" class="linkform">Guest</a>
+								<input id="registerButton2nd" href="#" type="button" rel="register" value="Register" class="linkform"></input>
+								<input id="guestFromRegisterButton2nd" href="#" type="button" rel="login" value="Guest" class="linkform"></input>
 								<div class="clear"></div>
 							</div>
 						</div>	
-						</form>	
-					</div>
-					
+					</form>	
+				 </div>
 					<!--Code for the forgot your password section -->
 					<div class="forgotPassword" id="forgotPassPanel">
-					<form id="forgotPassForm">
-					<div id="userInput">
-						<h3 id="forgotPassH3">Forgot Password</h3>
-							<div>
-								<label>Email:</label>
-								<input type="text" name="em"/>
+						<form id="forgotPassForm">
+							<div id="userInput">
+								<h3 id="forgotPassH3">Forgot Password</h3>
+								<div>
+									<label>Email</label>
+									<input type="text" name="em"/>
+								</div>
+								<div id="forgotPassBottom" class="bottom">
+									<input type="submit" value="Send reminder" id="submitForgotPassButton"></input>
+									<input id="loginFromForgotPassButton2nd" href="#" type="button" rel="login" value="Login" class="linkform"></input>
+									<input id="registerFromForgotPassButton2nd" href="#" type="button" rel="register" value="Register" class="linkform"></input>
+									<div class="clear"></div>
+								</div>
 							</div>
-							<div id="forgotPassBottom" class="bottom">
-								<input type="submit" value="Send reminder" id="submitForgotPassButton"></input>
-								<a id="loginFromForgotPassButton" href="#" rel="login" class="linkform">Suddenly remebered? Log in here</a>
-
-								<a id="registerFromForgotPassButton" href="#" rel="register" class="linkform">You don't have an account? Register here</a>
-								<div class="clear"></div>
+						</form>
+					</div>     
+				</div>
+			</div>
+			
+			<!-- The Modal -->	
+			<!--Container-fluid is the div for our content in between deal scroller, login, and our footer.
+				Bulk of content will probably be in this section.-->  
+			
+			<div class="container-fluid">    
+				<!--List of the content images-->	
+				<ul class="contentColumns" data-columns="2">
+					<li class="contentImagesList">
+						<div id="contentImages" class="contentImages"><img src="images/contentGolfImg.jpg">
+							<div class="contentTextHover">
+								<div class="contentText">
+									<h3>Ready to Golf?</h3>
+									<p>Nulla tincidunt accumsan nibh. Fusce vitae scelerisque dui. Nulla ac sapien urna.</p>				
+								</div>
 							</div>
 						</div>
-					</form>
-				</div>     
-         </div>
-    </div>
-<!-- The Modal -->
+					</li>
+					<li class="contentImagesList">
+						<div id="contentImages" class="contentImages"><img src="images/contentGolfImg2.jpg">
+							<div class="contentTextHover">
+								<div class="contentText">
+									<h3>Ready to Golf?</h3>
+									<p>Phasellus vitae posuere arcu, sed semper velit. Curabitur scelerisque ex nec leo pharetra aliquet. Mauris pretium blandit odio, in posuere urna auctor in.</p>					
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="contentImagesList">
+						<div id="contentImages" class="contentImages"><img src="images/contentGolfImg3.jpg">
+							<div class="contentTextHover">
+								<div class="contentText">
+									<h3>Ready to Golf?</h3>
+									<p>Curabitur in nulla eros. Suspendisse ultrices mollis magna a rutrum.</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="contentImagesList">
+						<div id="contentImages" class="contentImages"><video loop autoplay src="video/golfCourseVid2.mp4" width="100%"></video>
+							<div class="contentTextHover">
+								<div class="contentText">
+									<h3>Ready to Golf?</h3>
+									<p>Fusce mattis, ligula cursus lacinia luctus, mi sapien eleifend elit.</p>
+								</div>
+							</div>
+						</div>
+					</li>   
+					<li class="contentImagesList">
+						<div id="contentImages" class="contentImages"><img src="images/contentGolfImg5.jpg">
+							<div class="contentTextHover">
+								<div class="contentText">
+									<h3>Ready to Golf?</h3>
+									<p>Aenean vitae dui dapibus, dictum odio in, cursus est.</p>				
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="contentImagesList">
+						<div id="contentImages" class="contentImages"><img src="images/contentGolfImg6.jpg">
+							<div class="contentTextHover">
+								<div class="contentText">
+									<h3>Ready to Golf?</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>				
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="contentImagesList">
+						<div id="contentImages" class="contentImages"><img src="images/contentGolfImg4.jpg">
+							<div class="contentTextHover">
+								<div class="contentText">
+									<h3>Ready to Golf?</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>					
+								</div>
+							</div>
+						</div>
+					</li>   
+					<li class="contentImagesList">
+						<div id="contentImages" class="contentImages"><video loop autoplay src="video/golfCourseVid1.mp4" width="100%"></video>
+							<div class="contentTextHover">
+								<div class="contentText">
+									<h3>Ready to Golf?</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>					
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>	
+			<!--Review Portrait Thumbnail photo size 180px x 180px -->
+			<!--
 				
-	<!--Container-fluid is the div for our content in between deal scroller, login, and our footer.
-   		Bulk of content will probably be in this section.-->  
-   		
-    <div class="container-fluid">    
-	<!--List of the content images-->	
-      <ul class="contentColumns" data-columns="2">
-		<li class="contentImagesList">
-			<div id="contentImages" class="contentImages"><img src="images/contentGolfImg.jpg">
-				<div class="contentTextHover">
-					<div class="contentText">
-						<h3>Ready to Golf?</h3>
-						<p>Nulla tincidunt accumsan nibh. Fusce vitae scelerisque dui. Nulla ac sapien urna.</p>				
+				<div class="contentReviews" id="contentReviews">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="thumbnail"><img src="images/reviewThumbnail1.jpg" alt="Thumbnail Image 1" height="320px" width="450px">
+								<div class="caption">
+									<h3>Jane Doe</h3>
+									<p><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam vel quam elementum pulvinar etiam non."</i></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail"><img src="images/reviewThumbnail2.jpg" alt="Thumbnail Image 1" height="320px" width="450px">
+								<div class="caption">
+									<h3>John Smith</h3>
+									<p><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas maecenas pharetra convallis posuere morbi leo."</i></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail"><img src="images/reviewThumbnail3.jpg" alt="Thumbnail Image 1" height="320px" width="450px">
+								<div class="caption">
+									<h3>Phil Mickelson</h3>
+									<p><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor id eu nisl nunc mi ipsum faucibus vitae. In aliquam sem fringilla ut morbi tincidunt augue interdum."</i></p>
+								</div>
+							</div>
+						</div>  
 					</div>
-				</div>
-			</div>
-		</li>
-		<li class="contentImagesList">
-			<div id="contentImages" class="contentImages"><img src="images/contentGolfImg2.jpg">
-				<div class="contentTextHover">
-					<div class="contentText">
-						<h3>Ready to Golf?</h3>
-						<p>Phasellus vitae posuere arcu, sed semper velit. Curabitur scelerisque ex nec leo pharetra aliquet. Mauris pretium blandit odio, in posuere urna auctor in.</p>					
-					</div>
-				</div>
-			</div>
-		</li>
-		<li class="contentImagesList">
-			<div id="contentImages" class="contentImages"><img src="images/contentGolfImg3.jpg">
-				<div class="contentTextHover">
-					<div class="contentText">
-						<h3>Ready to Golf?</h3>
-						<p>Curabitur in nulla eros. Suspendisse ultrices mollis magna a rutrum.</p>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li class="contentImagesList">
-			<div id="contentImages" class="contentImages"><video loop autoplay src="video/golfCourseVid2.mp4" width="100%"></video>
-				<div class="contentTextHover">
-					<div class="contentText">
-						<h3>Ready to Golf?</h3>
-						<p>Fusce mattis, ligula cursus lacinia luctus, mi sapien eleifend elit.</p>
-					</div>
-				</div>
-			</div>
-		</li>   
-		<li class="contentImagesList">
-			<div id="contentImages" class="contentImages"><img src="images/contentGolfImg5.jpg">
-				<div class="contentTextHover">
-					<div class="contentText">
-						<h3>Ready to Golf?</h3>
-						<p>Aenean vitae dui dapibus, dictum odio in, cursus est.</p>				
-					</div>
-				</div>
-			</div>
-		</li>
-		<li class="contentImagesList">
-			<div id="contentImages" class="contentImages"><img src="images/contentGolfImg6.jpg">
-				<div class="contentTextHover">
-					<div class="contentText">
-						<h3>Ready to Golf?</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>				
-					</div>
-				</div>
-			</div>
-		</li>
-		<li class="contentImagesList">
-			<div id="contentImages" class="contentImages"><img src="images/contentGolfImg4.jpg">
-				<div class="contentTextHover">
-					<div class="contentText">
-						<h3>Ready to Golf?</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>					
-					</div>
-				</div>
-			</div>
-		</li>   
-		<li class="contentImagesList">
-			<div id="contentImages" class="contentImages"><video loop autoplay src="video/golfCourseVid1.mp4" width="100%"></video>
-				<div class="contentTextHover">
-					<div class="contentText">
-						<h3>Ready to Golf?</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>					
-					</div>
-				</div>
-			</div>
-		</li>
-	</ul>	
-		
-		
-		<!--Review Portrait Thumbnail photo size 180px x 180px -->
-		<div class="contentReviews" id="contentReviews">
-		  <div class="row">
-			  <div class="col-md-4">
-			    <div class="thumbnail"><img src="images/reviewThumbnail1.jpg" alt="Thumbnail Image 1" height="320px" width="450px">
-			      <div class="caption">
-			        <h3>Jane Doe</h3>
-			        <p><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam vel quam elementum pulvinar etiam non."</i></p>
-		          </div>
-		        </div>
-		    </div>
-			<div class="col-md-4">
-			    <div class="thumbnail"><img src="images/reviewThumbnail2.jpg" alt="Thumbnail Image 1" height="320px" width="450px">
-			      <div class="caption">
-			        <h3>John Smith</h3>
-			        <p><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas maecenas pharetra convallis posuere morbi leo."</i></p>
-				  </div>
-		        </div>
-		    </div>
-			<div class="col-md-4">
-			    <div class="thumbnail"><img src="images/reviewThumbnail3.jpg" alt="Thumbnail Image 1" height="320px" width="450px">
-			      <div class="caption">
-			        <h3>Phil Mickelson</h3>
-			        <p><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor id eu nisl nunc mi ipsum faucibus vitae. In aliquam sem fringilla ut morbi tincidunt augue interdum."</i></p>
-		          </div>
-	          </div>
-		    </div>  
-			  
-		  </div>
-        </div>	
-		
-</div> 
-        
-        <!-- End of the Container-fluid, also known as the content in between our 
-        	deal scroll, login and footer-->
+				</div>	
+			</div> 
+			-->
+			<!-- End of the Container-fluid, also known as the content in between our 
+				deal scroll, login and footer-->
 
-    
-    <!--This is the footer section -->
-    <footer class="col-lg-12"">
-    	    <div id="about_us"> <h4 align="center"><b>About Us</b></h4>
-				<ul style="list-style: none; text-align: center;">
-  	    			<a href="aboutUs.html"><li>Who are we?</li></a>
-    	  		</ul>
-    	    </div>
-    		<div id="contacts"><h4 align="center"><b>Contacts</b></h4>
-    			<ul style="list-style: none;  text-align: center;">
-  	    			<li>Call us 1-800-Golf-Bud</li>
-   	    			<a href="ContactUs.html"><li>Get in touch with us</li></a>    	    
-   				</ul>
-   			</div>
-    		<div id="get_started"><h4 align="center"><b>Getting Started</b></h4>
-    			<ul style="list-style: none;  text-align: center;">
-  	    			<a href="index.html"><li>Login/Register</li></a>
-   	    			<a href="index.html"><li>Try us out as a guest</li></a>
-					<a href="ContactUs.html"><li>Want to sign up as a course?</li></a>
-    	    	</ul>
-    		</div>
-    		<div id="copyright">Copyright © 2017 Golfbuds. All rights reserved. <a>Privacy Policy</a> | <a>Terms of Use</a> | <a>Legal</a>	| <a>Site Map</a>
- 			 </div>
-    </footer>
+		
+			<!--This is the footer section -->
+			<footer class="col-lg-12">
+			    <div class="footer-container">
+					<div id="about_us">
+					    <h3><b>About</b></h3>
+						<ul style="list-style: none; font-size: 10px;">
+							<a href="aboutUs.html"><li>Who are we?</li></a>
+						</ul>
+					</div>
+					<div id="contacts">
+					    <h3><b>Contact</b></h3>
+						<ul style="list-style: none; font-size: 10px;">
+							<li>Call us 1-800-Golf-Bud</li>
+							<a href="ContactUs.html"><li>Get in touch with us</li></a>    	    
+						</ul>
+					</div>
+					<div id="get_started">
+					    <h3><b>Get Started</b></h3>
+						<ul style="list-style: none; font-size: 10px;">
+							<a href="index.html"><li>Login/Register</li></a>
+							<a href="index.html"><li>Try us out as a guest</li></a>
+							<a href="ContactUs.html"><li>Want to sign up as a course?</li></a>
+						</ul>
+					</div>
+					<br>
+				</div>
+				<div id="copyright" style="font-size: 10px; content: center; ">Copyright © 2017 Golfbuds. All rights reserved. <br> <a>Privacy Policy</a> | <a>Terms of Use</a> | <a>Legal</a>	| <a>Site Map</a>
+				</div>				
+			</footer>
+			
+			<!--
+			<footer class="col-lg-12">
+				<div id="about_us"><h3 align="left" style="margin-left: 250px;"><b>About</b></h3>
+					<ul style="list-style: none; text-align: left; margin-left: 252px; font-size: 10px;">
+						<a href="aboutUs.html"><li>Who are we?</li></a>
+					</ul>
+				</div>
+				<div id="contacts"><h3 align="left" style="margin-left: 150px;"><b>Contact</b></h3>
+					<ul style="list-style: none;  text-align: left; margin-left: 152px; font-size: 10px;">
+						<li>Call us 1-800-Golf-Bud</li>
+						<a href="ContactUs.html"><li>Get in touch with us</li></a>    	    
+					</ul>
+				</div>
+				<div id="get_started"><h3 align="left" style="margin-left: 50px;"><b>Getting Started</b></h3>
+					<ul style="list-style: none;  text-align: left; margin-left: 52px; font-size: 10px;">
+						<a href="index.html"><li>Login/Register</li></a>
+						<a href="index.html"><li>Try us out as a guest</li></a>
+						<a href="ContactUs.html"><li>Want to sign up as a course?</li></a>
+					</ul>
+				</div>
+				<br>
+				<div id="copyright" style="font-size: 10px;">Copyright © 2017 Golfbuds. All rights reserved. <br> <a>Privacy Policy</a> | <a>Terms of Use</a> | <a>Legal</a>	| <a>Site Map</a>
+				</div>
+			</footer>
+			-->
 
-  	<!-- Include all compiled plugins (below), or include individual files as needed --> 
+			<!-- Include all compiled plugins (below), or include individual files as needed --> 
 
-<!--Script for guest register modal. Has 4 questions and research options.-->
-	<script>// Get the modal
-			var modal = document.getElementById("guestRegisterModal");
-			var modal1 = document.getElementById("registerModal");
-			// Get the button that opens the modal
-			var btn = document.getElementById("submitGuestRegisterButton");
-			var btn1 = document.getElementById("registerSubmitButton");
-			// Get the <span> element that closes the modal
-			var span = document.getElementsByClassName("close")[0];
-			var span1 = document.getElementsByClassName("close")[0];
-			// When the user clicks the button, open the modal 
-			btn.onclick = function() {
-				modal.style.display = "block";
-			}
-			btn1.onclick = function() {
-				modal1.style.display = "block";
-			}
-			// When the user clicks on <span> (x), close the modal
-			//span for the guest register also has code to close the modal with a span
-			//on the span tag in the guestRegisterModal div
-			span.onclick = function() {
-				modal.style.display = "none";
-			}
-			span1.onclick = function() {
-				modal1.style.display = "none";
-			}
-			// When the user clicks anywhere outside of the modal, close it
-			window.onclick = function(event) {
-				if (event.target == modal) {
+			<!--Script for guest register modal. Has 4 questions and research options.-->
+			<script>// Get the modal
+				var modal = document.getElementById("guestRegisterModal");
+				var modal1 = document.getElementById("registerModal");
+				// Get the button that opens the modal
+				var btn = document.getElementById("submitGuestRegisterButton");
+				var btn1 = document.getElementById("registerSubmitButton");
+				// Get the <span> element that closes the modal
+				var span = document.getElementsByClassName("close")[0];
+				var span1 = document.getElementsByClassName("close")[0];
+				// When the user clicks the button, open the modal 
+				btn.onclick = function() {
+					modal.style.display = "block";
+				}
+				btn1.onclick = function() {
+					modal1.style.display = "block";
+				}
+				// When the user clicks on <span> (x), close the modal
+				//span for the guest register also has code to close the modal with a span
+				//on the span tag in the guestRegisterModal div
+				span.onclick = function() {
 					modal.style.display = "none";
 				}
-				if (event.target == modal1) {
+				span1.onclick = function() {
 					modal1.style.display = "none";
 				}
-			}
-
-	</script>
-	<!--Scripts for data functionality-->
-	<script>
-
-	//Checks if user is logged as permanment or guest.
-	$(document).ready(function() {
-		//Get form data
-		var send = $("#loginForm").serialize();
-		//Send to php file and handle return results in "ret"
-		$.ajax({
-                url: "php/cookie_check.php",
-                type: "GET",
-                success: function(ret) {
-                    if(ret["online"] === "true") {
-                        window.location.href = "profile.html";
-                    } 
-						
-                },
-                error: function(jqXHR, exception) {
-                    console.log(jqXHR);
-                }
-          });
-	});
-
-	//Log user in
-    $(document).ready(function() {
-        $("#loginFormBut").click(function(event){
-            event.preventDefault();
-            var send = $("#loginForm").serialize();
-            $.ajax({
-                url: "php/login.php",
-                type: "POST",
-                data: send,
-                success: function(ret) {
-				    if(ret["error"]) {
-                        var out = "";
-                        var arr = ret["error"];
-                        for(var i=0, len = arr.length; i<len; i++){
-                            out += " " + arr[i] + "\n";
-                        }
-                        alert(out);
-                    } else {
-						window.location.href = "profile.html";
-                    }
-                },
-                error: function(jqXHR, exception) {
-                    console.log(jqXHR);
-                }
-            });
-        });
-
-    });
-
-	//Register
-    $(document).ready(function() {
-        $("#submitRegisterButton").click(function(event){
-            event.preventDefault();
-            var send = $("#registerForm").serialize();
-			send += "&" + $("#registerForm2").serialize();
-            $.ajax({
-                url: "php/insert_into.php",
-                type: "POST",
-                data: send,
-                success: function(ret) {
-                    if(ret["error"]) {
-						var out = "";
-						var arr = ret["error"];
-						for(var i=0, len = arr.length; i<len; i++){
-                        	out += " " + arr[i] + "\n";
-						}
-						alert(out);
-                    } else {
-                        window.location.href = "index.html";
-						alert("Registered!");
-                    }
-                },
-                error: function(jqXHR, exception) {
-                    console.log(jqXHR);
-                }
-            });
-        });
-
-    });
-
-	//Password recovery
-    $(document).ready(function() {
-        $("#submitForgotPassButton").click(function(event){
-            event.preventDefault();
-            var send = $("#forgotPassForm").serialize();
-            $.ajax({
-                url: "php/forgot_pass.php",
-                type: "POST",
-                data: send,
-                success: function(ret) {
-                    if(ret["msg"]) {
-                        var out = "";
-                        var arr = ret["msg"];
-                        for(var i=0, len = arr.length; i<len; i++){
-                            out += " " + arr[i] + "\n";
-                        }
-                        alert(out);
-                    } 
-                },
-                error: function(jqXHR, exception) {
-                    console.log(jqXHR);
-                }
-            });
-        });
-
-    });
-
-	//Guest register
-    $(document).ready(function() {
-        $("#submitGuestRegisterButton2").click(function(event){
-            event.preventDefault();
-            var send = $("#guestRegisterForm").serialize();
-            send += "&" + $("#guestRegisterForm2").serialize();
-			$.ajax({
-                url: "php/guest_insert_into.php",
-                type: "POST",
-                data: send,
-                success: function(ret) {
-                    if(ret["error"]) {
-                        var out = "";
-                        var arr = ret["error"];
-                        for(var i=0, len = arr.length; i<len; i++){
-                            out += " " + arr[i] + "\n";
-                        }
-                        alert(out);
-                    } else {
-						alert("Guest Account Created!\nYou will be contacted by email once we have found you a group.");
-						window.location.href = "index.html";		
+				// When the user clicks anywhere outside of the modal, close it
+				window.onclick = function(event) {
+					if (event.target == modal) {
+						modal.style.display = "none";
 					}
-                },
-                error: function(jqXHR, exception) {
-                    console.log(jqXHR);
-                }
-            });
-        });
-    });
+					if (event.target == modal1) {
+						modal1.style.display = "none";
+					}
+				}
+			</script>
+			<!--Scripts for data functionality-->
+			<script>
 
-	</script>
-	<!--Modal for the permanent registration. Does not have reservation.-->
+				//Checks if user is logged as permanment or guest.
+				$(document).ready(function() {
+					//Get form data
+					var send = $("#loginForm").serialize();
+					//Send to php file and handle return results in "ret"
+					$.ajax({
+							url: "php/cookie_check.php",
+							type: "GET",
+							success: function(ret) {
+								if(ret["online"] === "true") {
+									window.location.href = "profile.html";
+								} 
+									
+							},
+							error: function(jqXHR, exception) {
+								console.log(jqXHR);
+							}
+					  });
+				});
 
+				//Log user in
+				$(document).ready(function() {
+					$("#loginFormBut").click(function(event){
+						event.preventDefault();
+						var send = $("#loginForm").serialize();
+						$.ajax({
+							url: "php/login.php",
+							type: "POST",
+							data: send,
+							success: function(ret) {
+								if(ret["error"]) {
+									var out = "";
+									var arr = ret["error"];
+									for(var i=0, len = arr.length; i<len; i++){
+										out += " " + arr[i] + "\n";
+									}
+									alert(out);
+								} else {
+									window.location.href = "profile.html";
+								}
+							},
+							error: function(jqXHR, exception) {
+								console.log(jqXHR);
+							}
+						});
+					});
 
-	<script src="js/pikaday.js"></script>
+				});
 
-	<script>
-		var picker = new Pikaday({
-	    field: document.getElementById('datepicker'),
-	    firstDay: 1,
-	    minDate: new Date(),
-	    maxDate: new Date(2020, 12, 31),
-	    yearRange: [2000,2020],
-	    onSelect: function() {
-            var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
-            document.getElementById('selected').appendChild(date);
-    	}
-  		});
+				//Register
+				$(document).ready(function() {
+					$("#submitRegisterButton").click(function(event){
+						event.preventDefault();
+						var send = $("#registerForm").serialize();
+						send += "&" + $("#registerForm2").serialize();
+						$.ajax({
+							url: "php/insert_into.php",
+							type: "POST",
+							data: send,
+							success: function(ret) {
+								if(ret["error"]) {
+									var out = "";
+									var arr = ret["error"];
+									for(var i=0, len = arr.length; i<len; i++){
+										out += " " + arr[i] + "\n";
+									}
+									alert(out);
+								} else {
+									window.location.href = "index.html";
+									alert("Registered!");
+								}
+							},
+							error: function(jqXHR, exception) {
+								console.log(jqXHR);
+							}
+						});
+					});
 
- 	 </script>
+				});
 
+				//Password recovery
+				$(document).ready(function() {
+					$("#submitForgotPassButton").click(function(event){
+						event.preventDefault();
+						var send = $("#forgotPassForm").serialize();
+						$.ajax({
+							url: "php/forgot_pass.php",
+							type: "POST",
+							data: send,
+							success: function(ret) {
+								if(ret["msg"]) {
+									var out = "";
+									var arr = ret["msg"];
+									for(var i=0, len = arr.length; i<len; i++){
+										out += " " + arr[i] + "\n";
+									}
+									alert(out);
+								} 
+							},
+							error: function(jqXHR, exception) {
+								console.log(jqXHR);
+							}
+						});
+					});
 
+				});
 
-      <script>
-         $(function() {
-             $('#basicExample').timepicker();
-           });
-      </script>
-
-
-	
-	</div>
-  </body>
+				//Guest register
+				$(document).ready(function() {
+					$("#submitGuestRegisterButton2").click(function(event){
+						event.preventDefault();
+						var send = $("#guestRegisterForm").serialize();
+						send += "&" + $("#guestRegisterForm2").serialize();
+						$.ajax({
+							url: "php/guest_insert_into.php",
+							type: "POST",
+							data: send,
+							success: function(ret) {
+								if(ret["error"]) {
+									var out = "";
+									var arr = ret["error"];
+									for(var i=0, len = arr.length; i<len; i++){
+										out += " " + arr[i] + "\n";
+									}
+									alert(out);
+								} else {
+									alert("Guest Account Created!\nYou will be contacted by email once we have found you a group.");
+									window.location.href = "index.html";		
+								}
+							},
+							error: function(jqXHR, exception) {
+								console.log(jqXHR);
+							}
+						});
+					});
+				});
+			</script>
+			
+			<!--Modal for the permanent registration. Does not have reservation.-->
+			<script src="js/pikaday.js"></script>
+			<script>
+				var picker = new Pikaday({
+				field: document.getElementById('datepicker'),
+				firstDay: 1,
+				minDate: new Date(),
+				maxDate: new Date(2020, 12, 31),
+				yearRange: [2000,2020],
+				onSelect: function() {
+					var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
+					document.getElementById('selected').appendChild(date);
+				}
+				});
+			</script>
+			<script>
+				$(function() {
+					$('#basicExample').timepicker();
+				});
+			</script>
+		</div>
+	</body>
 </html>

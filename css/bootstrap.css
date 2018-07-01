@@ -141,30 +141,28 @@ img{
 /*Footer properties*/
 footer {
 	background-color: #444;
-	width: auto;
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
 	color: white;
 	position: absolute;
 	bottom:0px;
-
 }
 
 #about_us{
 	 float:left;
 	 width:33%;
 	 padding:5px;
-	 text-align: left;
+	 text-align: center;
 }
 #contacts{
 	 float:left;
 	 width:33%;
-	 text-align:left;
+	 text-align: center;
 	 padding:5px;
 }
 #get_started{
 	float: left;
 	width:33%;
-	text-align: left;
+	text-align: center;
 	padding:5px;
 }
 #copyright{
@@ -188,6 +186,12 @@ footer {
 *
 */
 
+.hScroll {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;	
+}
+
 /*The container that contains the row of the advertisement scroll/deal scroller and the register
  	and login section*/
 #AdvertRegisterContainer{
@@ -198,13 +202,14 @@ footer {
 #registerDiv {
 	background:#444;
 	border:3px solid #ddd;
-	width:auto;
+	width: auto;
 	font-size:16px;
 	-moz-box-shadow:1px 1px 7px #ccc;
 	-webkit-box-shadow:1px 1px 7px #ccc;
 	box-shadow:1px 1px 7px #ccc;
 	padding: 0px;
-	position:relative;
+	margin-left: 8px;
+	margin-right: 8px;
 }
 
 /*Div that contains the area where the user inputs their username/password etc*/
@@ -231,6 +236,8 @@ footer {
 	clear:both;
 	color:#fff;
 	text-shadow:1px 1px 1px #000;
+	padding: 0px 30px 120px 30px;
+	height: auto;
 }
 
 /*The register/login bottom button style*/
@@ -238,23 +245,40 @@ footer {
 #guestFromRegisterButton, #loginFromGuestRegisterButton, #loginFromRegisterButton {
 	display:block;
 	clear:both;
-	padding:10px 30px;
+	padding:0px 65px;
 	text-align:right;
 	color:#ffa800;
 	text-shadow:1px 1px 1px #000;
 	font-size: 12px;
-
 }
+
+#registerButton2nd,#loginFromForgotPassButton2nd, #registerFromForgotPassButton2nd,
+#guestFromRegisterButton2nd, #loginFromGuestRegisterButton2nd, #loginFromRegisterButton2nd {
+	display:block;
+	clear:both;
+	float: right;
+	height: 20px;
+	width: 150px;
+	margin: 2px 10px 2px 20px;
+	padding-bottom: 20px;
+	border-radius: 2px;
+	color: black;
+	font-family: "Trebuchet MS", "Myriad Pro", sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	border: 0px;
+}
+
 
 /*Forgot your password link on login*/
 #forgotPassButton{
 	float:right;
 	font-style:italic;
-	line-height:24px;
+	line-height:1px;
 	color:#ffa800;
 	text-shadow:1px 1px 0px #fff;
 	font-size: 12px;
-	padding-right: 5px;
+	margin-right: 40px;
 }
 
 /*Style for when you hover over the forgot your password*/
@@ -266,8 +290,9 @@ footer {
 this css style is for the login/register/send reminder buttons*/
 #registerDiv input[type="submit"], #registerSubmitButton, #submitGuestRegisterButton{
 	background: #e3e3e3;
-	border: 1px solid #ccc;
+	border: 1px solid;
 	color: #333;
+	background-color: #ffa800;
 	font-family: "Trebuchet MS", "Myriad Pro", sans-serif;
 	font-size: 14px;
 	font-weight: bold;
@@ -276,14 +301,11 @@ this css style is for the login/register/send reminder buttons*/
 	width: 150px;
 	cursor:pointer;
 	float:right;
-	margin:15px 20px 10px 10px;
-	text-shadow: 0 1px 0px #fff;
+	margin:15px 10px 2px 10px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
-	-moz-box-shadow: 0px 0px 2px #fff inset;
-	-webkit-box-shadow: 0px 0px 2px #fff inset;
-	box-shadow: 0px 0px 2px #fff inset;
+
 }
 
 /*Styles for all the labels(Username:, Password:, First Name:, etc) */
@@ -303,11 +325,11 @@ this css style is for the login/register/send reminder buttons*/
 /*Styles for the textboxes that uses enters*/
 #registerDiv input[type="text"], #registerDiv input[type="password"]{
 	border: solid 1px #E5E5E5;
-	margin: 5px 30px 0px 30px;
+	margin: 25px 30px 0px 30px;
 	padding: 9px;
 	display:block;
 	font-size:16px;
-	width:76%;
+	width:94.5%;
 	background: #FFFFFF;
 	background:
 		-webkit-gradient(
@@ -339,24 +361,22 @@ this css style is for the login/register/send reminder buttons*/
 this css style is for the login/register/send reminder buttons when you hover over them*/
 #registerDiv input[type="submit"]:hover, #registerSubmitButton, #submitGuestRegisterButton  {
 	background: #d9d9d9;
-	-moz-box-shadow: 0px 0px 2px #eaeaea inset;
-	-webkit-box-shadow: 0px 0px 2px #eaeaea inset;
-	box-shadow: 0px 0px 2px #eaeaea inset;
 	color: #222;
+	background-color: #ffa800;
 }
 
 /*The styles for the keep me logged in/send me updates checkbox*/
 #registerDiv div.remember{
 	float:left;
 	width:140px;
-	margin:20px 0px 20px 30px;
+	margin:15px 0px 5px 5px;
 	font-size:11px;
 }
 
 /*The styles for the keep me logged in/send me updates checkbox*/
 #registerDiv div.remember input{
 	float:left;
-	margin:2px 5px 0px 0px;
+	margin:1px 5px 0px 0px;
 }
 
 /*
@@ -365,6 +385,7 @@ this css style is for the login/register/send reminder buttons when you hover ov
 
 /*Hide this register panel for initial start up*/
 #registerPanel{
+	display: none;
 	display: none;
 }
 
@@ -441,6 +462,71 @@ creation procress by asking them for their traits*/
 	border-radius: 4px;
 	background-color: #eaeaea;
 }
+
+@media screen and (max-width: 767px) {
+	#gbLogo {        width: 170px;
+		height: 50px;
+	}
+	/*Styles for the textboxes that uses enters*/
+	#registerDiv input[type="text"], #registerDiv input[type="password"]{
+		width:70%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	/*Styles for the textboxes that uses enters*/
+	#registerDiv input[type="text"], #registerDiv input[type="password"]{
+		width:80%;
+	}
+
+}
+
+@media screen and (max-width: 400px) {
+	/*Styles for the textboxes that uses enters*/
+	#registerDiv input[type="text"], #registerDiv input[type="password"]{
+		width:70%;
+	}
+	
+	#registerDiv input[type="submit"], #registerSubmitButton, #submitGuestRegisterButton{
+		width: 150px;
+	    margin:5px 10px 2px 10px;
+	}
+	/*The register/login bottom style*/
+	#registerBottom, #guestRegisterBottom, #loginBottom, #forgotPassBottom{
+		padding: 0px 40px 160px 25px;
+	}
+	/*The styles for the keep me logged in/send me updates checkbox*/
+	#registerDiv div.remember{
+		margin:15px 0px 5px 170px;
+	}
+	
+	#about_us{
+	    width:100%;
+	    padding:1px;
+	}
+	#contacts{
+	    width:100%;
+		padding:1px;
+	}
+	#get_started{
+		width:100%;
+		padding:1px;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	/*Forgot your password link on login*/
+	#forgotPassButton{
+		margin-right: 25px;
+	}
+	/*The styles for the keep me logged in/send me updates checkbox*/
+	#registerDiv div.remember{
+		margin:15px 0px 5px 95px;
+	}
+}
+	
+
+
 /* End of Login/Registration CSS section*/
 
 
@@ -576,6 +662,15 @@ is near the bottom of the css page on lines 7265-7297*/
 .btn-start-order:hover,.btn-start-order:active, .btn-start-order:focus {
 	border-color: #5e9bfc;
 	color: #5e9bfc;
+}
+
+#theCrew, #location {
+	margin-right: 30px;
+	margin-left: 30px;
+	padding-left: 50px;
+	padding-bottom: 25px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 
@@ -2188,8 +2283,8 @@ pre code {
 }
 
 .row {
-	margin-right: -15px;
-	margin-left: -15px;
+	margin-right: 15px;
+	margin-left: 15px;
 	padding-left: 0px;
 	display: flex;
 	flex-wrap: wrap;
