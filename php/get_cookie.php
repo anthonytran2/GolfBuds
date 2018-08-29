@@ -1,12 +1,10 @@
 <?php
-	session_start();
-	
 	$msg = "";
+	session_start();
+
 	//Check if user log in was saved as cookie
 	if(isset($_COOKIE["email"])){
-		$msg = array("set" => "true");
-	} else {
-		$msg = array("set" => "false");
+		$msg = array("cookie" => $_COOKIE["email"]);
 	}
 
 	//Send msg back for html's js to handle.

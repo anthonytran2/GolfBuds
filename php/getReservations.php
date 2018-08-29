@@ -4,15 +4,15 @@
 	session_start();
 	
 	//Get user reservations to display.
-	$sql = $conn->prepare("select PARK_ID, REQUESTTIME, REQUESTDATE from REQUEST where EMAIL=?");
+	$sql = $conn->prepare("select PARK_ID from REQUEST where EMAIL=?");
     $sql->bind_param("s", $_SESSION["email"]);
     $sql->execute();
-	$res = $sql->bind_result($park, $time, $date);
+	$res = $sql->bind_result($park);
 	
 	//Send as array of associated arrays
 	$rows = array();
 	while($sql->fetch()) {
-		$rows[] = array("PARK_ID"=>$park, "REQUESTTIME"=>$time, "REQUESTDATE"=>$date);
+		$rows[] = array("PARK_ID"=>$park);
     }
 	$sql->free_result();
     $sql->close();

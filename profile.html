@@ -17,6 +17,17 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jquery.timepicker.js"></script>
 		<script src="js/bootstrap.js"></script>
+		<script src="libs/SendBird-SDK-JavaScript-master/SendBird.min.js"></script>
+		<script src="js/sendbird.js"></script>
+		<script src="js/chat.js"></script>
+		<script src="js/removeReservation.js"></script>
+		<script src="js/getProfileImage.js"></script>
+		<script src="js/match.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(this).scrollTop(0);
+			});
+		</script>
 	</head>
 
 	<body style="padding-top: 5px">
@@ -35,8 +46,7 @@
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li role="presentation"><a href="#"><img src="images/preferenceIcon.png" width="8%">&nbsp;Preferences</a></li>
-									<li role="presentation"><a href="#"><img src="images/messageIcon.png" width="8%">&nbsp;Contact Support</a></li>
+									<li role="presentation"><a href="editProfile.html"><img src="images/preferenceIcon.png" width="8%">&nbsp;Preferences</a></li>
 									<li role="presentation" class="divider"></li>
 									<li role="presentation"><a href="php/logout.php"><img src="images/logoutIcon.png" width="10%">&nbsp;Logout</a></li>
 								</ul>
@@ -50,36 +60,32 @@
 			<div class="container">
 				<div class="profile">
 					<div class="row">
-						<!-- Add icon library -->
-						<div class="col-md-6">
-							<div class="card">
-								<img src="https://storage.forums.net/6479407/images/vagmAzMznjBJGQf_sumV.png" alt="John" style="width:100%">
-								<h1 id="profileName"></h1>
-								<p><button>Contact</button></p>
+						<!-- User's image. -->
+						<div class="col-md-6 mainProfileBox" style="padding-left: 0px;">
+							<div class="cardMain" id="cardMain" style="width: 100%;">
 							</div>
 						</div>
 
-						<div class="col-md-6">
+						<!-- Container for course reservation. -->
+						<div class="col-md-6 logBox" style="padding-left: 0.3px; padding-right: 0.1px;">
 							<div class="game-log">
-								<h3>Reservation Log</h3>
+								<h3 style="margin-left: 15px;"><b>Course</b></h3>
 								<table class="table" id=reserveTable>
-									<thead>
-										<tr>
-											<th>Course</th>
-											<th>Date</th>
-											<th>Time</th>
-										</tr>
+									<thead style="border: 10px solid black;">
+										<tr></tr>
 									</thead>
 									<tbody></tbody>
 								</table>
 							</div>
-							<h3>Make a Reservation</h3>
-							<div class="reserve-block">
-								<form id="reserveForm">
+
+							<!-- Block for choosing a course. -->
+							<div id="reserve-block" style="display: none; padding: 0px 15px 0px 15px;">
+								<h3>Select Course</h3>
+								<form id="reserveForm" style="padding: 0px 15px 0px 15px;">
 									<!--Pick Course-->
-									<div class="row">
-										<div class="col-md-5">
-											<p>Select A Course</p>
+									<div class="row" id="reserveRow">
+										<div class="col-md-12" id="reserveRow">
+											<p>Course</p>
 											<select class="form-control" name="course" value="course">
 												<option>1</option>
 												<option>2</option>
@@ -90,17 +96,12 @@
 										</div>
 									</div>
 									<br>
-									<div class="row">
-										<div class="col-md-6">
-											<p>Choose date and time of reservation</p>
-											Date: <input type="text" size="16" type="text" name="res_date" class="form-control" id="datepicker">
-											<p></p>
-											Time: <input size="10" id="basicExample" name="res_time" type="text" class="form-control" />
-											<p></p>
-											Handicap: <input size="10" id="basicExample" name="handicap" type="number" step="0.1" max="36.4" placeholder="Handicap e.g. 15.5" class="form-control" />
+									<div class="row" id="reserveRow">
+										<div class="col-md-12" id="reserveRow">
+											Handicap <input size="10" id="basicExample" name="handicap" type="number" step="0.1" min="0.0" max="36.4" placeholder="Handicap e.g. 15.5" value="0.0" class="form-control"/>
 											<p></p> 
-											<div class="row">
-												<div class="col-md-10">
+											<div class="row" id="reserveRow">
+												<div class="col-md-12" id="reserveRow">
 													<p>Age</p>
 													<select class="form-control" name="age" value="course">
 														<option value=1>18-24</option>
@@ -114,8 +115,8 @@
 												</div>
 											</div>
 											<p></p>
-											<div class="row">
-												<div class="col-md-10">
+											<div class="row" id="reserveRow">
+												<div class="col-md-12" id="reserveRow">
 													<p>Golf Type</p>
 													<select class="form-control" name="golfType" value="golfType">
 														<option value=1>Golf Type 1</option>
@@ -124,17 +125,60 @@
 												</div>
 											</div>
 										</div>
-										<script>
-											$(function() {
-												$('#basicExample').timepicker();
-											});
-										</script>
 									</div>
 									<br>
-									<!--Button-->
-									<input type="hidden" id= "u-id" name="u_id" value="" />
-									<input class="btn"type="submit" value="submit" id="submitReserve"></input>
 								</form>
+							</div>
+							<!-- Submit button. -->
+							<input type="hidden" id= "u-id" name="u_id" value="" />
+							<div class="col-md-12" id="reserveRow" style="margin: 0% 0% 0% 5%; width: 90%;">
+							    <input class="btn btnProfile" type="submit" value="Reserve" id="submitReserve"></input>					
+							</div>
+						</div>
+						
+						<!-- Display matches. -->
+						<div id="matchContainer">
+							<div class="row" id="rowTitle">
+								<div class="col-md-6" style="padding: 0px 0px 0px 15px; width: 50%">
+									<div class="matchTitle" id="matchTitle"><b>Matches</b></div>
+								</div>
+								<div class="col-md-6" style="width: 50%;">
+									<div class="groupSizeTitle" id="groupSizeTitle"><b>0/4</b></div>
+								</div>
+							</div>
+							<div class="col-md-12" id="matchRow" style="margin-top: 5px;" align="center"></div>
+						</div>
+						
+						<!-- Display chat. -->
+						<div class="col-md-12" id="chatContainer" style="width: 100%; display: none; padding-left: 0px; padding-right: 0px;">
+							<div class="row" style="margin: 0px;">
+								<div class="col-md-12" style="margin-left: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">
+									<div class="panel" style="border: 0px;">
+									    <!-- Head -->
+										<div class="panel-heading" id="accordion" style="background-color: #2B994D; height: 70px; border: 1px solid black; border-bottom: 10px solid black;">
+											<span class="glyphicon glyphicon-comment pull-left" style="margin: 6px 0px 0px 5px; font-size: 30px; position: relative; top: 50%; transform: translateY(-50%); color: black;"></span> 
+											<div class="btn-group pull-right">
+												<a type="button" class="btn btn-default btn-xs" id="chatButton" style="background-color: transparent; border-width: 0px;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+													<span class="glyphicon glyphicon-chevron-down" style="margin: 22.5px 2px 0px 0px; font-size: 20px; color:black; position: relative; top: 50%; transform: translateY(-50%); "></span>
+												</a>
+											</div>
+										</div>
+										<!-- Body -->
+										<div class="panel-collapse collapse" id="collapseOne">
+											<div class="panel-body" id="panel-body">
+												<ul class="chat" id="chat"></ul>
+											</div>
+											<div class="panel-footer" style="background-color: #2B994D;">
+												<div class="input-group">
+													<input id="btn-input" type="text" class="form-control input-sm" placeholder="" />
+													<span class="input-group-btn">
+														<button class="btn btn-warning btn-sm" id="btn-chat" style="padding: 3.5px 25px; margin-top: -0.2px; background-color: black; color: white; border: 2px solid black;">Send</button>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -157,7 +201,7 @@
 						<h3><b>Contact</b></h3>
 						<ul style="list-style: none; font-size: 10px;">
 							<li>Call us 1-800-Golf-Bud</li>
-							<a href="ContactUs.html"><li>Get in touch with us</li></a>    	    
+							<a href="contactUs.html"><li>Get in touch with us</li></a>    	    
 						</ul>
 					</div>
 					<div id="get_started">
@@ -165,7 +209,7 @@
 						<ul style="list-style: none; font-size: 10px;">
 							<a href="index.html"><li>Login/Register</li></a>
 							<a href="index.html"><li>Try us out as a guest</li></a>
-							<a href="ContactUs.html"><li>Want to sign up as a course?</li></a>
+							<a href="contactUs.html"><li>Want to sign up as a course?</li></a>
 						</ul>
 					</div>
 					<br>
@@ -176,73 +220,399 @@
 		</div>
 	</body>
 
+	<!-- Update dropdown & user profile card menu name. -->
 	<script>
-		$.ajaxSetup({cache: false})
-		$.get('php/getSession.php', function (data) {
-			data = JSON.parse(data);
-			document.getElementById("dropDownButton").innerHTML = "Welcome, " + data.fname + " " + data.lname;
-			document.getElementById("profileName").innerHTML = data.fname + " " + data.lname;
-		});
-	</script>
+		$(document).ready(function() { 
+			$.ajaxSetup({cache: false})
+			
+			//Get session data.
+			$.get('php/getSession.php', function (data) {
+				data = JSON.parse(data);
+				if(data.email === null) window.location.href = "../index.html";
+				//Dropdown menu top.
+				document.getElementById("dropDownButton").innerHTML = "Welcome, " + data.fname + " " + data.lname;
 
-	<script>
-		$.ajaxSetup({cache: false})
-		$.get('php/getReservations.php', function (data) {
-			data = JSON.parse(JSON.stringify(data));
-			i = 0;
-			table = document.getElementById("reserveTable").getElementsByTagName("tbody")[0];
-						
-			while(i<data.length) {
-				row = table.insertRow(i);
-				cell0 = row.insertCell(0);
-				cell0.appendChild(document.createTextNode(data[i].PARK_ID));
-				cell1 = row.insertCell(1);
-				cell1.appendChild(document.createTextNode(data[i].REQUESTDATE));				
-				cell2 = row.insertCell(2);
-				cell2.appendChild(document.createTextNode(data[i].REQUESTTIME));											
-				i++;
-			}
-		});
-	</script> 
-
-	<script>
-		//Reserve  
-		$(document).ready(function() {      
-		  $("#submitReserve").click(function(event){
-			event.preventDefault();
-
-			//Get form data
-			var send = $("#reserveForm").serialize();
-			//Send to php file and handle return results in "ret"
-			$.ajax({
-					url: "php/reserve.php",
-					type: "POST",
-					data: send,
-					success: function(ret) {
-						window.location.href = "profile.html";
-						alert("Reserved! You will be email once a group is found.");
-					},
-					error: function(jqXHR, exception) {
-						console.log(jqXHR);
-					}
-			  });
+				var cardMain = document.getElementById("cardMain");
+				var img = document.createElement("img");
+				var link = getProfileImage(data.email, img); 
+				$(img).attr({
+					style: "width: 100%;"
+				});
+				var name = document.createElement("h1"); 
+				$(name).attr({
+					id: "profileName",
+					style: "margin-bottom: 0px;"
+				});
+				//User's profile card name.
+				name.innerHTML = data.fname + " " + data.lname; 
+				cardMain.appendChild(img);
+				cardMain.appendChild(name);				
 			});
 		});
 	</script>
-	
-	<script src="js/pikaday.js"></script>
+
+	<!-- Update selected course. -->
 	<script>
-		var picker = new Pikaday(
-		  {
-			field: document.getElementById('datepicker'),
-			firstDay: 1,
-			minDate: new Date(),
-			maxDate: new Date(2020, 12, 31),
-			yearRange: [2000,2020],
-			onSelect: function() {
-					var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
-					document.getElementById('selected').appendChild(date);
+		$.ajaxSetup({cache: false})
+		
+		$.get('php/getReservations.php', function (data) {
+			data = JSON.parse(JSON.stringify(data));
+			var i = 0;
+			var table = document.getElementById("reserveTable").getElementsByTagName("tbody")[0];
+			var row, cell0, cell1, exitBtn;
+			
+			//Insert selected course.
+			while(i<data.length) {
+				row = table.insertRow(i);
+				//Course Id.
+				cell0 = row.insertCell(0);
+				cell0.appendChild(document.createTextNode(data[i].PARK_ID));
+				//Remove reservation button.
+				exitBtn = document.createElement("button");
+				cell1 = row.insertCell(1);
+				$(exitBtn).attr({
+					class: "close",
+					id: "removeReservation",
+					onclick: "removeReservation()",
+					style: "text-align: right; color: red; font-size: 25px;"
+				});
+				exitBtn.innerHTML = "&times;";
+				cell1.appendChild(exitBtn);				
+				i++;
 			}
+			//If course is selected then hide reserve button.
+			if(data.length === 1) document.getElementById("submitReserve").style.display = "none";
+		});
+	</script> 
+	
+	<!-- Check for matches and display them. -->
+	<script> 
+		$(document).ready(function() { 
+	        $.ajaxSetup({cache: false})
+			//Check and return matched users.
+			$.ajax({
+				url: "php/check_match_detailed.php",
+				type: "GET",
+				success: function(data) {
+					if(data["success"] !== "false") {
+						data = JSON.parse(JSON.stringify(data));
+					    var emails = [];
+						var names = [];
+						var ids = [];
+						var data2 = null;
+						
+						//Assoc array of assoc arrays.
+						for(var key in data){
+						    if(key === "EMAILS"){
+							    data2 = data[key];
+							    for(var key2 in data2){
+								    emails.push(data2[key2]);
+								}
+							}
+							if(key === "NAMES"){
+							    data2 = data[key];
+							    for(var key2 in data2){
+								    names.push(data2[key2]);
+								}
+							}
+							if(key === "IDS"){
+							    data2 = data[key];
+							    for(var key2 in data2){
+								    ids.push(data2[key2]);
+								}
+							}
+						}
+						
+						//Show chat section.
+						var chatDropdown = document.getElementById("chatContainer").style.display = "block";
+						//Show matched users on page and get size. 
+						var returnArr = getMatch(emails, names, ids);
+						var groupSize = returnArr[1];
+						//Show match info.
+						document.getElementById("groupSizeTitle").innerHTML = (groupSize + "/4").bold();
+					
+					}
+				}, error: function(jqXHR, exception) {
+					console.log(jqXHR);
+				}
+			});
+		});
+	</script>
+
+	<!-- Handle course reserve button click.-->
+	<script>
+        $(document).ready(function() { 	
+		    //Reserve a group.    
+		    $("#submitReserve").click(function(event){
+			    event.preventDefault();	
+				//Show looking for a course options.
+			    if(document.getElementById("reserve-block").style.display == "none") { 
+                    document.getElementById("reserve-block").style.display = "block";  
+					var divs = document.getElementsByClassName("logBox"); 
+					for(var i=0; i < divs.length; i++) { 
+					  divs[i].style.height = "498.8px";
+					}
+			    } else {
+			        //Get form data
+			        var send = $("#reserveForm").serialize();
+			        //Send reserve infomation to php file and handle return results.
+			        $.ajax({
+					    url: "php/reserve.php",
+					    type: "POST",
+					    data: send,
+					    success: function(ret) {
+						    if(ret["error"]) {
+							    var out = "";
+							    var arr = ret["error"];
+							    for(var i=0, len = arr.length; i<len; i++){
+								    out += " " + arr[i] + "\n";
+							    }
+							    alert(out);
+						    } else {  //User has already reserved.	Show course details.
+							    $.ajaxSetup({cache: false})
+								//Update reserve table.
+							    $.get('php/getReservations.php', function (data) {
+								    data = JSON.parse(JSON.stringify(data));
+								    i = 0;
+								    table = document.getElementById("reserveTable").getElementsByTagName("tbody")[0];
+											
+									while(i<data.length) {
+										row = table.insertRow(i);
+										cell0 = row.insertCell(0);
+										cell0.appendChild(document.createTextNode(data[i].PARK_ID));
+										cell1 = row.insertCell(1);
+										exitBtn = document.createElement("button");
+										$(exitBtn).attr({
+											class: "close",
+											id: "removeReservation",
+											onclick: "removeReservation()",
+											style: "text-align: right; color: red; font-size: 25px;"
+										});
+										exitBtn.innerHTML = "&times;";
+										cell1.appendChild(exitBtn);				
+										i++;
+									}
+									document.getElementById("reserve-block").style.display = "none";
+									document.getElementById("submitReserve").style.display = "none";
+									var divs = document.getElementsByClassName("logBox"); 
+									for(var i=0; i < divs.length; i++) { 
+									    divs[i].style.height = "498.8px";
+									}
+							    });
+								
+								//Get matches.
+								$.ajaxSetup({cache: false})
+								$.ajax({
+									url: "php/match.php",
+									type: "GET",
+									success: function(retData) {
+									    $.ajaxSetup({cache: false})
+										//Check and return matched users.
+										$.ajax({
+											url: "php/check_match_detailed.php",
+											type: "GET",
+											success: function(data) {
+												if(data["success"] !== "false") {
+													data = JSON.parse(JSON.stringify(data));
+													var emails = [];
+													var names = [];
+													var ids = [];
+													var data2 = null;
+													var userIds = [];
+													
+													//Assoc array of assoc arrays.
+													for(var key in data){
+														if(key === "EMAILS"){
+															data2 = data[key];
+															for(var key2 in data2){
+																emails.push(data2[key2]);
+															}
+														}
+														if(key === "NAMES"){
+															data2 = data[key];
+															for(var key2 in data2){
+																names.push(data2[key2]);
+															}
+														}
+														if(key === "IDS"){
+															data2 = data[key];
+															for(var key2 in data2){
+																ids.push(data2[key2]);
+															}
+														}
+													}
+													
+													//Show matched users on page and get size. 
+													var returnArr = getMatch(emails, names, ids);
+													var userIds = returnArr[0]; 
+													var groupSize = returnArr[1];
+													//Show match info.
+													document.getElementById("groupSizeTitle").innerHTML = (groupSize + "/4").bold();
+													
+												    //Get user session data.
+													$.ajaxSetup({cache: false})
+													$.get('php/getSession.php', function(sesData) {
+														var sesData = JSON.parse(sesData);
+														var thisEmail = sesData.email;
+
+														//If user is a leader create a chat channel.
+														if(userIds[0] === thisEmail) {  
+															sb.connect(userIds[0], function(user, error) {
+																console.log(user, error);
+																
+																//Create channel.
+																sb.OpenChannel.createChannel("test", null, null, function(createdChannel, error) {
+																	if (error) {
+																		console.error(error);
+																		return;
+																	} else {
+																		console.log(createdChannel);
+																	}
+																	
+																	//Get channel url.
+																	var chKey = "";
+																	for(var key in createdChannel) 
+																		if(key === "url") chKey = createdChannel[key];
+
+																	//Update group with chat channel url.
+																	$.ajax({
+																		url: 'php/updateGroupChat.php',
+																		type: 'POST',
+																		data: { chatUrl: chKey},
+																		error: function(jqXHR, exception) {
+																			console.log(jqXHR);
+																		}
+																	});
+																	
+																	sb.OpenChannel.getChannel(chKey, function(channel, error) {
+																		if (error) {
+																			console.error(error);
+																			return;
+																		} else {
+																			console.log(channel);
+																		}
+																		//Leader enters the channel.
+																		channel.enter(function(response, error){
+																			if (error) {
+																				console.error(error);
+																				return;
+																			} else {
+																				console.log(response);
+																			}
+																		});
+																	});
+																});
+															});
+														} else {  //If not leader.
+															//Get session data.
+															$.get('php/getSession.php', function(sesData) { 
+																var sesData = JSON.parse(sesData);
+																var userId = sesData.email;
+																var chatUrl = null;
+																var groupUrl = null;
+																
+																$.ajaxSetup({cache: false})
+																$.get('php/check_match.php', function(mData) {
+																	mData = JSON.parse(JSON.stringify(mData));
+																	var grpUsers = [];
+
+																	//Get other users in the groups.
+																	for(var key in mData) {
+																		if(mData[key] !== grpUsers && mData[key] !== null) grpUsers.push(mData[key]);
+																	}
+																
+																	//Get the chat group url.
+																	$.get('php/getGroupChat.php', function(chData){
+																		chData = JSON.parse(JSON.stringify(chData));
+																		
+																		for(var key in chData) if(key === "CHATURL") groupUrl = chData[key];
+																		
+																		//Connect and enter user to chat room.
+																		sb.connect(userId, function(user, error) {
+																			console.log(user, error);
+																			sb.OpenChannel.getChannel(groupUrl, function(channel, error) {
+																				if (error) {
+																					console.error(error);
+																					return;
+																				} else {
+																					console.log(channel);
+																				}
+																				channel.enter(function(response, error){
+																					if (error) {
+																						console.error(error);
+																						return;
+																					} else {
+																						console.log(response);
+																					}
+																				});
+																			});
+																		});
+																	});
+																	
+																});
+															});
+														}
+														//Show chat section.
+														var chatDropdown = document.getElementById("chatContainer").style.display = "block";
+													});
+												
+												}
+											}, error: function(jqXHR, exception) {
+												console.log(jqXHR);
+											}
+										});
+									},
+									error: function(jqXHR, exception) {
+										console.log(jqXHR);
+									}
+								});								
+						    }
+						},
+						error: function(jqXHR, exception) {
+							console.log(jqXHR);
+						}
+					});
+			    }
+				
+		    });
+		});
+	</script>
+	
+	<!-- Chat script -->
+	<script>
+	    $(document).ready(function() { 	
+			//Get email session
+			var data;
+			var thisEmail;
+			$.get('php/getSession.php', function(data) {
+				data = JSON.parse(data);
+				thisEmail = data.email;
+			});
+			
+		    var flip = 0; //Keep track off open or close
+			//Open and close chat dropdown
+		    $("#chatButton").click(function(event){
+			    if(flip === 0) {
+                    getChat("load", ""); //Load group chat messages.
+					getChat("status", ""); //Get connection status of users.
+					intervalID = setInterval(function(){ getChat("status", "");}, 5000); //Check status every 5000ms.
+					flip++;
+				} else if(flip === 1) {
+				    getChat("exit", ""); //User exit chat room when chatbox closed.
+					clearInterval(intervalID); //Turn off status checking.
+					$("#chat").empty();
+				    flip--;
+				}
+			});
+			
+			//Send message button
+			$("#btn-chat").click(function(event){
+                var inputMsg = document.getElementById("btn-input").value;
+				getChat("message", inputMsg); //Send message to backend.
+				var date = new Date();
+				date = moment(date).unix()*1000; //Convert unix time.
+				chatInsert(date, inputMsg, thisEmail, "right"); //Show message in chat box right if sender.
+			});
 		});
 	</script>
 </html>

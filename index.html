@@ -13,13 +13,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
-
-
-		<link rel="stylesheet" href="css/pikaday.css">
-		<script type="text/javascript" src="js/jquery.timepicker.js"></script>
-		<script type="text/javascript" src="js/moment.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
-		<link rel="stylesheet" type="text/css" href="css/style2.css" />
+		<script>
+			$(document).ready(function(){
+				$(this).scrollTop(0);
+			});
+		</script>
 	
 		<script>
 			/*SCRIPTS FOR LOGIN SECTION*/
@@ -84,14 +82,7 @@
 						$("#registerPanel").slideDown();
 					});
 			   });		
-		</script>
-	  
-		<!--Scripts for the picking a reservation date-->	  
-		<script>
-			$( function() {
-				$( "#datepicker" ).datepicker({minDate: 0});
-			});
-		</script>			
+		</script>		
 	</head>
    
 	<body style="padding-top: 5px">  
@@ -105,7 +96,7 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="topFixedNavbar1">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="ContactUs.html">Contact</a></li>
+							<li><a href="contactUs.html">Contact</a></li>
 							<li><a href="aboutUs.html" style="margin-right: 30px;">About</a></li>
 						</ul>
 					</div>
@@ -151,6 +142,16 @@
 									<input type="text" name="firstname" />
 								</div>
 								<div>
+									<label>Last Name</label>
+									<input type="text" name="lastname"/>
+								</div>								
+								<div>
+									<label>Email</label>
+									<input type="text" name="em" />
+								</div>
+							</div>
+							<div class="column">
+								<div>
 									<label>Password</label>
 									<input type="password" name="passW"/>
 								</div>
@@ -159,21 +160,7 @@
 									<input type="password" name="passWConfirm"/>
 								</div>
 							</div>
-							<div class="column">
-								<div>
-									<label>Last Name</label>
-									<input type="text" name="lastname"/>
-								</div>
-								<div>
-									<label>Email</label>
-									<input type="text" name="em" />
-								</div>
-							</div>
 							<div id="registerBottom" class="bottom" style="height: 153px;">
-								<div class="remember">
-									<input type="checkbox" />
-									<span>Send me updates</span>
-								</div>
 								<button id="registerSubmitButton" type="button"/>Register</button>
                                 <input id="loginFromRegisterButton2nd" href="#" type="button" rel="login" value="Login" class="linkform"></input>    								
 							</div>
@@ -181,24 +168,24 @@
 					</div>	
 				</form>
 					
-				<!--Modal for the permanent user registration, does not have the researchs with the 4 questions-->
+				<!-- modal for the permanent user registration -->
 				<form id="registerForm2">	 		
 					<div id="registerModal" class="modal-content">
 						<div class="modal-content"> 
 							<div class="modal-header">
-								<span class="close">&times;</span>
-								<h3>Please answer the follow questions to the best of your ability.</h3>
+								<span class="close" style="color: black; float: right;">&times;</span>
+								<h3>Preferences</h3>
 							</div>
 						  
-						   <!-- Modal Content for the Questions about the user's interests -->
+						   <!-- modal content for the questions about the user's interests -->
 							<div class="modal-body">
 								<div class="modalColumn">
-									<label>Question 1: Do you like to play golf?</label>
+									<label>Do you prefer Smoking?</label>
 									<div class="modalQuestion1">
 										<input type="radio" name="question1" value="1">&nbsp;Yes</input>
-										<input type="radio" name="question1" value="2">&nbsp;No</input>
+										<input type="radio" name="question1" value="2">&nbsp;no</input>
 									</div>
-									<label>Question 2: Do you like to play golf?</label>
+									<label>Do you prefer Gambling?</label>
 									<div class="modalQuestion2">
 										<input type="radio" name="question2" value="1">&nbsp;Yes</input>
 										<input type="radio" name="question2" value="2">&nbsp;No</input>
@@ -206,13 +193,13 @@
 								</div>
 							  
 								<div>
-									<label>Question 3: Do you like to play golf?</label>
+									<label>Do you prefer Drinking?</label>
 									<div class="modalQuestion3">
 										<input type="radio" name="question3" value="1">&nbsp;Yes</input>
 										<input type="radio" name="question3" value="2">&nbsp;No</input>
 									</div>
 								  
-									<label>Question 4: Do you like to play golf?</label>
+									<label>Do you prefer Music?</label>
 									<div class="modalQuestion4">
 										<input type="radio" name="question4" value="1">&nbsp;Yes</input>
 										<input type="radio" name="question4" value="2">&nbsp;No</input>
@@ -220,143 +207,9 @@
 								</div>
 							</div>				
 
-							<!-- Modal footer contains the Register button -->	
+							<!-- modal footer contains the register button	 -->
 							<div class="modal-footer">
 								<h3><input type="submit" value="Register" id="submitRegisterButton"/></h3>
-							</div>
-						</div>
-					</div>		
-				</form>	
-				 
-				 
-				<!--Code for guest registration-->
-				<form id="guestRegisterForm">	 
-					<div class="guestRegisterForm" id="guestRegisterPanel">
-						<div id="userInput">
-							<h3 id="guestRegisterH3" class="guestRegisterH3">Guest Register</h3>
-							<div class="column">
-								<div>
-									<label>First Name</label>
-									<input type="text" name="firstname" />
-								</div>
-								<div>
-									<label>Last Name</label>
-									<input type="text" name="lastname"/>
-								</div>
-							</div>
-							<div class="column">
-								<div>
-									<label>Email</label>
-									<input type="text" name="em" />
-								</div>
-							</div>
-							<div id="guestRegisterBottom" class="bottom">
-								<button type="button"  id="submitGuestRegisterButton"/>Register</button>
-								<input id="loginFromGuestRegisterButton2nd" href="#" type="button" rel="login" value="Login" class="linkform"></input>
-								<div class="clear"></div>
-							</div>				
-						</div>	
-					</div>
-				</form>
-				<!-- Code for modal(popup window) after user begins creation of guest account to further ask user for their traits-->
-				<form id="guestRegisterForm2">						
-					<div id="guestRegisterModal" class="modal-content">
-						<div class="modal-content"> 
-							<div class="modal-header">
-								<span class="close" onclick="document.getElementById('guestRegisterModal').style.display='none'">&times;</span>
-								<h3>Please answer the follow questions to the best of your ability.</h3>
-							</div>
-						  
-							<!-- Modal Content for the Questions about the user's interests -->
-							<div class="modal-body"> 
-								<h5 style="font-size: 17px;"><b>Please enter your Age and Handicap</b></h5>
-								  <div class="modalAgeHandicap">
-										<div class="modalAge col-lg-6">
-											<select name="age" id="ageList">
-												<option value=1 disabled selected>Age</option>
-												<option value=1>18-24</option>
-												<option value=2>25-31</option>
-												<option value=3>32-38</option>
-												<option value=4>39-45</option>
-												<option value=5>46-52</option>
-												<option value=6>53-59</option>
-												<option value=7>60+</option>
-											</select>
-										</div>
-									
-										<div class="modalHandicap col-lg-6">
-											<input name="handicap" type="number" step="0.1" min="0" max="36.4" placeholder="Handicap e.g. 15.5">												
-										</div>
-									</div>
-							  
-							</div>  
-							<div class="modal-body">					  
-								<div class="modalColumn">
-									<label>Question 1: Do you like to play golf?</label>
-									<div class="modalQuestion1">
-										<input type="radio" name="question1" value="1">&nbsp;Yes</input>
-										<input type="radio" name="question1" value="2">&nbsp;No</input>
-									</div>
-								  
-									<label>Question 2: Do you like to play golf?</label>
-									<div class="modalQuestion2">
-										<input type="radio" name="question2" value="1">&nbsp;Yes</input>
-										<input type="radio" name="question2" value="2">&nbsp;No</input>
-									</div>
-								</div>
-							  
-								<div>
-									<label>Question 3: Do you like to play golf?</label>
-									<div class="modalQuestion3">
-										<input type="radio" name="question3" value="1">&nbsp;Yes</input>
-										<input type="radio" name="question3" value="2">&nbsp;No</input>
-									</div>
-								  
-									<label>Question 4: Do you like to play golf?</label>
-									<div class="modalQuestion4">
-										<input type="radio" name="question4" value="1">&nbsp;Yes</input>
-										<input type="radio" name="question4" value="2">&nbsp;No</input>
-									</div>
-								</div>
-							</div>
-
-						   <!-- Modal Content for the Reservation location, date and time -->
-							<div class="row modalReservation" style="padding-top: 20px;">
-								<div class="col-lg-4">
-									<h5><b>Courses:</b></h5>
-									<select name="course" id="courseList">
-										<option value=1>Haggin Oaks 1</option>
-										<option value=2>Haggin Oaks 2</option>
-										<option value=3>Haggin Oaks 3</option>
-										<option value=4>Haggin Oaks 4</option>
-										<option value=5>Haggin Oaks 5</option>
-									</select>
-								</div>				  
-								<!-- Reservation Date -->  
-								<div class="col-md-11 col-lg-3 col-lg-offset-0">
-								
-									<h5><b>Date:</b></h5>
-									<input id="datepicker" name="reservationDate">
-
-								</div>
-								<!-- Reservaton Time -->  
-								<div class="col-lg-3 col-lg-offset-2">
-									<h5><b>Time:</b></h5>
-									<input name="time" id="basicExample">	
-								</div>
-								<div class="col-lg-4">
-									<h5><b>Golf Type:</b></h5>
-										<select name="golfType" id="courseList">
-											<option value=1>Type 1</option>
-											<option value=2>Type 2</option>
-										</select>
-								</div>
-								<br></br>
-							</div>
-						
-							<!-- Modal footer contains the Register button -->	
-							<div class="modal-footer">
-								<h3><input type="submit" value="Register" id="submitGuestRegisterButton2"/></h3>
 							</div>
 						</div>
 					</div>		
@@ -369,17 +222,16 @@
 							<h3 id="loginH3">Login</h3>
 							<div>
 								<!-- Change from requiring username to requiring email so that have one less thing thing to check if its unique or not.-->
-								<input type="text" placeholder="Email" name="em"/>
+								<input type="text" placeholder="Email" name="em" id="email"/>
 							</div>
 							<div>
 								<input type="password" placeholder="Password" name="pword"/><br/>
 								<a id="forgotPassButton" href="#" rel="forgot_password" class="forgotPassButton">Forgot password</a>
 							</div>
 							<div id="loginBottom" class="bottom">
-								<div class="remember"><input type="checkbox" name="checkbox"/><span>Remember Me</span></div>
+								<div class="remember"><input type="checkbox" name="checkbox" id="checkbox"/><span>Remember Me</span></div>
 								<input type="submit" value="Login" id="loginFormBut"></input>
 								<input id="registerButton2nd" href="#" type="button" rel="register" value="Register" class="linkform"></input>
-								<input id="guestFromRegisterButton2nd" href="#" type="button" rel="login" value="Guest" class="linkform"></input>
 								<div class="clear"></div>
 							</div>
 						</div>	
@@ -494,43 +346,7 @@
 						</div>
 					</li>
 				</ul>	
-			<!--Review Portrait Thumbnail photo size 180px x 180px -->
-			<!--
-				
-				<div class="contentReviews" id="contentReviews">
-					<div class="row">
-						<div class="col-md-4">
-							<div class="thumbnail"><img src="images/reviewThumbnail1.jpg" alt="Thumbnail Image 1" height="320px" width="450px">
-								<div class="caption">
-									<h3>Jane Doe</h3>
-									<p><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam vel quam elementum pulvinar etiam non."</i></p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="thumbnail"><img src="images/reviewThumbnail2.jpg" alt="Thumbnail Image 1" height="320px" width="450px">
-								<div class="caption">
-									<h3>John Smith</h3>
-									<p><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas maecenas pharetra convallis posuere morbi leo."</i></p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="thumbnail"><img src="images/reviewThumbnail3.jpg" alt="Thumbnail Image 1" height="320px" width="450px">
-								<div class="caption">
-									<h3>Phil Mickelson</h3>
-									<p><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor id eu nisl nunc mi ipsum faucibus vitae. In aliquam sem fringilla ut morbi tincidunt augue interdum."</i></p>
-								</div>
-							</div>
-						</div>  
-					</div>
-				</div>	
-			</div> 
-			-->
-			<!-- End of the Container-fluid, also known as the content in between our 
-				deal scroll, login and footer-->
 
-		
 			<!--This is the footer section -->
 			<footer class="col-lg-12">
 			    <div class="footer-container">
@@ -544,7 +360,7 @@
 					    <h3><b>Contact</b></h3>
 						<ul style="list-style: none; font-size: 10px;">
 							<li>Call us 1-800-Golf-Bud</li>
-							<a href="ContactUs.html"><li>Get in touch with us</li></a>    	    
+							<a href="contactUs.html"><li>Get in touch with us</li></a>    	    
 						</ul>
 					</div>
 					<div id="get_started">
@@ -552,7 +368,7 @@
 						<ul style="list-style: none; font-size: 10px;">
 							<a href="index.html"><li>Login/Register</li></a>
 							<a href="index.html"><li>Try us out as a guest</li></a>
-							<a href="ContactUs.html"><li>Want to sign up as a course?</li></a>
+							<a href="contactUs.html"><li>Want to sign up as a course?</li></a>
 						</ul>
 					</div>
 					<br>
@@ -561,74 +377,49 @@
 				</div>				
 			</footer>
 			
-			<!--
-			<footer class="col-lg-12">
-				<div id="about_us"><h3 align="left" style="margin-left: 250px;"><b>About</b></h3>
-					<ul style="list-style: none; text-align: left; margin-left: 252px; font-size: 10px;">
-						<a href="aboutUs.html"><li>Who are we?</li></a>
-					</ul>
-				</div>
-				<div id="contacts"><h3 align="left" style="margin-left: 150px;"><b>Contact</b></h3>
-					<ul style="list-style: none;  text-align: left; margin-left: 152px; font-size: 10px;">
-						<li>Call us 1-800-Golf-Bud</li>
-						<a href="ContactUs.html"><li>Get in touch with us</li></a>    	    
-					</ul>
-				</div>
-				<div id="get_started"><h3 align="left" style="margin-left: 50px;"><b>Getting Started</b></h3>
-					<ul style="list-style: none;  text-align: left; margin-left: 52px; font-size: 10px;">
-						<a href="index.html"><li>Login/Register</li></a>
-						<a href="index.html"><li>Try us out as a guest</li></a>
-						<a href="ContactUs.html"><li>Want to sign up as a course?</li></a>
-					</ul>
-				</div>
-				<br>
-				<div id="copyright" style="font-size: 10px;">Copyright © 2017 Golfbuds. All rights reserved. <br> <a>Privacy Policy</a> | <a>Terms of Use</a> | <a>Legal</a>	| <a>Site Map</a>
-				</div>
-			</footer>
-			-->
-
-			<!-- Include all compiled plugins (below), or include individual files as needed --> 
-
-			<!--Script for guest register modal. Has 4 questions and research options.-->
 			<script>// Get the modal
-				var modal = document.getElementById("guestRegisterModal");
 				var modal1 = document.getElementById("registerModal");
 				// Get the button that opens the modal
-				var btn = document.getElementById("submitGuestRegisterButton");
 				var btn1 = document.getElementById("registerSubmitButton");
 				// Get the <span> element that closes the modal
-				var span = document.getElementsByClassName("close")[0];
 				var span1 = document.getElementsByClassName("close")[0];
-				// When the user clicks the button, open the modal 
-				btn.onclick = function() {
-					modal.style.display = "block";
-				}
+				// When the user clicks the button, open the modal
 				btn1.onclick = function() {
 					modal1.style.display = "block";
 				}
 				// When the user clicks on <span> (x), close the modal
 				//span for the guest register also has code to close the modal with a span
 				//on the span tag in the guestRegisterModal div
-				span.onclick = function() {
-					modal.style.display = "none";
-				}
 				span1.onclick = function() {
 					modal1.style.display = "none";
 				}
 				// When the user clicks anywhere outside of the modal, close it
 				window.onclick = function(event) {
-					if (event.target == modal) {
-						modal.style.display = "none";
-					}
 					if (event.target == modal1) {
 						modal1.style.display = "none";
 					}
 				}
-			</script>
+            </script>
+
 			<!--Scripts for data functionality-->
 			<script>
+			    //Get value of cookie
+			    function getCookie(name){
+					$(document).ready(function() {
+						$.ajax({
+								url: "php/get_cookie.php",
+								type: "GET",
+								success: function(ret) {
+								     document.getElementById("email").value = ret["cookie"];
+								},
+								error: function(jqXHR, exception) {
+									console.log(jqXHR);
+								}
+						  });
+					});
+				}
 
-				//Checks if user is logged as permanment or guest.
+				//Checks if user is remembered.
 				$(document).ready(function() {
 					//Get form data
 					var send = $("#loginForm").serialize();
@@ -637,8 +428,9 @@
 							url: "php/cookie_check.php",
 							type: "GET",
 							success: function(ret) {
-								if(ret["online"] === "true") {
-									window.location.href = "profile.html";
+								if(ret["set"] === "true") {
+                                    document.getElementById("email").value =  getCookie("email");
+									document.getElementById("checkbox").checked = true;
 								} 
 									
 							},
@@ -658,7 +450,7 @@
 							type: "POST",
 							data: send,
 							success: function(ret) {
-								if(ret["error"]) {
+                                if(ret["error"]) {
 									var out = "";
 									var arr = ret["error"];
 									for(var i=0, len = arr.length; i<len; i++){
@@ -734,56 +526,22 @@
 					});
 
 				});
-
-				//Guest register
-				$(document).ready(function() {
-					$("#submitGuestRegisterButton2").click(function(event){
-						event.preventDefault();
-						var send = $("#guestRegisterForm").serialize();
-						send += "&" + $("#guestRegisterForm2").serialize();
-						$.ajax({
-							url: "php/guest_insert_into.php",
-							type: "POST",
-							data: send,
-							success: function(ret) {
-								if(ret["error"]) {
-									var out = "";
-									var arr = ret["error"];
-									for(var i=0, len = arr.length; i<len; i++){
-										out += " " + arr[i] + "\n";
-									}
-									alert(out);
-								} else {
-									alert("Guest Account Created!\nYou will be contacted by email once we have found you a group.");
-									window.location.href = "index.html";		
-								}
-							},
-							error: function(jqXHR, exception) {
-								console.log(jqXHR);
-							}
-						});
-					});
-				});
-			</script>
-			
-			<!--Modal for the permanent registration. Does not have reservation.-->
-			<script src="js/pikaday.js"></script>
+            </script>
+				
+			<!-- logged in check-->
 			<script>
-				var picker = new Pikaday({
-				field: document.getElementById('datepicker'),
-				firstDay: 1,
-				minDate: new Date(),
-				maxDate: new Date(2020, 12, 31),
-				yearRange: [2000,2020],
-				onSelect: function() {
-					var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
-					document.getElementById('selected').appendChild(date);
-				}
-				});
-			</script>
-			<script>
-				$(function() {
-					$('#basicExample').timepicker();
+                $.ajax({
+					url: "php/check_login.php",
+					type: "GET",
+					success: function(ret) {
+					    var arr = ret["success"];
+						if(arr == "true") {
+							window.location.href = "profile.html";							
+						}
+					},
+					error: function(jqXHR, exception) {
+						console.log(jqXHR);
+					}
 				});
 			</script>
 		</div>

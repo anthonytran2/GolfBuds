@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1" >
+		<title>GolfBuds</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/pikaday.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/moment.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">	  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>	 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.timepicker.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/getProfileImage.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(this).scrollTop(0);
+			});
+		</script>
+	<head/>
+	
+	<body style="padding-top: 5px">
+		<div id="wrapper">
+			<div class="navbarTopFixed">
+				<nav class="navbar navbar-default navbar-fixed-top">
+					<div class="navbar-header">
+					   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+						<a href="index.html" class="navbar-brand"><img src="images/GB_Icon1_noShadow.png" id="gbLogo"></a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="topFixedNavbar1">
+						<ul class="nav navbar-nav navbar-right" style="margin-right:15px;">
+							<div id="profileDropDownMenu" class="btn-group">
+								<button type="button" id="dropDownButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li role="presentation"><a href="editProfile.html"><img src="images/preferenceIcon.png" width="8%">&nbsp;Preferences</a></li>
+									<li role="presentation" class="divider"></li>
+									<li role="presentation"><a href="php/logout.php"><img src="images/logoutIcon.png" width="10%">&nbsp;Logout</a></li>
+								</ul>
+							</div>
+						</ul>
+					</div>
+				 </nav>
+			</div>
+
+			<!--Main Content starts Here-->
+			<div class="container">
+				<div class="profile">
+					<div class="row">
+						<div class="col-md-4" align="right">
+							<div class="card viewProfileCard" style="width: 100%; margin-left: 0%; margin-right: 0%; margin-bottom: 1%;">
+								<img id="profImg" alt="John" style="width:100%">
+								<h1 id="profileName"></h1>
+							</div>
+						</div>
+						<div class="col-md-8" id="detail" style="margin-top: 45px;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="push"></div>
+		<div class="foot">
+			<!--This is the footer section -->
+			<footer class="col-lg-12">
+				<div class="footer-container">
+					<div id="about_us">
+						<h3><b>About</b></h3>
+						<ul style="list-style: none; font-size: 10px;">
+							<a href="aboutUs.html"><li>Who are we?</li></a>
+						</ul>
+					</div>
+					<div id="contacts">
+						<h3><b>Contact</b></h3>
+						<ul style="list-style: none; font-size: 10px;">
+							<li>Call us 1-800-Golf-Bud</li>
+							<a href="contactUs.html"><li>Get in touch with us</li></a>    	    
+						</ul>
+					</div>
+					<div id="get_started">
+						<h3><b>Get Started</b></h3>
+						<ul style="list-style: none; font-size: 10px;">
+							<a href="index.html"><li>Login/Register</li></a>
+							<a href="index.html"><li>Try us out as a guest</li></a>
+							<a href="contactUs.html"><li>Want to sign up as a course?</li></a>
+						</ul>
+					</div>
+					<br>
+				</div>
+				<div id="copyright" style="font-size: 10px; content: center; ">Copyright © 2017 Golfbuds. All rights reserved. <br> <a>Privacy Policy</a> | <a>Terms of Use</a> | <a>Legal</a>	| <a>Site Map</a>
+				</div>				
+			</footer>
+		</div>
+</html>
+
+<script>
+	$(document).ready(function() {
+		$.ajaxSetup({cache: false})
+		$.get('php/getSession.php', function (data) {
+			data = JSON.parse(data);
+			document.getElementById("dropDownButton").innerHTML = "Welcome, " + data.fname + " " + data.lname;
+		});
+				
+		//Show a users profile.		
+		var name = ["fname", "lname", "Smoking", "Gambling", "Drinking", "Music", "Handicap", "Age", "Golf Type", "Email"];		
+		var value = [];
+		$.ajaxSetup({cache: false})
+		$.ajax({
+			url: "php/getProfile.php",
+			type: "GET",
+			success: function(data) {
+			    var len = 0;
+				data = JSON.parse(JSON.stringify(data));
+				for(var key in data) {
+				    value.push(data[key]);
+					len++;
+				}
+				
+				var details = document.getElementById("detail");
+				var group = document.createElement("div");
+				var groupAddon = document.createElement("div");
+				var inputGroup = document.createElement("span");
+				var input = document.createElement("input");
+
+				for(var i = 1; i < len-1; i++) {
+					details = document.getElementById("detail");
+					group = document.createElement("div");
+					groupAddon = document.createElement("div");
+					inputGroup = document.createElement("span");
+					input = document.createElement("input");
+					$(group).attr({
+						class: "input-group mb-3"
+					});
+					$(groupAddon).attr({
+						class: "input-group-addon",
+						style: "background-color: #2B994D; color: black;"
+					});
+					$(inputGroup).attr({
+					   class: "input-group-text",
+					   id: "inputGroup-sizing-default"
+					});
+					
+					if(i == 1) {
+					    txtVal = value[0] + " " + value[1];
+						inputGroup.innerHTML = "Name";
+					} else {
+					    txtVal = value[i];
+						inputGroup.innerHTML = name[i];
+					}
+					
+					if(value[i] == 1 && (name[i] != "Age" && name[i] != "Golf Type")) txtVal = "Yes";
+					else if(value[i] == 2) txtVal = "No";
+					
+					if(name[i] == "Age") {
+					    if(value[i] == 1) txtVal = "18-24";
+						else if(value[i] == 2) txtVal = "25-31";
+						else if(value[i] == 3) txtVal = "32-38";
+						else if(value[i] == 4) txtVal = "39-45";
+						else if(value[i] == 5) txtVal = "46-52";
+						else if(value[i] == 6) txtVal = "53-59";
+						else if(value[i] == 7) txtVal = "60+";
+					}
+					$(input).attr({
+						type: "text",
+						class: "form-control",
+						"aria-describedby": "inputGroup-sizing-default",
+						readonly: "readonly",
+						style: "background-color: white;",
+						value: txtVal
+					});
+					groupAddon.appendChild(inputGroup);
+					group.appendChild(groupAddon);
+					group.appendChild(input);
+					details.appendChild(group);
+				}
+				getProfileImage(value[9], document.getElementById("profImg"));
+				document.getElementById("profileName").innerHTML = value[0] + " " + value[1];
+			},
+			error: function(jqXHR, exception) {
+				console.log(jqXHR);
+			}
+		});
+	});
+</script>

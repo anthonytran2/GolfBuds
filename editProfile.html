@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1" >
+		<title>GolfBuds</title>
+
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/pikaday.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/moment.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">	  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>	 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.timepicker.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/getProfileImage.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(this).scrollTop(0);
+			});
+		</script>
+	<head/>
+	
+	<body style="padding-top: 5px">
+		<div id="wrapper">
+			<div class="navbarTopFixed">
+				<nav class="navbar navbar-default navbar-fixed-top">
+					<div class="navbar-header">
+					   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+						<a href="index.html" class="navbar-brand"><img src="images/GB_Icon1_noShadow.png" id="gbLogo"></a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="topFixedNavbar1">
+						<ul class="nav navbar-nav navbar-right" style="margin-right:15px;">
+							<div id="profileDropDownMenu" class="btn-group">
+								<button type="button" id="dropDownButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li role="presentation"><a href="php/logout.php"><img src="images/logoutIcon.png" width="10%">&nbsp;Logout</a></li>
+								</ul>
+							</div>
+						</ul>
+					</div>
+				 </nav>
+			</div>
+
+			<!--Main Content starts Here-->
+			<div class="container">
+				<div class="profile">
+					<div class="row">
+						<div class="col-md-4" align="right">
+							<div class="card editProfileCard" style="width: 100%; margin-left: 0%; margin-right: 0%; margin-bottom: 12%;">
+								<img id="profImg" alt="John" style="width:100%">
+								<h1 id="profileName"></h1>
+							</div>
+						</div>
+						<div class="col-md-8" id="detail" align="center"></div>				
+					</div>
+				</div>
+			</div>
+		</div>	
+
+		<div class="push"></div>
+		<div class="foot">
+			<!--This is the footer section -->
+			<footer class="col-lg-12">
+				<div class="footer-container">
+					<div id="about_us">
+						<h3><b>About</b></h3>
+						<ul style="list-style: none; font-size: 10px;">
+							<a href="aboutUs.html"><li>Who are we?</li></a>
+						</ul>
+					</div>
+					<div id="contacts">
+						<h3><b>Contact</b></h3>
+						<ul style="list-style: none; font-size: 10px;">
+							<li>Call us 1-800-Golf-Bud</li>
+							<a href="contactUs.html"><li>Get in touch with us</li></a>    	    
+						</ul>
+					</div>
+					<div id="get_started">
+						<h3><b>Get Started</b></h3>
+						<ul style="list-style: none; font-size: 10px;">
+							<a href="index.html"><li>Login/Register</li></a>
+							<a href="index.html"><li>Try us out as a guest</li></a>
+							<a href="contactUs.html"><li>Want to sign up as a course?</li></a>
+						</ul>
+					</div>
+					<br>
+				</div>
+				<div id="copyright" style="font-size: 10px; content: center; ">Copyright © 2017 Golfbuds. All rights reserved. <br> <a>Privacy Policy</a> | <a>Terms of Use</a> | <a>Legal</a>	| <a>Site Map</a>
+				</div>				
+			</footer>
+		</div>
+</html>
+
+<script>
+	$(document).ready(function() {
+	    var value = "";
+		$.ajaxSetup({cache: false})
+		$.get('php/getSession.php', function (data) {
+			data = JSON.parse(data);
+			document.getElementById("dropDownButton").innerHTML = "Welcome, " + data.fname + " " + data.lname;
+            getProfileImage(data.email, document.getElementById("profImg"));
+			saveEmail = value = data.email;
+			
+			var details = document.getElementById("detail");
+			var group = document.createElement("div");
+			var groupAddon = document.createElement("div");
+			var inputGroup = document.createElement("span");
+			var input = document.createElement("input");
+			var submit = document.createElement("input");
+			var pass = document.createElement("input");
+			var img = document.createElement("input");
+			var dropdown = document.createElement("div");
+			var dropdownButton = document.createElement("button");
+			var dropdownMenu = document.createElement("ul");
+			var listItem = document.createElement("li");
+			var a = document.createElement("a");
+						
+			$(group).attr({
+				class: "input-group mb-3"
+			});
+			$(groupAddon).attr({
+				class: "input-group-addon",
+				style: "background-color: #2B994D; color: black;"
+			});
+			$(inputGroup).attr({
+			   class: "input-group-text",
+			   id: "inputGroup-sizing-default"
+			});
+			inputGroup.innerHTML = "Email";		
+            
+			$(dropdownButton).attr({
+				class: "btn btn-default dropdown-toggle disabled",
+				type: "button",
+				"data-toggle": "dropdown",
+				"aria-haspopup": "true",
+				"aria-expanded": "true"		
+			});  			
+			
+			dropdownButton.innerHTML = value;
+			$(dropdownMenu).attr({
+			    class: "dropdown-menu"
+			});
+
+			dropdown.appendChild(dropdownButton);
+			dropdown.appendChild(dropdownMenu);		
+			groupAddon.appendChild(inputGroup);
+			group.appendChild(groupAddon);
+			group.appendChild(dropdown);
+			details.appendChild(group);			
+			
+			//Display user details.
+			$.ajax({
+				url: "php/setProfileSession.php",
+				type: "POST",
+				data: { email: value },
+				success: function(data) {
+					var name = ["fname", "lname", "Smoking", "Gambling", "Drinking", "Music"];		
+					var value = [];
+					$.ajaxSetup({cache: false})
+					$.ajax({
+						url: "php/getProfile.php",
+						type: "GET",
+						success: function(data) {
+							var len = name.length;
+							data = JSON.parse(JSON.stringify(data));
+							for(var key in data) {
+								value.push(data[key]);
+							}
+
+							for(var i = 1; i < len; i++) {
+								details = document.getElementById("detail");
+								group = document.createElement("div");
+								groupAddon = document.createElement("div");
+								inputGroup = document.createElement("span");
+								input = document.createElement("input");
+								dropdown = document.createElement("div");
+								dropdownButton = document.createElement("button");
+								dropdownMenu = document.createElement("ul");
+								
+								$(group).attr({
+									class: "input-group mb-3"
+								});
+								$(groupAddon).attr({
+									class: "input-group-addon",
+									style: "background-color: #2B994D; color: black;"
+								});
+								$(inputGroup).attr({
+								   class: "input-group-text",
+								   id: "inputGroup-sizing-default"
+								});
+								
+								if(i == 1) {
+									txtVal = value[0] + " " + value[1];
+									inputGroup.innerHTML = "Name";
+								} else {
+									txtVal = value[i];
+									inputGroup.innerHTML = name[i];
+								}
+								
+								if(value[i] == 1) txtVal = "Yes";
+								else if(value[i] == 2) txtVal = "No";
+								
+								$(dropdown).attr({
+								    class: "dropdown"
+								});
+                                if(i == 1) {
+									$(dropdownButton).attr({
+										class: "btn btn-default dropdown-toggle disabled",
+										type: "button",
+										"data-toggle": "dropdown",
+										"aria-haspopup": "true",
+										"aria-expanded": "true"		
+									});    
+								} else {
+									$(dropdownButton).attr({
+										class: "btn btn-default dropdown-toggle",
+										type: "button",
+										id: name[i],
+										"data-toggle": "dropdown",
+										"aria-haspopup": "true",
+										"aria-expanded": "true"		
+									});
+								}
+                                dropdownButton.innerHTML = txtVal;
+								dropdownButton.onclick = function() {
+									$(".dropdown-menu li a").click(function(event){
+										$(this).parents(".dropdown").find('.btn').html($(this).text()); 
+									});    
+								}
+								$(dropdownMenu).attr({
+								    class: "dropdown-menu"
+								});
+								
+								if(name[i] == "Smoking" || name[i] == "Gambling" || name[i] == "Drinking" || name[i] == "Music") {
+								    listItem = document.createElement("li");
+									a = document.createElement("a");
+									a.innerHTML = "Yes";
+									listItem.appendChild(a);
+									dropdownMenu.appendChild(listItem);
+									listItem = document.createElement("li");
+									a = document.createElement("a");
+									a.innerHTML = "No";
+									listItem.appendChild(a);
+									dropdownMenu.appendChild(listItem);
+								}
+								
+								
+								dropdown.appendChild(dropdownButton);
+								dropdown.appendChild(dropdownMenu);
+								groupAddon.appendChild(inputGroup);
+								group.appendChild(groupAddon);
+								group.appendChild(dropdown);
+								details.appendChild(group);
+							}
+							
+							$(submit).attr({
+								class: "btn btnProfile",
+								type: "submit",
+								value: "Submit",
+								id: "submitButton",
+								style: "margin: 0.5px 0px;"
+							});
+							//Save changes.
+							submit.onclick = function() {
+							     var smoking = gambling = drinking = music = 1;
+							     if($("#Smoking").text() == "Yes")
+								     smoking = 1;
+							     else
+									 smoking = 2;
+							     if($("#Gambling").text() == "Yes")
+								     gambling = 1;
+							     else
+									 gambling = 2;
+							     if($("#Drinking").text() == "Yes")
+								     drinking = 1;
+							     else
+									 drinking = 2;
+							     if($("#Music").text() == "Yes")
+								     music = 1;
+							     else
+									 music = 2;									 
+								 $.ajax({
+									url: "php/editProfile.php",
+									type: "POST",
+									data: {smoking: smoking, gambling: gambling, drinking: drinking, music: music},
+									success: function(data) {
+									    alert("Your preferences will be reflected in your next reservation.");
+									},
+									error: function(jqXHR, exception) {
+										console.log(jqXHR);
+									}
+								});
+							}
+							
+							//Passowrd section.
+							currGroup = document.createElement("div");
+							groupAddon = document.createElement("div");
+							inputGroup = document.createElement("span");
+							input = document.createElement("input");
+							
+							$(currGroup).attr({
+								class: "input-group mb-3",
+								style: "display: none;",
+								id: "currentPass"
+							});
+							$(groupAddon).attr({
+								class: "input-group-addon",
+								style: "background-color: #2B994D; color: black;"
+							});
+							$(inputGroup).attr({
+							   class: "input-group-text",
+							   id: "inputGroup-sizing-default"
+							});
+							$(input).attr({
+								type: "password",
+								class: "form-control",
+								id: "currentData",
+								"aria-describedby": "inputGroup-sizing-default",
+								style: "background-color: white;"
+							});
+							inputGroup.innerHTML = "Current Password";
+							groupAddon.appendChild(inputGroup);
+							currGroup.appendChild(groupAddon);
+							currGroup.appendChild(input);
+							
+							newGroup = document.createElement("div");
+							groupAddon = document.createElement("div");
+							inputGroup = document.createElement("span");
+							input = document.createElement("input");
+							
+							$(newGroup).attr({
+								class: "input-group mb-3",
+								style: "display: none;",
+								id: "password"
+							});
+							$(groupAddon).attr({
+								class: "input-group-addon",
+								style: "background-color: #2B994D; color: black;"
+							});
+							$(inputGroup).attr({
+							   class: "input-group-text",
+							   id: "inputGroup-sizing-default"
+							});
+							$(input).attr({
+								type: "password",
+								class: "form-control",
+								id: "passwordData",
+								"aria-describedby": "inputGroup-sizing-default",
+								style: "background-color: white;"
+							});
+							inputGroup.innerHTML = "New Password";
+							groupAddon.appendChild(inputGroup);
+							newGroup.appendChild(groupAddon);
+							newGroup.appendChild(input);
+					
+							conGroup = document.createElement("div");
+							groupAddon = document.createElement("div");
+							inputGroup = document.createElement("span");
+							input = document.createElement("input");
+							
+							$(conGroup).attr({
+								class: "input-group mb-3",
+								style: "display: none;",
+								id: "confirmPass"
+							});
+							$(groupAddon).attr({
+								class: "input-group-addon",
+								style: "background-color: #2B994D; color: black;"
+							});
+							$(inputGroup).attr({
+							   class: "input-group-text",
+							   id: "inputGroup-sizing-default"
+							});
+							$(input).attr({
+								type: "password",
+								class: "form-control",
+								id: "confirmData",
+								"aria-describedby": "inputGroup-sizing-default",
+								style: "background-color: white;"
+							});
+							inputGroup.innerHTML = "Confirm Password";
+							groupAddon.appendChild(inputGroup);
+							conGroup.appendChild(groupAddon);
+							conGroup.appendChild(input);
+					
+							$(pass).attr({
+								class: "btn btnProfile",
+								type: "submit",
+								value: "Change Password",
+								id: "passButton"
+							});
+							pass.innerHTML = "Change Password";
+							var flip = 0;
+							var current = first = second = null;
+							var fail = false;
+							//Change password.
+							pass.onclick = function() {
+							    if(flip === 0){
+								    document.getElementById("currentPass").style.display = "table";
+									document.getElementById("password").style.display = "table";
+									document.getElementById("confirmPass").style.display = "table";
+									flip++;
+								} else if(flip === 1) {
+								    current = document.getElementById("currentData").value;
+								    first = document.getElementById("passwordData").value;
+									second = document.getElementById("confirmData").value;
+									
+									if(first !== second) {
+									    alert("Passwords do not match.");
+									} else {
+										$.ajax({
+											url: "php/getPassword.php",
+											type: "POST",
+											data: {current: current},
+											success: function(data) {
+												var str = data["error"]+""; 
+												if(str === "false") {
+													alert("Invalid Password.");
+												} else if(str === "true"){
+													$.ajax({
+														url: "php/updatePassword.php",
+														type: "POST",
+														data: {password: first, confirm: second},
+														success: function(data) {
+															alert("Password updated.");
+														},
+														error: function(jqXHR, exception) {
+															console.log(jqXHR);
+														}
+													});
+												document.getElementById("currentPass").style.display = "none";
+												document.getElementById("password").style.display = "none";
+												document.getElementById("confirmPass").style.display = "none";
+												}
+											},
+											error: function(jqXHR, exception) {
+												console.log(jqXHR);
+											}
+										});
+									}
+									flip--;
+								}
+							}
+							
+							
+							//Upload image.
+							var form = document.createElement("form");
+							var formSubmit = document.createElement("button");
+							profileImageGroup = document.createElement("div");
+							groupAddon = document.createElement("div");
+							inputGroup = document.createElement("span");
+							input = document.createElement("input");
+							
+							$(form).attr({
+							    id: "uploadimage",
+								action: "",
+								method: "post",
+								enctype: "multipart/form-data"
+							});
+							
+							$(profileImageGroup).attr({
+								class: "input-group mb-3",
+								style: "margin-top: 20px;",
+								id: "profileImage"
+							});
+							$(groupAddon).attr({
+								class: "input-group-addon",
+								style: "background-color: #2B994D; color: black;"
+							});
+							$(inputGroup).attr({
+							   class: "input-group-text",
+							   id: "inputGroup-sizing-default"
+							});
+							$(input).attr({
+								type: "file",
+								class: "form-control",
+								name: "file",
+								id: "file",
+								"aria-describedby": "inputGroup-sizing-default",
+								style: "background-color: white; height: 100%;"
+							});
+							$(formSubmit).attr({
+								class: "btn btnProfile",
+								value: "Upload",
+								id: "profileImageButton"
+							});
+							formSubmit.innerHTML = "Upload Image";
+							
+							inputGroup.innerHTML = "Profile Image";
+							groupAddon.appendChild(inputGroup);
+							profileImageGroup.appendChild(groupAddon);
+							profileImageGroup.appendChild(input);
+							form.appendChild(profileImageGroup);
+							form.appendChild(formSubmit);
+							
+							
+							$(formSubmit).click(function(e) {
+								e.preventDefault();
+
+								$.ajax({
+									url: "php/uploadProfileImage.php", // Url to which the request is send
+									type: "POST",             // Type of request to be send, called as method
+									data: new FormData(form), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+									contentType: false,       // The content type used when sending data to the server.
+									cache: false,             // To unable request pages to be cached
+									processData:false,        // To send DOMDocument or non processed data file it is set to false
+									success: function(data)   // A function to be called if request succeeds
+									{
+									    //Refresh image.
+									    document.getElementById("profImg").src =  data["LINK"] + "?random=" + new Date().getTime();
+									},
+									error: function(jqXHR, exception) {
+										console.log(jqXHR, exception);
+									}
+								});
+							});
+														
+							
+
+							details.appendChild(submit);
+							details.appendChild(currGroup);
+							details.appendChild(newGroup);
+							details.appendChild(conGroup);
+							details.appendChild(pass);
+							details.appendChild(form);
+							document.getElementById("profileName").innerHTML = value[0] + " " + value[1];
+						},
+						error: function(jqXHR, exception) {
+							console.log(jqXHR);
+						}
+					});
+				},
+				error: function(jqXHR, exception) {
+					console.log(jqXHR);
+				}
+			});
+		});
+	});
+</script>

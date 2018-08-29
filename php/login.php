@@ -39,17 +39,6 @@
 			$sql->free_result();
     	    $sql->close();
 
-			if($correctPass) {
-				//Prepare statments for security
-				$sql = $conn->prepare("select * from USERS where EMAIL=?");
-				$sql->bind_param("s", $email);
-				$sql->execute();
-				$res = $sql->get_result();
-				$sql->close();
-			} else {
-				$correctPass = false;
-			}
-
         	//Load session data if login success
         	if($correctPass) {
     			//Start session
@@ -76,9 +65,11 @@
 				
 				//Check if user wants to be remebered.	
 				if(isset($_POST["checkbox"]) && $_POST["checkbox"]  === "on") { 
-					setcookie("online", "true");
-					setcookie("fname", $fname);
-					setcookie("lname", $lname);
+					setcookie("email", $email);
+				} else {
+					//Destory cookie
+	                unset($_COOKIE["email"]);
+	                setcookie("email", null, time()-3600);
 				}
 				//clear results from variable
             	$sql->free_result();

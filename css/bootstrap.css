@@ -16,7 +16,7 @@ body {
 }
 
 .push{
-  height: 320px;
+  height: 100px;
   background-color: #EEF3E2;
 }
 
@@ -186,12 +186,6 @@ footer {
 *
 */
 
-.hScroll {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;	
-}
-
 /*The container that contains the row of the advertisement scroll/deal scroller and the register
  	and login section*/
 #AdvertRegisterContainer{
@@ -260,6 +254,7 @@ footer {
 	height: 20px;
 	width: 150px;
 	margin: 2px 10px 2px 20px;
+	padding-top: 3px;
 	padding-bottom: 20px;
 	border-radius: 2px;
 	color: black;
@@ -493,7 +488,7 @@ creation procress by asking them for their traits*/
 	}
 	/*The register/login bottom style*/
 	#registerBottom, #guestRegisterBottom, #loginBottom, #forgotPassBottom{
-		padding: 0px 40px 160px 25px;
+		padding: 5px 50px 160px 37px;
 	}
 	/*The styles for the keep me logged in/send me updates checkbox*/
 	#registerDiv div.remember{
@@ -532,6 +527,66 @@ creation procress by asking them for their traits*/
 
 
 /*Beginning of Profile page CSS section*/
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    height: 250px;
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+	display: none;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
 
 
 #profileDropDownMenu{
@@ -540,27 +595,170 @@ creation procress by asking them for their traits*/
 	padding-right: 5px;
 }
 
+#reserve-block {
+	display: none;
+}
+
+#reserveRow {
+	margin: 0px;
+	padding: 0px;
+}
+
+#matchRow {
+	margin: 10% 1.25% 1% 1.3%;
+	padding: 0px;
+	overflow-x: auto;
+	height: 380px;
+	width: 100%;
+}
+
+#chatContainer {
+	width: 100%;
+	margin-top: 25px;
+	box-shadow: 0 4px 8px 0 #888888, 0 6px 20px 0 #888888;
+	border-radius: 0px 0px 6px 6px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #494949;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.matchCard {
+	float: left;
+	color: black;
+}
+
+.btnProfile {
+    background-color: black;
+    color: white;
+    width: 100%;	
+}
+
+#profileImageButton {
+	background-color: black;
+    color: white;
+    width: 100%;	
+	text-align: center;
+}
+
 .profile-card{display: block;}
 
 .av{display: block;}
 
 .info-user{display: block;}
 
-.game-log{display: block;}
+#rowTitle {
+	background-color: #2B994D;
+	width: 100%;
+	height: 70px;
+	border-radius: 6px 6px 0px 0px;
+	margin: 0px 0px 5px 0px;
+	border: 1px solid black;
+	border-bottom: 10px solid black;
+}
 
-.reserve-block{display: block;}
+#matchContainer {
+    border-radius: 6px;
+	width: 100%;
+	height: 460px;
+	box-shadow: 0 4px 8px 0 #888888, 0 6px 20px 0 #888888;
+}
+
+.matchTitle {
+	font-size: 20px;
+	border-radius: 6px;
+	float: left;
+	margin: 0px 0px 0px 10px; 
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%); 
+}
+
+.groupSizeTitle {
+	background-color: #2B994d; 
+	font-size: 20px;
+	border-radius: 20px;	
+	float: right;
+	margin: 0px 10px 0px 0px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%); 
+}
+
+.game-log{
+	display: block;
+    background-color: #2B994D;
+}
+
+.mainProfileBox {
+	width: 38% !important;
+}
+
+.logBox {
+	margin: 5px 0px 20px 0px;
+	border-radius: 6px;
+	height: 498.8px;
+	background-color: #2B994D;
+	box-shadow: 0 4px 8px 0 #888888, 0 6px 20px 0 #888888;
+	border: 1px solid black;
+	width:  62% !important;
+}
 
 .profile{
   display: block;
   padding-top: 75px;
-  padding-right: 50px;
+}
+
+.profile .cardMain {
+    max-width: 400px;
+    margin: 5px 0px 5px 0px;
+    text-align: center;
+	width: 32%;
+	margin-bottom: 30px;
+	box-shadow: 0 4px 8px 0 #888888, 0 6px 20px 0 #888888;
+	border-radius: 0px 0px 6px 6px;
+    border-top: 3px solid black;
+	border-bottom:3px solid black;
+	border-left: 3px solid black;
+	border-right: 3px solid black;
+	border-radius: 10px;
+}
+
+.cardMain #profileName {
+	margin-top: -6px;
+	padding: 20px 0px;
+	border-bottom-left-radius: 0.2px;
+	border-bottom-right-radius: 0.2px;
+	border-top: 10px solid black;
+	border-bottom: 10px solid black;
 }
 
 .profile .card {
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
-    max-width: 300px;
-    margin: auto;
+    max-width: 260px;
+    margin: 5px;
     text-align: center;
+	padding-bottom: 15px;
+	background-color: #2B994D;
+	border-radius: 10px;
+    box-shadow: 0 1px 8px 0 #888888, 0 6px 5px 0 #888888;
+}
+
+.profile .card img {
+    border-radius: 6px 6px 0px 0px;
+	padding-bottom: 0px;
+    border-bottom: 10px solid black;	
+}
+
+.editProfileCard {
+	height: 387px;
+}
+
+.viewProfileCard {
+	height: 350px;
 }
 
 .profile .title {
@@ -569,22 +767,134 @@ creation procress by asking them for their traits*/
 }
 
 .profile button {
-    border: none;
-    outline: 0;
+    border: solid;
+	border-color: #DCDCDC;
+	border-width: 1.3px;
     display: inline-block;
     padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
+    color: black;
+    background-color: white;
+    text-align: left;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .profile a {
     text-decoration: none;
-    font-size: 22px;
-    color: black;
+    font-size: 14px;
+    color: grey;
+}
+
+@media (max-width: 1200px) {
+	.profile .card {
+		width: 23%;
+    }		
+	.mainProfileBox {
+		width: 100% !important;
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+	.logBox {
+		width: 100% !important;
+	}
+	#matchContainer {
+		height: 400px;
+    }
+}
+
+@media (max-width: 990px) {
+	.profile .card {
+		width: 100%;
+		margin-left: 8%;
+		margin-bottom: 3%;
+		margin-top: 4%;
+    }
+	#matchRow {
+		margin: 10% 0% 1% 0.26%;
+	}
+	#matchContainer {
+		height: 460px;
+    }
+	#reserveRow {
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+	}
+}
+
+@media (max-width: 730px) {
+	.profile .card {
+		margin-left: 3%;
+		margin-right: 1%;
+		width: 50%;
+    }
+	.mainProfileBox {
+		width: 100% !important;
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+}
+
+@media (max-width: 675px) {
+	.profile .card {
+		margin-left: 5%;
+		margin-right: 3%;
+		width: 40%;
+    }
+}
+
+@media (max-width: 650px) {
+	.profile .card {
+		margin-left: 25%;
+		margin-right: 25%;
+		width: 100%;
+    }
+}
+
+@media (max-width: 645px) {
+	.profile .card {
+		margin-left: 25%;
+		margin-right: 25%;
+		width: 100%;
+    }
+}
+
+@media (max-width: 570px) {
+	.profile .card {
+		width: 80%;
+		margin-left: 20%;
+		margin-right: 10%;
+    }
+	.table {
+		width: 80%;
+	}
+}
+
+
+@media (max-width: 460px) {
+	.mainProfileBox {
+		width: 100% !important;
+		margin-left: 10%;
+		margin-right: 5%;
+	}
+
+	.profile .card {
+		width: 75%;
+		margin-left: 12.5%;
+		margin-right: 12.5%;
+    }
+	
+	.dot {
+		margin-right: 20%;
+	}
+}
+
+
+@media (max-width: 365px) {
+	.table {
+		width: 60%;
+	}
 }
 
 .profile button:hover, a:hover {
@@ -598,19 +908,37 @@ creation procress by asking them for their traits*/
 Parts of CSS for About Us page like the cards, H3TitleCenter and paragraph center
 is near the bottom of the css page on lines 7265-7297*/
 .card {
-		background-color: white;
-		border-radius: 6px;
-		margin-bottom: 20px;
+	background-color: white;
+	border-radius: 0px 0px 6px 6px;
+	margin-bottom: 20px;
+	width: 70%;
 }
-
-
 
 #wrapper {
 	background-color: #EEF3E2;
 	width: auto;
 	height: auto;
-	overflow-x: hidden;
 }
+
+.aboutCenter {
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 1px;
+	width: 100%;
+}
+
+
+@media (max-width: 300px) {
+	.aboutCenter {
+		width: 80%;
+	}
+	
+	.rowCrew {
+	    margin-left: 0px;
+	    padding-left: 0px;
+    }
+}
+
 /*End of About Us Page*/
 
 
@@ -638,7 +966,6 @@ is near the bottom of the css page on lines 7265-7297*/
    	border-style: none none solid none;
    	box-shadow: none;
 	padding: 20px;
-
 }
 .formControl:focus {
 	box-shadow: none;
@@ -673,8 +1000,28 @@ is near the bottom of the css page on lines 7265-7297*/
 	flex-wrap: wrap;
 }
 
+.contactCenter {
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 1px;
+	width: 100%;
+}
+
+
+#name, #email, #subject, #message {
+	width: 100%;
+}
 
 /*End of Contact Us Page*/
+
+
+/*View Profile page*/
+
+#detail {
+	margin: 5px 0px 0x 0px;
+}
+
+/*End of Profile page*/
 
 /*
 Personal css formats for div
@@ -1759,6 +2106,8 @@ html {
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -4202,6 +4551,7 @@ tbody.collapse.in {
   z-index: 1000;
   display: none;
   float: left;
+  width: 100%;
   min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0;
@@ -4495,6 +4845,7 @@ tbody.collapse.in {
   position: relative;
   display: table;
   border-collapse: separate;
+  width: 100%;
 }
 .input-group[class*="col-"] {
   float: none;
@@ -4583,6 +4934,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #eee;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 50%;
 }
 .input-group-addon.input-sm {
   padding: 5px 10px;
@@ -6131,7 +6483,6 @@ button.list-group-item-danger.active:focus {
   line-height: 1.3;
 }
 .panel {
-  margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -6140,6 +6491,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-body {
   padding: 15px;
+  height: 540px;
 }
 .panel-heading {
   padding: 10px 15px;
@@ -6522,18 +6874,18 @@ button.list-group-item-danger.active:focus {
   border-radius: 3px;
 }
 .close {
-  float: right;
+  float: left;
+  color: red;
   font-size: 21px;
   font-weight: bold;
   line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  filter: alpha(opacity=20);
-  opacity: .2;
+  text-shadow: 0 1px 0 black;
+  opacity: 1;
 }
+
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #E42020;
   text-decoration: none;
   cursor: pointer;
   filter: alpha(opacity=50);

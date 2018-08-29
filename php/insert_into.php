@@ -58,8 +58,8 @@ if($fail === false) {
 	//If no errors then try sql else echo error
 	if($fail === false){
 		//Fix name format
-		ucfirst(strtolower($first_name));
-		ucfirst(strtolower($last_name));
+		$first_name = ucfirst(strtolower($first_name));
+		$last_name = ucfirst(strtolower($last_name));
 		
 		//Encrypt
 		$user_pass = password_hash($user_pass, PASSWORD_BCRYPT);
