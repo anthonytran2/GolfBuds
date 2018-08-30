@@ -17,8 +17,8 @@
 	$sql0->fetch();
 	$sql0->close();
 	
-    if(isset($_FILES["file"]["type"])) {
-		$sourcePath = $_FILES['file']['tmp_name'];       // Storing source path of the file in a variable
+	if(isset($_FILES["file"]["type"])) {
+		$sourcePath = $_FILES['file']['tmp_name'];	   // Storing source path of the file in a variable
 		$targetPath = "../userImages/".$_FILES['file']['name']; // Target path where file is to be stored
 		$imageFileType = strtolower(pathinfo($targetPath,PATHINFO_EXTENSION));
 		$targetPath = "../userImages/".$id.".".$imageFileType;
@@ -54,7 +54,7 @@
 		$msg = "Upload Error.";
 	}
 
-    if($error === 0) $dataA = array("MSG"=>$msg, "LINK"=>$targetPath);
+	if($error === 0) $dataA = array("MSG"=>$msg, "LINK"=>$targetPath);
 	else $dataA = array("MSG"=>$msg);
 	header("Content-Type: application/json");
 	echo json_encode($dataA);

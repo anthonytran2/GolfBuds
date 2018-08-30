@@ -64,7 +64,7 @@ if($fail === false) {
 		//Encrypt
 		$user_pass = password_hash($user_pass, PASSWORD_BCRYPT);
 		//Prepare statements
-	    $sql = $conn->prepare("INSERT INTO USERS(FNAME, LNAME, EMAIL, PASSWORD, SMOKING, GAMBLING, DRINKING, MUSIC) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+		$sql = $conn->prepare("INSERT INTO USERS(FNAME, LNAME, EMAIL, PASSWORD, SMOKING, GAMBLING, DRINKING, MUSIC) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 		$sql->bind_param("ssssiiii", $first_name, $last_name, $user_email, $user_pass, $q1, $q2, $q3, $q4);
 		if(!($sql->execute())) {
 			if(strpos($sql->error, "user_email"))  
@@ -74,7 +74,7 @@ if($fail === false) {
 		}
 		//Clear contents from variable
 		$sql->free_result();
-    	$sql->close();
+		$sql->close();
 	}
 } 
 
@@ -82,7 +82,7 @@ if($fail === false) {
 if($fail == true){
 	$msg = array("error" => $report);
 } else {
-    $msg = array("success" => "success");
+	$msg = array("success" => "success");
 }
 header("Content-Type: application/json");
 echo json_encode($msg);

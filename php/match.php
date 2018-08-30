@@ -21,7 +21,7 @@
 	$sql1->bind_result($anyGroups);
 	$sql1->fetch();
 	$sql1->close();
-    //
+	//
 	$exists = $conn->prepare("SELECT COUNT(*) FROM GROUPS WHERE UONE = ? OR UTWO = ? OR UTHREE = ? OR UFOUR = ?");
 	$exists->bind_param('ssss', $email, $email, $email, $email);
 	$exists->execute();
@@ -75,13 +75,13 @@
 			$disable1->close();
 			$u2 = $data[0];
 		} 
-        if($numMatch >= 2) {
+		if($numMatch >= 2) {
 			$disable2 = $conn->prepare("UPDATE REQUEST SET AVAL = 1 WHERE EMAIL = ?");
 			$disable2->bind_param('s', $data[1]);
 			$disable2->execute();
 			$disable2->close();
 			$u3 = $data[1];
-        } 
+		} 
 		if($numMatch == 3) {	
 			$disable3 = $conn->prepare("UPDATE REQUEST SET AVAL = 1 WHERE EMAIL = ?");
 			$disable3->bind_param('s', $data[2]);
@@ -91,8 +91,8 @@
 		} 
 
 		$size = $numMatch + 1; //Includes searcher
-        //Set group open or closed if group is full
-        if($size === 4) $open = 1;
+		//Set group open or closed if group is full
+		if($size === 4) $open = 1;
 		else $open = 0;
 		
 		if($count === 0) {
@@ -133,12 +133,12 @@
 			$update1->execute();
 			$update1->close();
 		}	
-        if($numMatch >= 2) {
+		if($numMatch >= 2) {
 			$update2 = $conn->prepare("UPDATE USERS SET GROUP_ID = ? WHERE EMAIL = ?");
 			$update2->bind_param('is', $group_id, $data[1]);
 			$update2->execute();
 			$update2->close();
-        }
+		}
 		if($numMatch == 3) {	
 			$update3 = $conn->prepare("UPDATE USERS SET GROUP_ID = ? WHERE EMAIL = ?");
 			$update3->bind_param('is', $group_id, $data[2]);
@@ -146,7 +146,7 @@
 			$update3->close();
 		}
 		
-	    $dataA = array("UONE"=>$email, "UTWO"=>$data[0], "UTHREE"=>$data[1], "UFOUR"=>$data[2]);
+		$dataA = array("UONE"=>$email, "UTWO"=>$data[0], "UTHREE"=>$data[1], "UFOUR"=>$data[2]);
 	} else if($openGroup > 0 && $existsCnt === 0){ //Groups are open
 		//Look for open groups
 		//within scorelevel  
@@ -187,9 +187,9 @@
 			$u3 = null;
 			$u4 = null;
 			$getGroup = $conn->prepare("SELECT UONE, UTWO, UTHREE, UFOUR FROM groups WHERE GROUPID = ?");
-		    $getGroup->bind_param('i', $groupid);
-		    $getGroup->execute();
-		    $getGroup->bind_result($u1, $u2, $u3, $u4);
+			$getGroup->bind_param('i', $groupid);
+			$getGroup->execute();
+			$getGroup->bind_result($u1, $u2, $u3, $u4);
 			$getGroup->fetch();
 			$getGroup->close();
 

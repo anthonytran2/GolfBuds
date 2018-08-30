@@ -1,5 +1,5 @@
 <?php
-    include "db_connect.php";
+	include "db_connect.php";
 	
 	$id = $_POST["id"];
 	$dataA = $email = null;

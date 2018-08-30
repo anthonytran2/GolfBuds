@@ -7,12 +7,12 @@
 	
 	//Get user reservations to display.
 	$sql = $conn->prepare("DELETE from REQUEST where EMAIL=?");
-    $sql->bind_param("s", $email);
-    if(!$sql->execute()) {
+	$sql->bind_param("s", $email);
+	if(!$sql->execute()) {
 		array_push($report, "Delete reservation error.");
 	}
 	array_push($report, $email);
-    $sql->close();
+	$sql->close();
 	
 	$col = null;
 	$sql = $conn->prepare("select col
@@ -35,11 +35,11 @@
 				  ) s
 				) s
 				where val = ?");
-    $sql->bind_param("s", $email);
-    $sql->execute();
+	$sql->bind_param("s", $email);
+	$sql->execute();
 	$sql->bind_result($col);
 	$sql->fetch();
-    $sql->close();
+	$sql->close();
 	
 	if($col !== null) {
 	

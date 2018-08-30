@@ -60,9 +60,9 @@
 			$sql->bind_param('siiiiidiiii', $email, $course, $smoking, $gambling, $drinking, $music, $handicap, $age, $golfType, $aval, $scorelvl);
 			if(!$sql->execute()) {
 				$fail = true;
-			    array_push($report, "sql error");
+				array_push($report, "sql error");
 			}
-            $sql->close();
+			$sql->close();
 			
 			$sql1 = $conn->prepare("UPDATE USERS SET HANDICAP=?, AGE=?, GOLF_TYPE=? WHERE EMAIL=?");
 			$sql1->bind_param('diis', $handicap, $age, $golfType, $email);

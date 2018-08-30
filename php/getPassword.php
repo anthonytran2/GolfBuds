@@ -5,18 +5,18 @@
 	
 	$fail = false;
 	
-    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["current"])) {
-	    $current = $_POST["current"];	
+	if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["current"])) {
+		$current = $_POST["current"];	
 		
-        //Check correct password.
+		//Check correct password.
 		$sql = $conn->prepare("select PASSWORD from USERS where EMAIL=?");
-        $sql->bind_param("s", $_SESSION["email"]);
-        $sql->execute();
-       	$res = $sql->bind_result($hashPass);
+		$sql->bind_param("s", $_SESSION["email"]);
+		$sql->execute();
+	   	$res = $sql->bind_result($hashPass);
 		$sql->fetch();
 		$correctPass = password_verify($current, $hashPass);		
 		$sql->free_result();
-    	$sql->close();		
+		$sql->close();		
 		array_push($report, $correctPass);		
 
 	}

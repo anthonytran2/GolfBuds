@@ -49,7 +49,7 @@
 			$sql->fetch();
 			$sql->close();
 			$SIZE++;
-	    }
+		}
 		if($UTHREE != null)	{	
 			$sql = $conn->prepare("SELECT FNAME, LNAME, ID FROM USERS WHERE EMAIL=?");
 			$sql->bind_param('s', $UTHREE);

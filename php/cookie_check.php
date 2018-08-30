@@ -11,5 +11,5 @@
 
 	//Send msg back for html's js to handle.
 	header("Content-Type: application/json");
-    echo json_encode($msg);
+	echo json_encode($msg);
 ?>
