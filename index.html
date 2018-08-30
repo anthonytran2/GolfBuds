@@ -162,7 +162,7 @@
 							</div>
 							<div id="registerBottom" class="bottom" style="height: 153px;">
 								<button id="registerSubmitButton" type="button"/>Register</button>
-                                <input id="loginFromRegisterButton2nd" href="#" type="button" rel="login" value="Login" class="linkform"></input>    								
+								<input id="loginFromRegisterButton2nd" href="#" type="button" rel="login" value="Login" class="linkform"></input>									
 							</div>
 						</div>
 					</div>	
@@ -254,7 +254,7 @@
 								</div>
 							</div>
 						</form>
-					</div>     
+					</div>	 
 				</div>
 			</div>
 			
@@ -262,7 +262,7 @@
 			<!--Container-fluid is the div for our content in between deal scroller, login, and our footer.
 				Bulk of content will probably be in this section.-->  
 			
-			<div class="container-fluid">    
+			<div class="container-fluid">	
 				<!--List of the content images-->	
 				<ul class="contentColumns" data-columns="2">
 					<li class="contentImagesList">
@@ -349,22 +349,22 @@
 
 			<!--This is the footer section -->
 			<footer class="col-lg-12">
-			    <div class="footer-container">
+				<div class="footer-container">
 					<div id="about_us">
-					    <h3><b>About</b></h3>
+						<h3><b>About</b></h3>
 						<ul style="list-style: none; font-size: 10px;">
 							<a href="aboutUs.html"><li>Who are we?</li></a>
 						</ul>
 					</div>
 					<div id="contacts">
-					    <h3><b>Contact</b></h3>
+						<h3><b>Contact</b></h3>
 						<ul style="list-style: none; font-size: 10px;">
 							<li>Call us 1-800-Golf-Bud</li>
-							<a href="contactUs.html"><li>Get in touch with us</li></a>    	    
+							<a href="contactUs.html"><li>Get in touch with us</li></a>			
 						</ul>
 					</div>
 					<div id="get_started">
-					    <h3><b>Get Started</b></h3>
+						<h3><b>Get Started</b></h3>
 						<ul style="list-style: none; font-size: 10px;">
 							<a href="index.html"><li>Login/Register</li></a>
 							<a href="index.html"><li>Try us out as a guest</li></a>
@@ -399,18 +399,18 @@
 						modal1.style.display = "none";
 					}
 				}
-            </script>
+			</script>
 
 			<!--Scripts for data functionality-->
 			<script>
-			    //Get value of cookie
-			    function getCookie(name){
+				//Get value of cookie
+				function getCookie(name){
 					$(document).ready(function() {
 						$.ajax({
 								url: "php/get_cookie.php",
 								type: "GET",
 								success: function(ret) {
-								     document.getElementById("email").value = ret["cookie"];
+									 document.getElementById("email").value = ret["cookie"];
 								},
 								error: function(jqXHR, exception) {
 									console.log(jqXHR);
@@ -429,7 +429,7 @@
 							type: "GET",
 							success: function(ret) {
 								if(ret["set"] === "true") {
-                                    document.getElementById("email").value =  getCookie("email");
+									document.getElementById("email").value =  getCookie("email");
 									document.getElementById("checkbox").checked = true;
 								} 
 									
@@ -450,7 +450,7 @@
 							type: "POST",
 							data: send,
 							success: function(ret) {
-                                if(ret["error"]) {
+								if(ret["error"]) {
 									var out = "";
 									var arr = ret["error"];
 									for(var i=0, len = arr.length; i<len; i++){
@@ -526,15 +526,15 @@
 					});
 
 				});
-            </script>
+			</script>
 				
 			<!-- logged in check-->
 			<script>
-                $.ajax({
+				$.ajax({
 					url: "php/check_login.php",
 					type: "GET",
 					success: function(ret) {
-					    var arr = ret["success"];
+						var arr = ret["success"];
 						if(arr == "true") {
 							window.location.href = "profile.html";							
 						}

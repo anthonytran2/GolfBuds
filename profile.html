@@ -132,7 +132,7 @@
 							<!-- Submit button. -->
 							<input type="hidden" id= "u-id" name="u_id" value="" />
 							<div class="col-md-12" id="reserveRow" style="margin: 0% 0% 0% 5%; width: 90%;">
-							    <input class="btn btnProfile" type="submit" value="Reserve" id="submitReserve"></input>					
+								<input class="btn btnProfile" type="submit" value="Reserve" id="submitReserve"></input>					
 							</div>
 						</div>
 						
@@ -154,7 +154,7 @@
 							<div class="row" style="margin: 0px;">
 								<div class="col-md-12" style="margin-left: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">
 									<div class="panel" style="border: 0px;">
-									    <!-- Head -->
+										<!-- Head -->
 										<div class="panel-heading" id="accordion" style="background-color: #2B994D; height: 70px; border: 1px solid black; border-bottom: 10px solid black;">
 											<span class="glyphicon glyphicon-comment pull-left" style="margin: 6px 0px 0px 5px; font-size: 30px; position: relative; top: 50%; transform: translateY(-50%); color: black;"></span> 
 											<div class="btn-group pull-right">
@@ -201,7 +201,7 @@
 						<h3><b>Contact</b></h3>
 						<ul style="list-style: none; font-size: 10px;">
 							<li>Call us 1-800-Golf-Bud</li>
-							<a href="contactUs.html"><li>Get in touch with us</li></a>    	    
+							<a href="contactUs.html"><li>Get in touch with us</li></a>			
 						</ul>
 					</div>
 					<div id="get_started">
@@ -288,7 +288,7 @@
 	<!-- Check for matches and display them. -->
 	<script> 
 		$(document).ready(function() { 
-	        $.ajaxSetup({cache: false})
+			$.ajaxSetup({cache: false})
 			//Check and return matched users.
 			$.ajax({
 				url: "php/check_match_detailed.php",
@@ -296,29 +296,29 @@
 				success: function(data) {
 					if(data["success"] !== "false") {
 						data = JSON.parse(JSON.stringify(data));
-					    var emails = [];
+						var emails = [];
 						var names = [];
 						var ids = [];
 						var data2 = null;
 						
 						//Assoc array of assoc arrays.
 						for(var key in data){
-						    if(key === "EMAILS"){
-							    data2 = data[key];
-							    for(var key2 in data2){
-								    emails.push(data2[key2]);
+							if(key === "EMAILS"){
+								data2 = data[key];
+								for(var key2 in data2){
+									emails.push(data2[key2]);
 								}
 							}
 							if(key === "NAMES"){
-							    data2 = data[key];
-							    for(var key2 in data2){
-								    names.push(data2[key2]);
+								data2 = data[key];
+								for(var key2 in data2){
+									names.push(data2[key2]);
 								}
 							}
 							if(key === "IDS"){
-							    data2 = data[key];
-							    for(var key2 in data2){
-								    ids.push(data2[key2]);
+								data2 = data[key];
+								for(var key2 in data2){
+									ids.push(data2[key2]);
 								}
 							}
 						}
@@ -341,40 +341,40 @@
 
 	<!-- Handle course reserve button click.-->
 	<script>
-        $(document).ready(function() { 	
-		    //Reserve a group.    
-		    $("#submitReserve").click(function(event){
-			    event.preventDefault();	
+		$(document).ready(function() { 	
+			//Reserve a group.	
+			$("#submitReserve").click(function(event){
+				event.preventDefault();	
 				//Show looking for a course options.
-			    if(document.getElementById("reserve-block").style.display == "none") { 
-                    document.getElementById("reserve-block").style.display = "block";  
+				if(document.getElementById("reserve-block").style.display == "none") { 
+					document.getElementById("reserve-block").style.display = "block";  
 					var divs = document.getElementsByClassName("logBox"); 
 					for(var i=0; i < divs.length; i++) { 
 					  divs[i].style.height = "498.8px";
 					}
-			    } else {
-			        //Get form data
-			        var send = $("#reserveForm").serialize();
-			        //Send reserve infomation to php file and handle return results.
-			        $.ajax({
-					    url: "php/reserve.php",
-					    type: "POST",
-					    data: send,
-					    success: function(ret) {
-						    if(ret["error"]) {
-							    var out = "";
-							    var arr = ret["error"];
-							    for(var i=0, len = arr.length; i<len; i++){
-								    out += " " + arr[i] + "\n";
-							    }
-							    alert(out);
-						    } else {  //User has already reserved.	Show course details.
-							    $.ajaxSetup({cache: false})
+				} else {
+					//Get form data
+					var send = $("#reserveForm").serialize();
+					//Send reserve infomation to php file and handle return results.
+					$.ajax({
+						url: "php/reserve.php",
+						type: "POST",
+						data: send,
+						success: function(ret) {
+							if(ret["error"]) {
+								var out = "";
+								var arr = ret["error"];
+								for(var i=0, len = arr.length; i<len; i++){
+									out += " " + arr[i] + "\n";
+								}
+								alert(out);
+							} else {  //User has already reserved.	Show course details.
+								$.ajaxSetup({cache: false})
 								//Update reserve table.
-							    $.get('php/getReservations.php', function (data) {
-								    data = JSON.parse(JSON.stringify(data));
-								    i = 0;
-								    table = document.getElementById("reserveTable").getElementsByTagName("tbody")[0];
+								$.get('php/getReservations.php', function (data) {
+									data = JSON.parse(JSON.stringify(data));
+									i = 0;
+									table = document.getElementById("reserveTable").getElementsByTagName("tbody")[0];
 											
 									while(i<data.length) {
 										row = table.insertRow(i);
@@ -396,9 +396,9 @@
 									document.getElementById("submitReserve").style.display = "none";
 									var divs = document.getElementsByClassName("logBox"); 
 									for(var i=0; i < divs.length; i++) { 
-									    divs[i].style.height = "498.8px";
+										divs[i].style.height = "498.8px";
 									}
-							    });
+								});
 								
 								//Get matches.
 								$.ajaxSetup({cache: false})
@@ -406,7 +406,7 @@
 									url: "php/match.php",
 									type: "GET",
 									success: function(retData) {
-									    $.ajaxSetup({cache: false})
+										$.ajaxSetup({cache: false})
 										//Check and return matched users.
 										$.ajax({
 											url: "php/check_match_detailed.php",
@@ -449,7 +449,7 @@
 													//Show match info.
 													document.getElementById("groupSizeTitle").innerHTML = (groupSize + "/4").bold();
 													
-												    //Get user session data.
+													//Get user session data.
 													$.ajaxSetup({cache: false})
 													$.get('php/getSession.php', function(sesData) {
 														var sesData = JSON.parse(sesData);
@@ -566,21 +566,21 @@
 										console.log(jqXHR);
 									}
 								});								
-						    }
+							}
 						},
 						error: function(jqXHR, exception) {
 							console.log(jqXHR);
 						}
 					});
-			    }
+				}
 				
-		    });
+			});
 		});
 	</script>
 	
 	<!-- Chat script -->
 	<script>
-	    $(document).ready(function() { 	
+		$(document).ready(function() { 	
 			//Get email session
 			var data;
 			var thisEmail;
@@ -589,25 +589,25 @@
 				thisEmail = data.email;
 			});
 			
-		    var flip = 0; //Keep track off open or close
+			var flip = 0; //Keep track off open or close
 			//Open and close chat dropdown
-		    $("#chatButton").click(function(event){
-			    if(flip === 0) {
-                    getChat("load", ""); //Load group chat messages.
+			$("#chatButton").click(function(event){
+				if(flip === 0) {
+					getChat("load", ""); //Load group chat messages.
 					getChat("status", ""); //Get connection status of users.
 					intervalID = setInterval(function(){ getChat("status", "");}, 5000); //Check status every 5000ms.
 					flip++;
 				} else if(flip === 1) {
-				    getChat("exit", ""); //User exit chat room when chatbox closed.
+					getChat("exit", ""); //User exit chat room when chatbox closed.
 					clearInterval(intervalID); //Turn off status checking.
 					$("#chat").empty();
-				    flip--;
+					flip--;
 				}
 			});
 			
 			//Send message button
 			$("#btn-chat").click(function(event){
-                var inputMsg = document.getElementById("btn-input").value;
+				var inputMsg = document.getElementById("btn-input").value;
 				getChat("message", inputMsg); //Send message to backend.
 				var date = new Date();
 				date = moment(date).unix()*1000; //Convert unix time.

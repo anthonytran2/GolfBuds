@@ -81,7 +81,7 @@
 						<h3><b>Contact</b></h3>
 						<ul style="list-style: none; font-size: 10px;">
 							<li>Call us 1-800-Golf-Bud</li>
-							<a href="contactUs.html"><li>Get in touch with us</li></a>    	    
+							<a href="contactUs.html"><li>Get in touch with us</li></a>			
 						</ul>
 					</div>
 					<div id="get_started">
@@ -98,6 +98,7 @@
 				</div>				
 			</footer>
 		</div>
+	</body>	
 </html>
 
 <script>
@@ -116,10 +117,10 @@
 			url: "php/getProfile.php",
 			type: "GET",
 			success: function(data) {
-			    var len = 0;
+				var len = 0;
 				data = JSON.parse(JSON.stringify(data));
 				for(var key in data) {
-				    value.push(data[key]);
+					value.push(data[key]);
 					len++;
 				}
 				
@@ -148,10 +149,10 @@
 					});
 					
 					if(i == 1) {
-					    txtVal = value[0] + " " + value[1];
+						txtVal = value[0] + " " + value[1];
 						inputGroup.innerHTML = "Name";
 					} else {
-					    txtVal = value[i];
+						txtVal = value[i];
 						inputGroup.innerHTML = name[i];
 					}
 					
@@ -159,7 +160,7 @@
 					else if(value[i] == 2) txtVal = "No";
 					
 					if(name[i] == "Age") {
-					    if(value[i] == 1) txtVal = "18-24";
+						if(value[i] == 1) txtVal = "18-24";
 						else if(value[i] == 2) txtVal = "25-31";
 						else if(value[i] == 3) txtVal = "32-38";
 						else if(value[i] == 4) txtVal = "39-45";
