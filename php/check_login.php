@@ -1,8 +1,8 @@
 <?php
-    session_start();
+	session_start();
 	
-    if(isset($_SESSION["email"])) {
-	    $msg = array("success" => "true");	
+	if(isset($_SESSION["email"])) {
+		$msg = array("success" => "true");	
 	} else {
 		$msg = array("success" => "false");	
 	}
