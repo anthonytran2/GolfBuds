@@ -413,12 +413,12 @@
 							//Change password.
 							pass.onclick = function() {
 								if(flip === 0){
-                                    document.getElementById("currentData").value = "";
-                                    document.getElementById("passwordData").value = "";
-                                    document.getElementById("confirmData").value = "";
-                                    document.getElementById("currentPass").style.display = "table";
-                                    document.getElementById("password").style.display = "table";
-                                    document.getElementById("confirmPass").style.display = "table";
+									document.getElementById("currentData").value = "";
+									document.getElementById("passwordData").value = "";
+									document.getElementById("confirmData").value = "";
+									document.getElementById("currentPass").style.display = "table";
+									document.getElementById("password").style.display = "table";
+									document.getElementById("confirmPass").style.display = "table";
 									flip++;
 								} else if(flip === 1) {
 									current = document.getElementById("currentData").value;
@@ -525,13 +525,13 @@
 									processData:false,		// To send DOMDocument or non processed data file it is set to false
 									success: function(data)   // A function to be called if request succeeds
 									{
-                                        //alert(data["MSG"]);
+										//alert(data["MSG"]);
 										if(data["ERROR"] === 0) {
-                                            //Refresh image.
-                                            document.getElementById("profImg").src =  data["LINK"] + "?random=" + new Date().getTime();
-                                        } else if(data["ERROR"] === 1) {
-                                            alert("Upload failed. \n" + data["MSG"]);
-                                        }
+											//Refresh image.
+											document.getElementById("profImg").src =  data["LINK"] + "?random=" + new Date().getTime();
+										} else if(data["ERROR"] === 1) {
+											alert("Upload failed. \n" + data["MSG"]);
+										}
 									},
 									error: function(jqXHR, exception) {
 										console.log(jqXHR, exception);

@@ -45,8 +45,8 @@
 		$dimH = 260;
 		if($error == 0) {
 			list($origW, $origH) = getimagesize($sourcePath);
-            $img = imagecreatefromjpeg($sourcePath);
-            $new = imagecreatetruecolor($dimW, $dimH);            
+			$img = imagecreatefromjpeg($sourcePath);
+			$new = imagecreatetruecolor($dimW, $dimH);			
 			imagecopyresized($new, $img, 0, 0, 0, 0, $dimW, $dimH, $origW, $origH);
 			if($imageFileType == "jpg" || $imageFileType == "jpeg") {
 				$res = imagejpeg($new, $targetPath, 100);

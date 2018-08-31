@@ -1,27 +1,4 @@
-/*Personal Javascript*/
 
-
-/*Javascript for registration/login slide up/down*/
-
-/*
-var registerButton = document.getElementById('registerButton');
-var forgotPassButton = document.getElementById('forgotPassButton');
-
-registerButton.addEventListener("click", registerPanel);
-
-forgotPassButton.addEventListener("click", forgotPassPanel);
-
-function registerPanel(){
-	$("#loginPanel").slideUp();
-	$("#loginPanel").css("display", "none");
-	$("#registerPanel").slideDown();
-}*/
-
-
-
-
-
-/*End of Personal Javascript*/
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.

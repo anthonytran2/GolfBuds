@@ -197,7 +197,7 @@ function getChat(task, msg) {
 									}
 									array = [];
 								}
-                                scrollBottom();
+								scrollBottom();
 								//console.log(messageList);
 							});
 							
@@ -290,7 +290,7 @@ function getChat(task, msg) {
 								}
 								
 								var arr = [];
-                                var online;
+								var online;
 								var groupArr = [];
 								//Get group data.
 								$.get('php/check_match_detailed.php', function (data) {
@@ -356,7 +356,7 @@ function getChat(task, msg) {
 															} 
 														}
 																								
-                                                        //Display online or offline based on hits.																							
+														//Display online or offline based on hits.																							
 														for(var y=0; y < groupArr.length; y++){
 														   for(var b in groupArr[y]){
 															   //Online else offline.
@@ -368,9 +368,9 @@ function getChat(task, msg) {
 																   online.style.backgroundColor = "#494949";   
 															   }
 														   }
-													    }
+														}
 														//Clear array after each user.
-													    arr = [];
+														arr = [];
 													}
 												}
 												//Clear array.

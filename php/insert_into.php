@@ -60,7 +60,7 @@ if($fail === false) {
 		//Fix name format
 		$first_name = ucfirst(strtolower($first_name));
 		$last_name = ucfirst(strtolower($last_name));
-        $user_email = strtolower($user_email);
+		$user_email = strtolower($user_email);
 		
 		//Encrypt
 		$user_pass = password_hash($user_pass, PASSWORD_BCRYPT);
