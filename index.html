@@ -16,15 +16,15 @@
 		<script>
 			$(document).ready(function(){
 				$(this).scrollTop(0);
-                
-                window.onload = function() {
-                    var inputs, index;
+				
+				window.onload = function() {
+					var inputs, index;
 
-                    inputs = document.getElementsByTagName('input');
-                    for (index = 0; index < inputs.length; ++index) {
-                        if(inputs[index].type !== "button" && inputs[index].type !== "submit" && inputs[index].type !== "checkbox" && inputs[index].id !== "email") inputs[index].value = '';
-                    }
-                }
+					inputs = document.getElementsByTagName('input');
+					for (index = 0; index < inputs.length; ++index) {
+						if(inputs[index].type !== "button" && inputs[index].type !== "submit" && inputs[index].type !== "checkbox" && inputs[index].id !== "email") inputs[index].value = '';
+					}
+				}
 			});
 		</script>
 	
@@ -421,8 +421,8 @@
 									document.getElementById("email").value = getCookie("email");
 									document.getElementById("checkbox").checked = true;
 								} else {
-                                    document.getElementById("email").value = "";
-                                }	
+									document.getElementById("email").value = "";
+								}	
 							},
 							error: function(jqXHR, exception) {
 								console.log(jqXHR);

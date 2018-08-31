@@ -16,17 +16,17 @@
 		
 		<script>
 			$(document).ready(function(){
-				$(this).scrollTop(0);            
-                window.onload = function() {
-                    var inputs, index;
+				$(this).scrollTop(0);			
+				window.onload = function() {
+					var inputs, index;
 
-                    inputs = document.getElementsByTagName('textarea');
-                    for (index = 0; index < inputs.length; ++index) {
-                        if(inputs[index].type !== "button" && inputs[index].type !== "submit") inputs[index].value = inputs[index].placeholder;
-                    }
-                }     
+					inputs = document.getElementsByTagName('textarea');
+					for (index = 0; index < inputs.length; ++index) {
+						if(inputs[index].type !== "button" && inputs[index].type !== "submit") inputs[index].value = inputs[index].placeholder;
+					}
+				}	 
 			});
-       
+	   
 		</script>
 	</head>
    
