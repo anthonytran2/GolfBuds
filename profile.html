@@ -26,7 +26,15 @@
 		<script>
 			$(document).ready(function(){
 				$(this).scrollTop(0);
-			});
+                    window.onload = function() {
+                    var inputs, index;
+
+                    inputs = document.getElementsByTagName('input');
+                    for (index = 0; index < inputs.length; ++index) {
+                        if(inputs[index].type !== "button" && inputs[index].type !== "submit") inputs[index].value = '';
+                    }
+                }             
+			});           
 		</script>
 	</head>
 
@@ -325,6 +333,7 @@
 						
 						//Show chat section.
 						var chatDropdown = document.getElementById("chatContainer").style.display = "block";
+                        document.getElementById("btn-input").value = "";
 						//Show matched users on page and get size. 
 						var returnArr = getMatch(emails, names, ids);
 						var groupSize = returnArr[1];
@@ -601,6 +610,7 @@
 					getChat("exit", ""); //User exit chat room when chatbox closed.
 					clearInterval(intervalID); //Turn off status checking.
 					$("#chat").empty();
+                    document.getElementById("btn-input").value = "";
 					flip--;
 				}
 			});
@@ -612,6 +622,7 @@
 				var date = new Date();
 				date = moment(date).unix()*1000; //Convert unix time.
 				chatInsert(date, inputMsg, thisEmail, "right"); //Show message in chat box right if sender.
+                document.getElementById("btn-input").value = "";
 			});
 		});
 	</script>

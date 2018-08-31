@@ -1,1 +1,4 @@
 php/db_connect.php
+php/contact_us.php
+php/forgot_pass.php
+js/sendbird.js

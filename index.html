@@ -16,6 +16,15 @@
 		<script>
 			$(document).ready(function(){
 				$(this).scrollTop(0);
+                
+                window.onload = function() {
+                    var inputs, index;
+
+                    inputs = document.getElementsByTagName('input');
+                    for (index = 0; index < inputs.length; ++index) {
+                        if(inputs[index].type !== "button" && inputs[index].type !== "submit" && inputs[index].type !== "checkbox" && inputs[index].id !== "email") inputs[index].value = '';
+                    }
+                }
 			});
 		</script>
 	
@@ -294,17 +303,7 @@
 								</div>
 							</div>
 						</div>
-					</li>
-					<li class="contentImagesList">
-						<div id="contentImages" class="contentImages"><video loop autoplay src="video/golfCourseVid2.mp4" width="100%"></video>
-							<div class="contentTextHover">
-								<div class="contentText">
-									<h3>Ready to Golf?</h3>
-									<p>Fusce mattis, ligula cursus lacinia luctus, mi sapien eleifend elit.</p>
-								</div>
-							</div>
-						</div>
-					</li>   
+					</li>  
 					<li class="contentImagesList">
 						<div id="contentImages" class="contentImages"><img src="images/contentGolfImg5.jpg">
 							<div class="contentTextHover">
@@ -335,16 +334,6 @@
 							</div>
 						</div>
 					</li>   
-					<li class="contentImagesList">
-						<div id="contentImages" class="contentImages"><video loop autoplay src="video/golfCourseVid1.mp4" width="100%"></video>
-							<div class="contentTextHover">
-								<div class="contentText">
-									<h3>Ready to Golf?</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>					
-								</div>
-							</div>
-						</div>
-					</li>
 				</ul>	
 
 			<!--This is the footer section -->
@@ -429,10 +418,11 @@
 							type: "GET",
 							success: function(ret) {
 								if(ret["set"] === "true") {
-									document.getElementById("email").value =  getCookie("email");
+									document.getElementById("email").value = getCookie("email");
 									document.getElementById("checkbox").checked = true;
-								} 
-									
+								} else {
+                                    document.getElementById("email").value = "";
+                                }	
 							},
 							error: function(jqXHR, exception) {
 								console.log(jqXHR);

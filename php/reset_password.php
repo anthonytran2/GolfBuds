@@ -44,7 +44,7 @@
 			//Encrypt
 			$password = password_hash($password, PASSWORD_BCRYPT);
 			//Prepare statments for security
-			$sql = $conn->prepare("select * from USER where EMAIL=?");
+			$sql = $conn->prepare("select * from USERS where EMAIL=?");
 			$sql->bind_param("s", $email);
 			$sql->execute();
 			$res = $sql->get_result();
@@ -52,7 +52,7 @@
 
 			//Login is correct then change password
 			if($res->num_rows === 1) {
-				$sql = $conn->prepare("UPDATE USER SET PASSWORD=? WHERE EMAIL=?");
+				$sql = $conn->prepare("UPDATE USERS SET PASSWORD=? WHERE EMAIL=?");
 				$sql->bind_param("ss", $password, $email);
 				$sql->execute();
 
