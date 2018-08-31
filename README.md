@@ -18,7 +18,7 @@ https://golfbuds.azurewebsites.net/
 ![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/ProfileAndMatches.png) 
 
 ## Chat
-![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/Chat.PNG)
+
 
 ## Homepage
 ![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/login_page_top.PNG)
