@@ -1,14 +1,19 @@
 # Golfbuds
-Golfbuds - A matching service for golfers.
+A matching service for golf players. 
 
-## Profile page and matched users.
+# About
+Golfbuds is a website created to help golf players find other players with similar skills and interests at a golf course. 
+Golfbuds helps golf courses improve their efficiently of scheduling of game slots by matching players into groups.
+Once users are matched into a group they can join the group chat to find out more about each other and schedule when to play.
+
+## Main page
 ![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/ProfileAndMatches.png) 
 
-<p float="left">
-  <h3>Chat with matched users</h3>
-  <img src="https://github.com/anthonytran2/golfbuds/blob/master/images/Chat.PNG" width="100" />
-</p>
+## Chat
+![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/Chat.PNG)
 
-## Homepage.
-![](https://github.com/anthonytran2/golfbuds/blob/master/images/Login page top.png)
-![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/Login bottom.png)
+## Homepage
+![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/login_page_top.PNG)
+![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/login_bottom.PNG)
+
+
