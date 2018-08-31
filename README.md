@@ -6,7 +6,7 @@ Golfbuds - A matching service for golfers.
 
 <p float="left">
   <h3>Chat with matched users</h3>
-  <img src="https://github.com/anthonytran2/golfbuds/blob/master/images/Chat.png" width="100" />
+  <img src="https://github.com/anthonytran2/golfbuds/blob/master/images/Chat.PNG" width="100" />
 </p>
 
 ## Homepage.
