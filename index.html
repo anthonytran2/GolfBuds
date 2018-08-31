@@ -22,7 +22,9 @@
 
 					inputs = document.getElementsByTagName('input');
 					for (index = 0; index < inputs.length; ++index) {
-						if(inputs[index].type !== "button" && inputs[index].type !== "submit" && inputs[index].type !== "checkbox" && inputs[index].id !== "email") inputs[index].value = '';
+						if(inputs[index].type !== "button" && inputs[index].type !== "submit"
+							&& inputs[index].type !== "checkbox" && inputs[index].id !== "email" 
+							&& inputs[index].type !== "radio") inputs[index].value = '';
 					}
 				}
 			});
