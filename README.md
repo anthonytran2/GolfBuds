@@ -2,11 +2,13 @@
 Golfbuds - A matching service for golfers.
 
 ## Profile page and matched users.
-![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/ProfileAndMatches.png)
+![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/ProfileAndMatches.png) 
 
-## Chat with matched users.
-![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/chat.png)
+<p float="left">
+  <h3>Chat with matched users</h3>
+  <img src="https://github.com/anthonytran2/golfbuds/blob/master/images/Chat.png" width="100" />
+</p>
 
 ## Homepage.
-![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/Login page top.png)
+![](https://github.com/anthonytran2/golfbuds/blob/master/images/Login page top.png)
 ![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/Login bottom.png)
