@@ -130,7 +130,7 @@ function getChat(task, msg) {
 			$.get('php/getGroupChat.php', function(data){
 				//Connect user to Sendbird chat SDK.
 				sb.connect(userId, function(user, error) {
-					console.log(user, error);
+					//console.log(user, error);
 					//Get the channel.
 					sb.OpenChannel.getChannel(groupUrl, function(channel, error) {
 						if (error) {
@@ -143,7 +143,7 @@ function getChat(task, msg) {
 								console.error(error);
 								return;
 							}
-							console.log(response);
+							//console.log(response);
 						});
 						
 						//Handle the task given.
@@ -159,7 +159,7 @@ function getChat(task, msg) {
 									if(key === "message") retMsg = message[key];
 									
 								// onSent
-								console.log(message);
+								//console.log(message);
 							});
 							scrollBottom();
 						}
@@ -168,8 +168,8 @@ function getChat(task, msg) {
 						if(task === "load") {
 							var messageListQuery = channel.createPreviousMessageListQuery();
 
-							//Load 100 messages.
-							messageListQuery.load(100, true, function(messageList, error){
+							//Load 50 messages.
+							messageListQuery.load(50, true, function(messageList, error){
 								if (error) {
 									console.error(error);
 									return;
@@ -191,7 +191,6 @@ function getChat(task, msg) {
 										if(array.length === 3) {
 											if(array[2] === thisEmail) position = "right";
 											else position = "left";
-											
 											chatInsert(array[0], array[1], array[2], position);
 											array = [];
 										}
@@ -199,13 +198,13 @@ function getChat(task, msg) {
 									array = [];
 								}
                                 scrollBottom();
-								console.log(messageList);
+								//console.log(messageList);
 							});
 							
 							//Handler to recieve new messages from SendBird.
 							var ChannelHandler = new sb.ChannelHandler();
 							ChannelHandler.onMessageReceived = function(channel, messageList){
-								console.log(channel, messageList);
+								//console.log(channel, messageList);
 								
 								var array = [];
 								for(var key in messageList){
@@ -277,7 +276,7 @@ function getChat(task, msg) {
 										for(var i=0; i<groupArr.length; i++) online = document.getElementById(groupArr[i]).style.backgroundColor = "#494949";
 									}
 								});
-								console.log(response);
+								//console.log(response);
 							});	
 						}
 						
@@ -380,10 +379,10 @@ function getChat(task, msg) {
 										}
 									}
 								});
-								console.log(participantList);
+								//console.log(participantList);
 							});
 						}
-						console.log(channel);
+						//console.log(channel);
 					});
 				});
 			});

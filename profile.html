@@ -467,16 +467,16 @@
 														//If user is a leader create a chat channel.
 														if(userIds[0] === thisEmail) {  
 															sb.connect(userIds[0], function(user, error) {
-																console.log(user, error);
+																//console.log(user, error);
 																
 																//Create channel.
 																sb.OpenChannel.createChannel("test", null, null, function(createdChannel, error) {
 																	if (error) {
 																		console.error(error);
 																		return;
-																	} else {
+																	} /*else {
 																		console.log(createdChannel);
-																	}
+																	}*/
 																	
 																	//Get channel url.
 																	var chKey = "";
@@ -497,17 +497,17 @@
 																		if (error) {
 																			console.error(error);
 																			return;
-																		} else {
+																		} /*else {
 																			console.log(channel);
-																		}
+																		}*/
 																		//Leader enters the channel.
 																		channel.enter(function(response, error){
 																			if (error) {
 																				console.error(error);
 																				return;
-																			} else {
+																			} /*else {
 																				console.log(response);
-																			}
+																			}*/
 																		});
 																	});
 																});
@@ -538,21 +538,21 @@
 																		
 																		//Connect and enter user to chat room.
 																		sb.connect(userId, function(user, error) {
-																			console.log(user, error);
+																			//console.log(user, error);
 																			sb.OpenChannel.getChannel(groupUrl, function(channel, error) {
 																				if (error) {
 																					console.error(error);
 																					return;
-																				} else {
+																				} /*else {
 																					console.log(channel);
-																				}
+																				}*/
 																				channel.enter(function(response, error){
 																					if (error) {
 																						console.error(error);
 																						return;
-																					} else {
+																					} /*else {
 																						console.log(response);
-																					}
+																					}*/
 																				});
 																			});
 																		});
@@ -617,13 +617,25 @@
 			
 			//Send message button
 			$("#btn-chat").click(function(event){
+				sendAMsg();			 
+			});
+			
+			//Enter to message.
+			$('#btn-input').keydown(function (event) {
+				var keypressed = event.keyCode || event.which;
+				if (keypressed == 13) {
+					sendAMsg();
+				}
+			});
+
+			function sendAMsg(){
 				var inputMsg = document.getElementById("btn-input").value;
 				getChat("message", inputMsg); //Send message to backend.
 				var date = new Date();
 				date = moment(date).unix()*1000; //Convert unix time.
 				chatInsert(date, inputMsg, thisEmail, "right"); //Show message in chat box right if sender.
 				document.getElementById("btn-input").value = "";
-			});
+			}
 		});
 	</script>
 </html>

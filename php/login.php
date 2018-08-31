@@ -29,6 +29,7 @@
 		}
 		//If no errors
    		if($fail === false) {
+            $email = strtolower($email);
 			//Check correct password.
 			$sql = $conn->prepare("select PASSWORD from USERS where EMAIL=?");
 			$sql->bind_param("s", $email);
