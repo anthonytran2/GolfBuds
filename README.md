@@ -12,7 +12,7 @@ Golfbuds was created by my team and me for our university senior project and cli
 ## Check it out
 https://golfbuds.azurewebsites.net/
 
-*This website is for testing purposes.
+*This website is used for testing purposes.
 
 ## Main page
 ![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/ProfileAndMatches.png) 
