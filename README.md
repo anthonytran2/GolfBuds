@@ -10,7 +10,7 @@ Once users are matched into a group they can join the group chat to find out mor
 Golfbuds was created by my team and me for our university senior project and client.
 
 ## Check it out
-https://golfbuds.azurewebsites.net/
+https://www.golfbuds.net/
 
 *This website is used for testing purposes.
 
