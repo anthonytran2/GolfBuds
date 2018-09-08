@@ -22,7 +22,7 @@
 		$UFOUR = null;
 
 		//Get group users.
-		$sql = $conn->prepare("SELECT UONE, UTWO, UTHREE, UFOUR FROM groups WHERE GROUPID=?");
+		$sql = $conn->prepare("SELECT UONE, UTWO, UTHREE, UFOUR FROM GROUPS WHERE GROUPID=?");
 		$sql->bind_param('i', $groups_id);
 		$sql->execute();
 		$sql->bind_result($UONE, $UTWO, $UTHREE, $UFOUR);

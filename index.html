@@ -22,7 +22,9 @@
 
 					inputs = document.getElementsByTagName('input');
 					for (index = 0; index < inputs.length; ++index) {
-						if(inputs[index].type !== "button" && inputs[index].type !== "submit" && inputs[index].type !== "checkbox" && inputs[index].id !== "email") inputs[index].value = '';
+						if(inputs[index].type !== "button" && inputs[index].type !== "submit"
+							&& inputs[index].type !== "checkbox" && inputs[index].id !== "email" 
+							&& inputs[index].type !== "radio") inputs[index].value = '';
 					}
 				}
 			});
@@ -366,7 +368,7 @@
 				</div>				
 			</footer>
 			
-			<script>// Get the modal
+			<script>
 				var modal1 = document.getElementById("registerModal");
 				// Get the button that opens the modal
 				var btn1 = document.getElementById("registerSubmitButton");

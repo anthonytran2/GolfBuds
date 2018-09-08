@@ -65,7 +65,7 @@
 	} else {
 		$msg = "Upload Error.";
 	}
-//$msg = $error;
+
 	if($error == 0) {
 		$dataA = array("MSG"=>$msg, "LINK"=>$targetPath, "ERROR"=>$error);
 	} else {

@@ -65,6 +65,11 @@ function chatInsert(time, inputMsg, user, position){ //Position of chat insert, 
 		type: "POST",
 		data: {email: user},
 		success: function(data) {
+            //User does not exist anymore.
+            if(data["FNAME"] === null) {
+                data["FNAME"] = "DELETED USER";
+                data["LNAME"] = "";
+            }
 			strong.innerHTML = data["FNAME"] + " " + data["LNAME"];
 		}, error: function(jqXHR, exception) {
 			console.log(jqXHR);

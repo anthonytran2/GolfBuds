@@ -39,8 +39,8 @@
 				+ (u1.SCORELVL) as SL,
 				+ (u1.PARK_ID) as PRKID,
 				+ (COUNT(*)) as COUNT
-			FROM request u1 INNER JOIN request u2 ON u1.PARK_ID = u2.PARK_ID AND u2.AVAL = 0 AND u1.SCORELVL = u2.SCORELVL
-			INNER JOIN users info ON u2.EMAIL = info.EMAIL
+			FROM REQUEST u1 INNER JOIN REQUEST u2 ON u1.PARK_ID = u2.PARK_ID AND u2.AVAL = 0 AND u1.SCORELVL = u2.SCORELVL
+			INNER JOIN USERS info ON u2.EMAIL = info.EMAIL
 			WHERE u1.EMAIL = ? and u1.EMAIL <> u2.EMAIL");
 
 		$sql2->bind_param('s', $email);
@@ -186,7 +186,7 @@
 			$u2 = null;
 			$u3 = null;
 			$u4 = null;
-			$getGroup = $conn->prepare("SELECT UONE, UTWO, UTHREE, UFOUR FROM groups WHERE GROUPID = ?");
+			$getGroup = $conn->prepare("SELECT UONE, UTWO, UTHREE, UFOUR FROM GROUPS WHERE GROUPID = ?");
 			$getGroup->bind_param('i', $groupid);
 			$getGroup->execute();
 			$getGroup->bind_result($u1, $u2, $u3, $u4);
@@ -202,8 +202,8 @@
 					+ (u1.SCORELVL) as SL,
 					+ (u1.PARK_ID) as PRKID, 
 					+ (COUNT(*)) as COUNT
-				FROM request u1 INNER JOIN request u2 ON u1.PARK_ID = u2.PARK_ID AND u2.AVAL = 0 AND u1.SCORELVL = u2.SCORELVL
-				INNER JOIN users info ON u2.EMAIL = info.EMAIL
+				FROM REQUEST u1 INNER JOIN REQUEST u2 ON u1.PARK_ID = u2.PARK_ID AND u2.AVAL = 0 AND u1.SCORELVL = u2.SCORELVL
+				INNER JOIN USERS info ON u2.EMAIL = info.EMAIL
 				WHERE u1.EMAIL = ? and u1.EMAIL <> u2.EMAIL");
 
 			$sql2->bind_param('s', $email);

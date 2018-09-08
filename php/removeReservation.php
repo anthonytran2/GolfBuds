@@ -25,7 +25,7 @@
 					  when 'UTHREE' then UTHREE
 					  when 'UFOUR' then UFOUR
 					end AS val
-				  from groups
+				  from GROUPS
 				  cross join
 				  (
 					select 'UONE' AS col union 

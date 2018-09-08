@@ -8,8 +8,8 @@
 	session_start(); 
 
 	//Check if session exist
-	if(isset($_SESSION["email"]) && isset($_SESSION["expire"])){
-		$email = $_SESSION["email"];
+	if(isset($_SESSION["emailReset"]) && isset($_SESSION["expire"])){
+		$email = $_SESSION["emailReset"];
 		$expire = $_SESSION["expire"];
 		
 		//Check if session expired.
