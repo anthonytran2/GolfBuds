@@ -525,10 +525,10 @@
 									processData:false,		// To send DOMDocument or non processed data file it is set to false
 									success: function(data)   // A function to be called if request succeeds
 									{
-										//alert(data["MSG"]);
 										if(data["ERROR"] === 0) {
 											//Refresh image.
 											document.getElementById("profImg").src =  data["LINK"] + "?random=" + new Date().getTime();
+                                            alert(data["MSG"]);
 										} else if(data["ERROR"] === 1) {
 											alert("Upload failed. \n" + data["MSG"]);
 										}
