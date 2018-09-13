@@ -12,7 +12,8 @@ Golfbuds was created by my team and me for our university senior project and cli
 ## Check it out
 http://www.golfbuds.net/
 
-*This website is used for testing purposes.
+## Disclaimer
+*This website is used for testing purposes only.
 
 ## Main page
 ![alt text](https://github.com/anthonytran2/golfbuds/blob/master/images/ProfileAndMatches.png) 
